@@ -25,7 +25,7 @@ Open [1-home.html](1-home.html) in your browser, then follow these steps:
 15. **Only show items tagged "WCAG 2.2 AA" and only show active and equalified items** because OCR only really cares about those.
 16. **Visit Account page** - Lucy loves Equalify and wants to add team members to view reprots.
 17. **Add cboyden@berkeley.edu to team and save.** 
-18. This displays the email that Lucy would get from the OCR Review.
+18. Now view [19-emailed_summary.html](19-emailed_summary.html) to see what Lucy receives in email when her OCR audit is run.
 
 Demo is done.
 
