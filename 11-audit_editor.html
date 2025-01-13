@@ -321,13 +321,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <script>
-                            function toggleAllTableCheckboxes(source) {
-                                const checkboxes = document.querySelectorAll('.row-checkbox');
-                                checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                                toggleEditOptions();
-                            }
-                        </script>
                     </details>
                     <fieldset>
                         <legend>Notifications</legend>
@@ -335,7 +328,25 @@
                             <input type="checkbox"> <a href="#">Email summary when audit is run.</a>
                         </label> 
                     </fieldset>
-                    <button type="button" onclick="window.location.href='14-audit_details-saved.html';">Save Audit</button>
+                    <button type="button" onclick="window.location.href='12-audit_details-saved.html';">Save Audit</button>
+
+                    <script>
+                        function toggleSubItems(parentCheckbox) {
+                            const parentListItem = parentCheckbox.closest('li');
+                            const subCheckboxes = parentListItem.querySelectorAll('ul input[type="checkbox"]');
+                            
+                            subCheckboxes.forEach(checkbox => {
+                                checkbox.checked = parentCheckbox.checked;
+                            });
+                        }
+
+                        function toggleAllTableCheckboxes(source) {
+                            const checkboxes = document.querySelectorAll('.row-checkbox');
+                            checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                            toggleEditOptions();
+                        }
+                    </script>
+                    
                 </form>    
             <button disabled>Delete Audit</button>
         </section>

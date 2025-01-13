@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Default Audit - Audit Details - Equalify</title>
+    <title>OCR Review - Audit Details - Equalify</title>
 </head>
 <body>
     <header>
         <nav aria-label="Main">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Account</a></li>
+                <li><a href="15-account.html">Account</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Default Audit</h1>
+        <h1>OCR Review</h1>
+        <div aria-live="polite">View options saved.</div>
         <h2>Overview</h2>
-        <p>40 checks on 2 pages, manually triggered.</p>
+        <p>41 checks on 2 pages. Runs monthly.</p>
         <h2>Actions</h2>
         <nav aria-label="Audit Actions">
             <button>Run Audit</button>
-            <a href="9-audit_editor.html">Edit Audit</a>    
+            <a href="#">Edit Audit</a>    
         </nav>
         <article>
-            <h2>Related Items</h2>
+            <h2>Replated Items</h2>
             <section>
                 <h3>View Options</h3>
-                <form
+                <form>
                     <fieldset>
                         <legend>Search</legend>
                         <label for="search_source">Search In:</label>
@@ -37,7 +38,7 @@
                             <option>URL</option>
                             <option>Tag</option>
                             <option>Issue</option>
-                            <option>Node Code</option>
+                            <option>Item Code</option>
                         </select>
                         <label for="search">Keywords:</label>
                         <input type="text" id="search">
@@ -60,16 +61,19 @@
                     <fieldset>
                         <legend>Include Issues with Tag</legend>
                         <label>
-                            <input name="tag" type="checkbox" checked> WCAG 2.2 A
+                            <input name="tag" type="checkbox" > WCAG 2.2 A
                         </label>
                         <label>
                             <input name="tag" type="checkbox" checked> WCAG 2.2 AA
                         </label>
                         <label>
-                            <input name="tag" type="checkbox" checked> WCAG 2.2 AAA
+                            <input name="tag" type="checkbox" > WCAG 2.2 AAA
                         </label>
                         <label>
-                            <input name="tag" type="checkbox" checked> Heading Elements
+                            <input name="tag" type="checkbox" > Heading Elements
+                        </label>
+                        <label>
+                            <input name="tag" type="checkbox"> Focus State
                         </label>
                     </fieldset>
                     <fieldset>
@@ -78,7 +82,7 @@
                             <input type="checkbox" checked> Active
                         </label>
                         <label>
-                            <input type="checkbox" checked> Ignored
+                            <input type="checkbox"> Ignored
                         </label>
                         <label>
                             <input type="checkbox" checked> Equalified
@@ -105,12 +109,6 @@
                             <input name="sort" type="radio"> Equalified Items (Least to Most)
                         </label>
                         <label>
-                            <input name="sort" type="radio"> Ignored Items (Most to Least)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Ignored Items (Least to Most)
-                        </label>
-                        <label>
                             <input name="sort" type="radio"> Audited (Latest to Oldest)
                         </label>
                         <label>
@@ -121,7 +119,43 @@
                 </form>
             </section>
             <section>
-                <h3>Related Page Items - Grouped by Issue</h3>
+                <h3>Related Page Items - Grouped by Issue - With Tag WCAG 2.2 AA - Hiding Ignored Items</h3>
+                <details>        
+                    <summary><a href="#">Focus State not displaying</a> (1 Active Item) - Tags: WCAG 2.2 A, WCAG 2.2 AA, WCAG 2.2 AAA, Focus State</summary>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
+                                </th>
+                                <th>ID</th>
+                                <th>Code</th>
+                                <th>Screenshot</th>
+                                <th>Page Title</th>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Check</th>
+                                <th>Audit Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>4</td>
+                                <td><code>&lt;a href="#" class="nav"&gt;Home&lt;/a&gt;</code></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 3"></td>
+                                <td>Berkeley Library (Staging)</td>
+                                <td><code>https://update.lib.berkeley.edu/</code></td>
+                                <td>Active</td>
+                                <td>empty-headings</td>
+                                <td>12-1-2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Heading tag without any text Table">
+                        Showing 1 of 1 Items <button disabled>Load More Items With Issue</button>
+                    </nav> 
+                </details>
                 <details>        
                     <summary><a href="#">Heading tag without any text</a> (2 Active Items) - Tags: WCAG 2.2 A, WCAG 2.2 AA, WCAG 2.2 AAA, Heading Elements</summary>
                     <table>
@@ -136,6 +170,8 @@
                                 <th>Page Title</th>
                                 <th>URL</th>
                                 <th>Status</th>
+                                <th>Check</th>
+                                <th>Last Audit</th>
                                 <th>Audit Date</th>
                             </tr>
                         </thead>
@@ -148,6 +184,8 @@
                                 <td>Berkeley Library (Staging)</td>
                                 <td><code>https://update.lib.berkeley.edu/</code></td>
                                 <td>Active</td>
+                                <td>empty-headings</td>
+                                <td>Default Audit</td>
                                 <td>12-1-2024</td>
                             </tr>
                             <tr>
@@ -158,6 +196,8 @@
                                 <td>Berkeley Homepage (Staging)</td>
                                 <td><code>https://www-stg.berkeley.edu</code></td>
                                 <td>Active</td>
+                                <td>empty-headings</td>
+                                <td>Default Audit</td>
                                 <td>12-1-2024</td>
                             </tr>
                         </tbody>
@@ -165,41 +205,7 @@
                     <nav aria-label="Heading tag without any text Table">
                         Showing 2 of 2 Items <button disabled>Load More Items With Issue</button>
                     </nav> 
-                </details>        
-                <details>
-                    <summary><a href="#">Manual check: should this be a heading?</a> (1 Active Item) - Tags: WCAG 2.2 A, WCAG 2.2 AA, WCAG 2.2 AAA, Heading Elements</summary>
-                    <table aria-label="Items with the issue Manual check: should this be a heading?">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
-                                </th>
-                                <th>ID</th>
-                                <th>Code</th>
-                                <th>Screenshot</th>
-                                <th>Page Title</th>
-                                <th>URL</th>
-                                <th>Status</th>
-                                <th>Audit Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="checkbox" class="row-checkbox"></td>
-                                <td>2</td>
-                                <td><code>&lt;h1 class=&quot;hello this is a test&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;a&gt;&lt;/h1&gt;</code></td>
-                                <td><img src="image.jpg" alt="Screenshot of Item 2"></td>
-                                <td>Berkeley Homepage (Staging)</td>
-                                <td><code>https://www-stg.berkeley.edu</code></td>
-                                <td>Active</td>
-                                <td>12-1-2024</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <nav aria-label="Manual check: should this be a heading? Table">
-                        Showing 1 of 1 Items <button disabled>Load More Items With Issue</button>
-                    </nav> 
-                </details>
+                </details>   
                 <script>
                     function toggleAllTableCheckboxes(source) {
                         const checkboxes = document.querySelectorAll('.row-checkbox');
@@ -213,6 +219,7 @@
                 <button>Ignore Item(s)</button>
             </section>    
         </article>
+
         <article>
             <h2>Related Logs</h2>
             <table>
@@ -225,13 +232,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="#">Log 2</a></td>
-                        <td>Issues found on three new pages items.</td>
-                        <td>Default Audit</td>
+                        <td><a href="#">Log 6</a></td>
+                        <td>Issues found on three pages items.</td>
+                        <td>OCR Review</td>
                     </tr>
                     <tr>
-                        <td><a href="#">Log 1</a></td>
-                        <td>Two pages added.</td>
+                        <td><a href="#">Log 5</a></td>
+                        <td>OCR Review Audit created.</td>
                         <td>User: Lucy</td>
                     </tr>
                 </tbody>

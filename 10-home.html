@@ -17,11 +17,12 @@
 
     <main>
         <h1>Equalify</h1>
+
         <section>
             <h2>Quick Start</h2>
-            <form action="2-authentication.html" method="get">
+            <form>
                 <label for="urls">URL(s):</label>
-                <input id="urls" type="text" required>
+                <input id="urls" type="text">
                 <fieldset>
                     <legend>Audits</legend>
                     <ul>
@@ -30,13 +31,31 @@
                                 <input type="checkbox"> <a href="#">Default Audit</a>
                             </label> 
                         </li>
-                        <li>
-                            <a href="#">Edit Audits</a>
-                        </li>
                     </ul>   
+                    <a href="11-audit_editor.html">New Audit</a>
                 </fieldset>
                 <button>Add & Audit</button>
             </form>
+        </section>
+        <section>
+            <h2>Audits</h2>
+            <table>
+                <thead>
+                    <td>Name</td>
+                    <td>Checks</td>
+                    <td>Pages</td>
+                    <td>Last Run</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">Default Audit</a></td>
+                        <td>40</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>12-1-2024 at 01:20:20</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
 
@@ -45,5 +64,6 @@
             <button>AI Assistant</button>
         </nav>
     </footer>
+
 </body>
 </html>

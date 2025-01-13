@@ -283,7 +283,7 @@
                         </fieldset>
                         <fieldset>
                             <legend>Custom Checks</legend>
-                            <a href="10-check_editor.html">New Check</a>
+                            <a href="8-check_editor.html">New Check</a>
                         </fieldset>
                     </details>
                     <details>
@@ -309,15 +309,26 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <script>
-                            function toggleAllTableCheckboxes(source) {
-                                const checkboxes = document.querySelectorAll('.row-checkbox');
-                                checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                                toggleEditOptions();
-                            }
-                        </script>
                     </details>
                     <button>Save Audit</button>
+
+                    <script>
+                        function toggleSubItems(parentCheckbox) {
+                            const parentListItem = parentCheckbox.closest('li');
+                            const subCheckboxes = parentListItem.querySelectorAll('ul input[type="checkbox"]');
+                            
+                            subCheckboxes.forEach(checkbox => {
+                                checkbox.checked = parentCheckbox.checked;
+                            });
+                        }
+
+                        function toggleAllTableCheckboxes(source) {
+                            const checkboxes = document.querySelectorAll('.row-checkbox');
+                            checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                            toggleEditOptions();
+                        }
+                    </script>
+
                 </form>    
             <button>Delete Audit</button>
         </section>

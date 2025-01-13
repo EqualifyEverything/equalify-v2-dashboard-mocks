@@ -3,45 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equalify</title>
+    <title>Default Audit - Audit Details - Equalify</title>
 </head>
 <body>
     <header>
         <nav aria-label="Main">
             <ul>
-                <li><a href="#" aria-current="page">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Account</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Equalify</h1>
-        <div aria-live="assertive">Logged in.</div>
-        <div aria-live="polite">Two pages added.</div>
-        <div aria-live="polite">Issues found on three page items.</div>
-
+        <h1>Default Audit</h1>
+        <div aria-live="polite">One page added to Default Audit.</div>
+        <div aria-live="polite">Issues found on three pages items.</div>
+        <h2>Overview</h2>
+        <p>40 checks on 2 pages. Manually triggered.</p>
+        <h2>Actions</h2>
+        <nav aria-label="Audit Actions">
+            <button>Run Audit</button>
+            <a href="#">Edit Audit</a>    
+        </nav>
         <article>
-            <h2>Quick Start</h2>
-            <form>
-                <label for="urls">URL(s):</label>
-                <input id="urls" type="text">
-                <fieldset>
-                    <legend>Audits</legend>
-                    <ul>
-                        <li>
-                            <label>
-                                <input type="checkbox"> <a href="#">Default Audit</a>
-                            </label> 
-                        </li>
-                    </ul>   
-                    <a href="#">New Audit</a>
-                </fieldset>
-                <button>Add & Audit</button>
-            </form>
-        </article>
-        <article>
-            <h2>Items List</h2>
+            <h2>Related Items</h2>
             <section>
                 <h3>View Options</h3>
                 <form>
@@ -53,7 +39,7 @@
                             <option>URL</option>
                             <option>Tag</option>
                             <option>Issue</option>
-                            <option>Node Code</option>
+                            <option>Item Code</option>
                         </select>
                         <label for="search">Keywords:</label>
                         <input type="text" id="search">
@@ -153,7 +139,6 @@
                                 <th>URL</th>
                                 <th>Status</th>
                                 <th>Check</th>
-                                <th>Last Audit</th>
                                 <th>Audit Date</th>
                             </tr>
                         </thead>
@@ -167,7 +152,6 @@
                                 <td><code>https://update.lib.berkeley.edu/</code></td>
                                 <td>Active</td>
                                 <td>empty-headings</td>
-                                <td>Default Audit</td>
                                 <td>12-1-2024</td>
                             </tr>
                             <tr>
@@ -179,7 +163,6 @@
                                 <td><code>https://www-stg.berkeley.edu</code></td>
                                 <td>Active</td>
                                 <td>empty-headings</td>
-                                <td>Default Audit</td>
                                 <td>12-1-2024</td>
                             </tr>
                         </tbody>
@@ -203,7 +186,6 @@
                                 <th>URL</th>
                                 <th>Status</th>
                                 <th>Check</th>
-                                <th>Last Audit</th>
                                 <th>Audit Date</th>
                             </tr>
                         </thead>
@@ -217,7 +199,6 @@
                                 <td><code>https://www-stg.berkeley.edu</code></td>
                                 <td>Active</td>
                                 <td>empty-headings</td>
-                                <td>Default Audit</td>
                                 <td>12-1-2024</td>
                             </tr>
                         </tbody>
@@ -236,7 +217,7 @@
             </section>  
             <section>
                 <h3>Edit Page Items</h3>
-                <button onclick="window.location.href='4-home-ignored_item.html';">Ignore Item(s)</button>
+                <button onclick="window.location.href='4-audit_details-ignored_item.html';">Ignore Item(s)</button>
             </section>    
         </article>
         <article>
@@ -257,7 +238,7 @@
                     </tr>
                     <tr>
                         <td><a href="#">Log 1</a></td>
-                        <td>Two pages added.</td>
+                        <td>Two pages added to Default Audit.</td>
                         <td>User: Lucy</td>
                     </tr>
                 </tbody>
