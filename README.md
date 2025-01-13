@@ -6,7 +6,7 @@ This demo covers the use case of an accessibilty lead (Lucy) at a university (Be
 
 
 ## Steps
-Open "1-home.html" in your browser, then follow these steps:
+Open [1-home.html](1-home.html) in your browser, then follow these steps:
 
 1. **Add "https://update.lib.berkeley.edu/, https://www-stg.berkeley.edu" and select "Default Audit" to the form and submit.**
 2. **Login as "lgreco@berkeley.edu" - password "pass".**
