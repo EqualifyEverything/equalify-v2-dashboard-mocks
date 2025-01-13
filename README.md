@@ -4,7 +4,6 @@
 
 This demo covers the use case of an accessibilty lead (Lucy) at a university (Berkely) wanting to survey a few pages of a new site they need to review, before setting up a new audit for monthly OCR reviews with custom checks on additional pages. They also will receive notifications so they can track their team's progress over time. The user is relies on screen readers.
 
-
 ## Steps
 Open [1-home.html](1-home.html) in your browser, then follow these steps:
 
@@ -33,3 +32,6 @@ With this Demo, a user:
 - Created a new audit that was meaningful to them.
 - Ran the audit and filtered content to meaniful info.
 - Setup regular notifications to keep tabs on progress.
+
+## Additional Notes
+This repo is live at [https://equalifyeverything.github.io/equalify-v2]( https://equalifyeverything.github.io/equalify-v2/)
