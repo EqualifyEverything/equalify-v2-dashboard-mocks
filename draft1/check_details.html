@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scan Details</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="urls.html">URLs</a></li>
+                <li>
+                    <a href="scans.html">Scans</a>
+                    <ul>
+                        <li><a href="scans.html">All Scans</a></li>
+                        <li><a href="checks.html">Checks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Sample Check</h1>
+        <section>
+            <h2>Settings</h2>
+            <form>
+                <label for="scan-name">Check Name:</label>
+                <input type="text" id="scan-name" name="scan-name" value="Sample Scan" />
+                <label>
+                    <input type="checkbox" id="screenshot-nodes" name="screenshot-nodes" />
+                    Screenshot nodes?
+                </label>
+                <button>Save Settings</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Check Editor</h2>
+            <form>
+                <fieldset>
+                    <legend>Dependencies</legend>
+                    <label>
+                        <input type="checkbox" checked> axe-core
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Pupetteer
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Editora11y
+                    </label>
+                </fieldset>    
+                <fieldset>
+                    <legend>Custom Code</legend>
+                    <textarea rows="15"></textarea>
+                </fieldset>
+                <button>Save Check</button>
+            </form>
+            <button>Delete Check</button>
+        </section>
+        <section>
+            <h2>Scans Using Check</h2>
+            <ul>
+                <li><a href="scan_details.html">Sample Scan</a></li>
+                <li><a href="scan_details.html">Another Scan</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

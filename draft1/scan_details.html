@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scan Details</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="urls.html">URLs</a></li>
+                <li>
+                    <a href="scans.html">Scans</a>
+                    <ul>
+                        <li><a href="scans.html"  aria-current="page">All Scans</a></li>
+                        <li><a href="checks.html">Checks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Sample Scan</h1>
+        <section>
+            <h2>Actions</h2>
+            <button>Run Scan</button>
+        </section>
+
+        <section>
+            <h2>Settings</h2>
+            <form>
+                <fieldset>
+                    <legend>General Info</legend>
+                    <label for="scan-name">Scan Name:</label>
+                    <input type="text" id="scan-name" name="scan-name" value="Sample Scan" />
+                    <label for="frequency">Frequency:</label>
+                    <select id="frequency" name="frequency">
+                        <option value="manually" selected>Manually</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    <label>
+                        <input type="checkbox" id="monitor-change" name="monitor-change" />
+                        Run scan when Monitor detects page change?
+                    </label>
+                    <label>
+                        <input type="checkbox" id="screenshot-pages" name="screenshot-pages" />
+                        Screenshot pages?
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Included Checks</legend>
+                    <label>
+                        <input type="checkbox" checked> Sample Check
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Another Check
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Included Pages</legend>
+                    <label>
+                        <input type="checkbox" checked> Sample Page
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Another Page
+                    </label>
+                </fieldset>
+                <button>Save Settings</button>
+            </form>
+            <button>Delete Scan</button>
+        </section>
+
+        <section>
+            <h2>Related Scan Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Pages</th>
+                        <th scope="col">Trigger</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="log_details.html">293</a></td>
+                        <td>12-2-2024 at 03:30:02</td>
+                        <td>234</td>
+                        <td>Monitor</td>
+                        <td>Scan Success</td>
+                    </tr>
+                    <tr>
+                        <td><a href="log_details.html">23</a></td>
+                        <td>12-1-2024 at 11:34:21</td>
+                        <td>23</td>
+                        <td>User: Blake</td>
+                        <td>Scan Success</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Scans Table">
+                Showing 2 of 2 Scans <button disabled>Load More Scans</button>
+            </nav>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

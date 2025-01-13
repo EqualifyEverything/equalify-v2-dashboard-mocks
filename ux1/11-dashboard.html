@@ -1,0 +1,94 @@
+<!-- 
+Note page content.
+
+New recent scans. 
+
+New watched content.
+
+Everything SiteImprove has.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#" aria-current="page">Dashboard</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Dashboard</h1>
+
+        <section>
+            <h2>Quick Scan</h2>
+            <form action="2-scan_results-new.html" method="get">
+                <label for="scan_page">Page URL(s):</label>
+                <input id="scan_page" type="text">
+                <fieldset>
+                    <legend>Select Scans</legend>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox"> axe-core
+                            </label> 
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox"> Editora11y
+                            </label> 
+                        </li>
+                        <li>
+                            <a href="#">New Scan</a>
+                        </li>
+                    </ul>   
+                </fieldset>
+                <button>Scan</button>
+            </form>
+        </section>
+        <section>
+            <h2>Saved Scans</h2>
+            <ul>
+                <li>
+                    <a href="#">Equalify Home Editorial</a>
+                    <ul>
+                        <li>3 Active Nodes</li>
+                        <li>1 Equalified Nodes</li>
+                        <li>1 Ignored Nodes</li>
+                        <li>Updated: 12-2-24</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Issues Watched</h2>
+            <ul>
+                <li>
+                    <a href="#">Link with no accessible text</a>
+                    <ul>
+                        <li>0 Active Nodes</li>
+                        <li>0 Equalified Nodes</li>
+                        <li>1 Ignored Nodes</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

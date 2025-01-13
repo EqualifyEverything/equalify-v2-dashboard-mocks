@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Scans</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="urls.html">URLs</a></li>
+                <li>
+                    <a href="scans.html">Scans</a>
+                    <ul>
+                        <li><a href="scans.html"  aria-current="page">All Scans</a></li>
+                        <li><a href="checks.html">Checks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>All Scans</h1>
+        
+        <h2>Bulk Actions</h2>
+        <form>
+            <fieldset>
+                <legend>Sort By</legend>
+                <label>
+                    <input type="radio" name="sort" checked> Scan Name (A-Z)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Scan Name (Z-A)
+                </label>
+                <label>
+                    <input type="radio" name="sort">Checks (Most to Least)
+                </label>
+                <label>
+                    <input type="radio" name="sort">Checks (Least to Most)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Last Run (Newest to Oldest)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Last Run (Oldest to Newest)
+                </label>
+            </fieldset>
+            <form>
+                <label>
+                    Search: <input type="text" id="search-input" name="search">
+                </label>
+                <button type="submit" disabled>Submit</button>
+            </form>
+        </form>
+
+        <h2>Secondary Scans Navigation</h2>
+        <nav aria-label="Secondary">
+            <a href="scan_details.html">Add New Scan</a>
+        </nav>
+
+        <div id="edit-options" style="display: none;">
+            <h3>Edit Options</h3>
+            <button>Run Scan(s)</button>
+            <button>Delete Scan(s)</button>
+        </div>
+
+        <section>
+            <h2>Scans</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" aria-label="Select all pages" onclick="toggleAllTableCheckboxes(this)">
+                        </th>        
+                        <th>Scan Name</th>
+                        <th>Checks</th>
+                        <th>Last Run</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="scan_details.html">Sample Scan Name</a></td>
+                        <td>232</td>
+                        <td>11-12-20 at 12:22:23</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="scan_details.html">Another Scan</a></td>
+                        <td>23</td>
+                        <td>11-4-20 at 12:20:23</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <nav aria-label="Scans">
+            Showing 2 of 2 Scans <button disabled>Load More Scans</button>
+        </nav>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

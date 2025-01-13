@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li>
+                    <a href="issues.html">Issues</a>
+                    <ul>
+                        <li><a href="issues.html">All Issues</a></li>
+                        <li><a href="tags.html" aria-current="page">Tags</a></li>
+                    </ul>
+                </li>
+                <li><a href="urls.html">URLs</a></li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Issues</h1>
+        <h2>Bulk Actions</h2>
+        <form>
+            <fieldset>
+                <legend>Filter to Show Issues</legend>
+                <label>
+                    <input type="checkbox" checked> With Active Nodes
+                </label>
+                <label>
+                    <input type="checkbox" checked> With Ignored Nodes
+                </label>
+                <label>
+                    <input type="checkbox" checked> With Equalified Nodes
+                </label>
+                <label>
+                    <input type="checkbox" checked> With Node Updates
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sort By</legend>
+                <label>
+                    <input type="radio" name="sort" checked> Issue Name (A-Z)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Issue Name (Z-A)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Active Nodes (Most to Least)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Active Nodes (Least to Most)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Equalified Nodes (Most to Least)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Equalified Nodes (Least to Most)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Ignored Nodes (Most to Least)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Ignored Nodes (Least to Most)
+                </label>
+            </fieldset>
+        </form>
+        <form>
+            <label>
+                Search: <input type="text">
+            </label>
+            <button type="submit" disabled>Submit</button>
+        </form>
+
+        <h2>Secondary Actions</h2>
+        <nav aria-label="Secondary Actions">
+            <a href="issue_editor.html">New Issue</a>
+        </nav>
+
+        <div id="edit-options" style="display: none;">
+            <h2>Edit Options</h2>
+            <button>Watch on Dashboard</button>
+            <button>AI Analyze</button>
+        </div>
+
+        <h2>Issue Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" aria-label="Select all issues" onclick="toggleAllTableCheckboxes(this)">
+                    </th>
+                    <th>Issue</th>
+                    <th>Tags</th>
+                    <th>Active Nodes</th>
+                    <th>Equalified Nodes</th>
+                    <th>Ignored Nodes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                    <td><a href="issue_details.html">Another Sample Issue</a></td>
+                    <td><a href="tag_details.html">Sample Tag</a></td>
+                    <td>29 (5 updated)</td>
+                    <td>292</td>
+                    <td>2929</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                    <td><a href="issue_details.html">Sample Issue</a></td>
+                    <td><a href="tag_details.html">Sample Tag</a>, <a href="tag_details.html">Another Tag</a></td>
+                    <td>111</td>
+                    <td>1111 (2 updated)</td>
+                    <td>1111</td>
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Issue Table">
+            Showing 2 of 2 Issues <button disabled>Load More Issues</button>
+        </nav>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

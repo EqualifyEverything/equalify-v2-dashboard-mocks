@@ -1,0 +1,324 @@
+<!-- 
+Node that Node 4234 is ignored
+
+Demo Step 5: 
+Click Node 4234 to view details.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Equalify Home Editorial - Scan Details</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Equalify Home Editorial</h1>
+        <div aria-live="polite">Node 4234 ignored from scan.</div>
+        <nav aria-label="Secondary">
+            <h2>Actions</h2>
+            <ul>
+                <li>
+                    <button id="scan-settings-button">Scan Settings</button>
+                    <dialog id="scan-settings-dialog" aria-labelledby="scan-settings-title">
+                        <form action="#" method="get">
+                            <h2>Edit Scan</h2>
+                            
+                            <h3>Scan Details</h3>
+                            <ul>
+                                <li>URL: https://equalify.app</li>
+                                <li>Scan: Editora11y</li>
+                            </ul>
+                            
+                            <h3>Custom Options</h3>
+                            <label for="scan-name">Name:</label>
+                            <input type="text" id="scan-name" name="scan-name" value="Equalify Home Editorial Content" required />
+                            
+                            <label for="scan-repeat">Repeat Scan:</label>
+                            <select id="scan-repeat" name="scan-repeat">
+                                <option value="none" selected>None</option>
+                                <option value="daily" selected>Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="monthly">On Page Change</option>
+                            </select>
+                            
+                            <fieldset>
+                                <legend>Location:</legend>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="scan-location" value="my-dashboard" checked> My Dashboard
+                                        </label>        
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="scan-location" value="sample-dashboard"> Sample Dashboard
+                                        </label>        
+                                    </li>
+                                    <li>
+                                        <a href="#">New Dashboard</a>
+                                    </li>
+                                </ul>
+                            </fieldset>
+
+                            <button type="submit">Save</button>
+                            <button type="button" id="cancel-save-scan">Cancel</button>
+                        </form>
+                        <button>Delete Scan</button>
+                    </dialog>
+                    <script>
+                        const saveScanButton = document.getElementById('scan-settings-button');
+                        const saveScanDialog = document.getElementById('scan-settings-dialog');
+                        const cancelSaveScan = document.getElementById('cancel-save-scan');
+                    
+                        saveScanButton.addEventListener('click', () => {
+                            saveScanDialog.showModal();
+                        });
+                    
+                        cancelSaveScan.addEventListener('click', () => {
+                            saveScanDialog.close();
+                        });
+                    </script>
+                </li>
+                <li><button>Run Scan</button></li>
+            </ul>
+        </nav>
+    
+        <section>
+            <h2>Scan Progress</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Equalified %</th>
+                        <th scope="col">Active %</th>
+                        <th scope="col">Ignored %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12-2-24 09:02:20</td>
+                        <td>20%</td>
+                        <td>60%</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>2-2-24 08:02:20</td>
+                        <td>25%</td>
+                        <td>75%</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr>
+                        <td>2-1-24 11:12:23</td>
+                        <td>0%</td>
+                        <td>100%</td>
+                        <td>0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Nodes</h2>
+
+            <h3>Bulk Actions</h3>
+            <form>
+                <fieldset>
+                    <legend>Status Filters</legend>
+                    <label>
+                        <input type="checkbox" checked> Active Nodes
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Ignored Nodes
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Equalified Nodes
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Issue Filters</legend>
+                    <label>
+                        <input type="checkbox" checked> Heading tag without any text
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Manual check: should this be a heading?
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Sort By</legend>
+                    <label>
+                        <input type="radio" name="sort" checked> Node Name (A to Z)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Node Name (Z to A)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> URL (A to Z)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> URL (Z to A)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Date Updated (Newest to Oldest)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Date Updated (Oldest to Newest)
+                    </label>
+                </fieldset>
+            </form>
+            <form>
+                <label>
+                    Search: <input type="text" id="search-input">
+                </label>
+                <button type="submit" id="submit-bulk-actions" disabled>Submit</button>
+            </form>
+        
+            <div id="edit-options" style="display: none;">
+                <h3>Options</h3>
+                <button onclick="window.location.href='5-scan_results-ignored_node.html';">Ignore from Scan</button>
+                <button>Unignore from Scan</button>
+                <button>AI Analyze</button>
+            </div>
+
+            <h3>Nodes Table</h3>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" aria-label="Select all nodes" onclick="toggleAllTableCheckboxes(this)">
+                        </th>
+                        <th>Node</th>
+                        <th>Screenshot</th>
+                        <th>Status</th>
+                        <th>Issues</th>
+                        <th>URL</th>
+                        <th>Added</th>
+                        <th>Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="6-node_details.html">Node 4234</a></td>
+                        <td><img src="image.jpg" alt="Screenshot of Node 4234"></td>
+                        <td>Ignored</td>
+                        <td><a href="#">Link with no accessible text</a></td>
+                        <td>https://equalify.app</td>
+                        <td>12-2-2024</td>
+                        <td>12-2-2024</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="#">Node 4233</a></td>
+                        <td><img src="image.jpg" alt="Screenshot of Node 4233"></td>
+                        <td>Active</td>
+                        <td><a href="#">Image's text alternative is a URL</a></td>
+                        <td>https://equalify.app</td>
+                        <td>12-2-2024</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="#">Node 4232</a></td>
+                        <td><img src="image.jpg" alt="Screenshot of Node 4232"></td>
+                        <td>Equalified</td>
+                        <td><a href="#">Heading tag without any text</a>, <a href="#">Manual check: should this be a heading?</a></td>
+                        <td>https://philosophers.group</td>
+                        <td>12-1-2024</td>
+                        <td>12-2-2024</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="#">Node 4231</a></td>
+                        <td><img src="image.jpg" alt="Screenshot of Node 4231"></td>
+                        <td>Active</td>
+                        <td><a href="#">Heading tag without any text</a></td>
+                        <td>https://equalify.app</td>
+                        <td>12-1-2024</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <nav aria-label="Nodes Table">
+                Showing 4 of 4 Nodes <button disabled>Load More Nodes</button>
+            </nav>    
+        </section>
+
+        <section>
+            <h2>Related Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Message</th>
+                        <th>Trigger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">25</a></td>
+                        <td>Node 4234 ignored.</td>
+                        <td>User: Blake</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">24</a></td>
+                        <td>Scan successful. 1 node equalified and 2 new nodes. 2 new issues.</td>
+                        <td>User: Blake</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">23</a></td>
+                        <td>Check failed on Node 4234.</td>
+                        <td><a href="#">Editora11y Link Accessibility</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">22</a></td>
+                        <td>Check failed on Node 4233.</td>
+                        <td><a href="#">Editora11y Image Accessibility</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">21</a></td>
+                        <td>Scan saved as "Equalify Home Editorial".</td>
+                        <td>User: Blake</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">20</a></td>
+                        <td>Scan successful. 2 new nodes. 2 new issues.</td>
+                        <td>User: Blake</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">19</a></td>
+                        <td>Check failed on Node 4231 and 4232.</td>
+                        <td><a href="#">Editora11y Heading Accessibility</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Logs Table">
+                Showing 6 of 6 Logs <button disabled>Load More Logs</button>
+            </nav>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

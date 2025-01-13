@@ -1,0 +1,167 @@
+<!-- Notes (Don't delete): This URL is accessed by screen reader users. Code using the latest HTML standards and use basic HTML instead of aria when possible. Do not include classes, ids, or style code if possible. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLs</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li>
+                    <a href="urls.html">URLs</a>
+                    <ul>
+                        <li><a href="urls.html" aria-current="URL">All URLs</a></li>
+                        <li><a href="nodes.html">Nodes</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                    </ul>
+                </li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>URLs</h1>
+
+        <h2>Bulk Actions</h2>
+        <form id="bulk-actions-form">
+            <fieldset>
+                <legend>Filter to Show URLs</legend>
+                <label>
+                    <input type="checkbox" checked> With Active Nodes
+                </label>
+                <label>
+                    <input type="checkbox" checked> With Ignored Nodes
+                </label>
+                <label>
+                    <input type="checkbox" checked> With Equalified Nodes
+                </label>
+                <label>
+                    <input type="checkbox" checked> With Node Updates
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sort By</legend>
+                <label>
+                    <input type="radio" name="sort" checked> URL (A-Z)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> URL (Z-A)
+                </label>
+                <label>
+                    <input type="radio" name="sort" checked> Page Name (A-Z)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Page Name (Z-A)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Active Nodes (Most to Least)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Active Nodes (Least to Most)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Equalified Nodes  (Most to Least)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Equalified Nodes (Least to Most)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Ignored Nodes  (Most to Least)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Ignored Nodes (Least to Most)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Last Scanned (Newest to Oldest)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Last Scanned (Oldest to Newest)
+                </label>
+
+            </fieldset>
+
+            <label>
+                Search: <input type="text" id="search-input">
+            </label>
+            <button type="submit" id="submit-bulk-actions" disabled>Submit</button>
+        </form>
+
+        <h2>Secondary Actions</h2>
+        <nav aria-label="Secondary">
+            <a href="url_adder.html">Add New URLs</a>
+        </nav>
+
+        <div id="edit-options" style="display: none;">
+            <h3>Edit Options</h3>
+            <button>Delete URL(s)</button>
+            <button>Watch on Dashboard</button>
+            <button>AI Analyze</button>
+        </div>
+
+        <h3>URLs Table</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" aria-label="Select all URLs" onclick="toggleAllTableCheckboxes(this)">
+                    </th>
+                    <th>Page Name</th>
+                    <th>URL</th>
+                    <th>Property</th>
+                    <th>Related Scans</th>
+                    <th>Active Nodes</th>
+                    <th>Equalified Nodes</th>
+                    <th>Ignored Nodes</th>
+                    <th>Last Scanned</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                    <td><a href="url_details.html">Equalify - Web Accessibil...</a></td>
+                    <td>https://equalify.app</td>
+                    <td><a href="property_details.html">Sample Property</a></td>
+                    <td><a href="scan_details.html">Sample Scan</a>, <a href="scan_details.html">Another Scan</a></td>
+                    <td>111 (2 updated)</td>
+                    <td>1111 (23 updated)</td>
+                    <td>1111</td>
+                    <td>12-1-2024 at 02:30:30</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                    <td><a href="url_details.html">Another Sample URL</a></td>
+                    <td>https://example.com</td>
+                    <td></td>
+                    <td></td>
+                    <td>29 (3 updated)</td>
+                    <td>292</td>
+                    <td>2929</td>
+                    <td>12-1-2024 at 02:30:30</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav aria-label="URLs Table">
+            Showing 2 of 2 URLs <button disabled>Load More URLs</button>
+        </nav>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

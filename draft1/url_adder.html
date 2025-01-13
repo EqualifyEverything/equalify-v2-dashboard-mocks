@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Pages</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li>
+                    <a href="urls.html">URLs</a>
+                    <ul>
+                        <li><a href="urls.html">All URLs</a></li>
+                        <li><a href="nodes.html">Nodes</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                    </ul>
+                </li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Add New Pages</h1>
+        <form id="add-pages-form">
+            <div>
+                <label for="page-urls">Page URLs (separated by Commas):</label>
+                <textarea id="page-urls" name="page-urls" rows="5" placeholder="https://example.com/page1, https://example.com/page2"></textarea>
+            </div>
+
+            <div>
+                <label for="csv-upload">Import list from CSV:</label>
+                <input type="file" id="csv-upload" name="csv-upload" accept=".csv">
+            </div>
+
+            <fieldset>
+                <legend>Select Properties:</legend>
+                <label><input type="checkbox" name="properties" value="property1"> Property 1</label>
+                <label><input type="checkbox" name="properties" value="property2"> Property 2</label>
+                <label><input type="checkbox" name="properties" value="property3"> Property 3</label>
+            </fieldset>
+
+            <div>
+                <button type="button" id="add-pages-button" disabled>Add Pages</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <ul>
+                <li><a href="my-account.html">My Account</a></li>
+                <li><a href="logs.html">Logs</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="billing.html">Billing</a></li>
+            </ul>
+            <button type="button">AI Assistant</button>
+        </nav>
+    </footer>
+</body>
+</html>

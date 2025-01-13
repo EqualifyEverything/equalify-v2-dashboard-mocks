@@ -1,0 +1,366 @@
+<!-- 
+Demo Step 7: 
+Add viewport-font-resize to the check and save it.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Audit - Audit Details - Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Issues</a></li>
+                <li><a href="#">Audits</a></li>
+                <li><a href="#">Logs</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Default Audit</h1>
+        <section>
+            <h2>Edit Audit</h2>
+            <form action="8-audit_details-saved.html" method="get">
+                    <label for="audit_name">Audit Name:</label>
+                    <input id="audit_name" type="text">
+                    <label for="frequency">Frequency:</label>
+                    <select>
+                        <option>Manually</option>
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>On Monitor Update</option>
+                    </select>
+                    <fieldset>
+                        <legend>Ruleset</legend>
+    
+                        <label>
+                            <input type="radio" name="check-type" value="axe-core" checked onclick="filterChecks('axe-core')"> axe-core
+                        </label>
+                        <label>
+                            <input type="radio" name="check-type" value="page" onclick="filterChecks('editora11y')"> Editora11y
+                        </label>
+                    </fieldset>
+                    <fieldset id="checks-fieldset">
+                        <legend>Checks</legend>
+                        <ul id="checks-list">
+                            <li class="check axe-core">
+                                <label>
+                                    <input type="checkbox" onclick="toggleSubItems(this)" checked> ARIA-Related
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">aria-prohibited-attr</a>
+                                        </label> 
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">aria-required-children</a>
+                                        </label> 
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="check axe-core">
+                                <label>
+                                    <input type="checkbox" onclick="toggleSubItems(this)" checked> Page Content
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">page-has-heading-one</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">page-has-main</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">color-contrast</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">no-autoplay-audio</a>
+                                        </label> 
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox"> <a href="#">viewport-font-resize</a>
+                                        </label> 
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="check axe-core">
+                                <label>
+                                    <input type="checkbox" onclick="toggleSubItems(this)" checked> Meta Checks
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">meta-refresh</a>
+                                        </label> 
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">meta-viewport</a>
+                                        </label>         
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="check editora11y">
+                                <label>
+                                    <input type="checkbox" onclick="toggleSubItems(this)" checked> Headings
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">skipped-heading-levels</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">empty-headings</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">very-long-headings</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">suspiciously-short-blockquotes</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">all-bold-paragraphs</a>
+                                        </label>         
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="check editora11y">
+                                <label>
+                                    <input type="checkbox" onclick="toggleSubItems(this)" checked> Text Alternatives
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">images-without-alt</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">empty-alt-elements</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">filename-as-alt</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">very-long-alt-text</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">redundant-alt-text</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">video-embed-captions</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">audio-embed-transcript</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">social-media-embed-alt</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">visualization-text-alternatives</a>
+                                        </label>         
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="check editora11y">
+                                <label>
+                                    <input type="checkbox" onclick="toggleSubItems(this)" checked> Meaningful Links
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">links-no-text</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">links-filename-title</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">generic-link-text</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">new-window-link-icon</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">image-link-wrong-alt</a>
+                                        </label>         
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="check editora11y">
+                                <label>
+                                    <input type="checkbox" onclick="toggleSubItems(this)" checked> General Content Quality Assurance
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">improper-list-elements</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">avoid-caps-lock-text</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">tables-no-headers</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">empty-table-headers</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">document-headers-in-tables</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">check-pdf-download-accessibility</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">suspiciously-short-blockquotes</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">embedded-videos-captions</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">embedded-audio-transcript</a>
+                                        </label>         
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">social-media-content-accessibility</a>
+                                        </label>         
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a href="4-checks.html">Edit Checks</a>
+                        <script>
+                            // Function to filter checks by type
+                            function filterChecks(type) {
+                                const checks = document.querySelectorAll('.check');
+                                checks.forEach(check => {
+                                    if (type === 'all' || check.classList.contains(type)) {
+                                        check.style.display = '';
+                                    } else {
+                                        check.style.display = 'none';
+                                    }
+                                });
+                            }
+    
+                            // Toggle sub items
+                            function toggleSubItems(parentCheckbox) {
+                                const parentListItem = parentCheckbox.closest('li');
+                                const subCheckboxes = parentListItem.querySelectorAll('ul input[type="checkbox"]');
+                                
+                                subCheckboxes.forEach(checkbox => {
+                                    checkbox.checked = parentCheckbox.checked;
+                                });
+                            }
+    
+                            // Initialize the display of checks based on the default selected check type
+                            window.onload = function() {
+                                const defaultType = document.querySelector('input[name="check-type"]:checked').value;
+                                filterChecks(defaultType);
+                            };
+                        </script>
+                    </fieldset>
+                    <button>Save Audit</button>
+                </form>    
+            <button>Delete Audit</button>
+        </section>
+        <section>
+            <h2>Related Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Summary</th>
+                        <th>Trigger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">19</a></td>
+                        <td>Four items updated with issues.</td>
+                        <td><a href="#">Default Audit</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">18</a></td>
+                        <td>Two pages added.</td>
+                        <td><a href="#">Default Audit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Logs Table">
+                Showing 2 of 2 Logs <button disabled>Load More Logs</button>
+            </nav>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+</body>
+</html>

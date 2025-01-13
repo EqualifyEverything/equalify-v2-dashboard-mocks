@@ -1,0 +1,227 @@
+<!-- 
+Demo Step 9: 
+View 11:11 Philosophers page details.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pages - Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#" aria-current="page">Pages</a></li>
+                <li><a href="#">Issues</a></li>
+                <li><a href="#">Audits</a></li>
+                <li><a href="#">Logs</a></li>
+                <li><a href="#">Account</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Pages</h1>
+
+        <section>
+            <h2>Quick Start</h2>
+            <form>
+                <label for="urls">URL(s):</label>
+                <input id="urls" type="text">
+                <fieldset>
+                    <legend>Audits</legend>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox" checked> <a href="#">Default Audit</a>
+                            </label> 
+                        </li>
+                        <li>
+                            <a href="#">Edit Audits</a>
+                        </li>
+                    </ul>   
+                </fieldset>
+                <button>Add & Audit</button>
+            </form>
+        </section>
+        <section>
+            <h2>View Options</h2>
+            <form>
+                <fieldset>
+                    <legend>Show Pages With</legend>
+                    <label>
+                        <input type="checkbox" checked> Active Items
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Ignored Items
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Equalified Items
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Sort By</legend>
+                    <label>
+                        <input name="sort" type="radio" checked> Title (A to Z)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Title (Z to A)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Page (A to Z)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Page (Z to A)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Active Items (Most to Least)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Active Items (Least to Most)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Equalified Items (Most to Least)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Equalified Items (Least to Most)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Ignored Items (Most to Least)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Ignored Items (Least to Most)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Last Scanned (Newest to Oldest)
+                    </label>
+                    <label>
+                        <input name="sort" type="radio"> Last Scanned (Oldest to Newest)
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Group By</legend>
+                    <label>
+                        <input name="group" type="radio" checked> None 
+                    </label>
+                    <label>
+                        <input name="group" type="radio"> Audit
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Search</legend>
+                    <label>
+                        Enter Keyword: <input type="text" id="search-input">
+                    </label>    
+                </fieldset>
+                <button>Save View Options</button>
+            </form>
+        </section>
+        <section>
+            <h3>Edit Options</h3>
+            <ul>
+                <li><button>Run Audit(s)</button></li>
+                <li><button>Delete Pages(s)</button></li>
+                <li><button>AI Analyze</button></li>
+            </ul>
+        </section>
+        <section>
+            <h2>All Pages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" aria-label="Select all Pages" onclick="toggleAllTableCheckboxes(this)">
+                        </th>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>Audits</th>
+                        <th>Active Items</th>
+                        <th>Equalified Items</th>
+                        <th>Ignored Items</th>
+                        <th>Last Scanned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="#">Equalify - Web Accessibility Platform</a></td>
+                        <td>https://equalify.app</td>
+                        <td><a href="#">Default Audit</a></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>12-1-2024 at 02:30:30</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="10-page_details.html">11:11 Philosophers Group</a></td>
+                        <td>https://philosophers.group</td>
+                        <td><a href="#">Default Audit</a></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>12-1-2024 at 02:30:30</td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav aria-label="Pages Table">
+                Showing 2 of 2 Pages <button disabled>Load More Pages</button>
+            </nav>
+            <script>
+                function toggleAllTableCheckboxes(source) {
+                    const checkboxes = document.querySelectorAll('.row-checkbox');
+                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                    toggleEditOptions();
+                }
+                
+                function toggleEditOptions() {
+                    const checkboxes = document.querySelectorAll('.row-checkbox');
+                    const editOptions = document.getElementById('edit-options');
+                    const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                    editOptions.style.display = anyChecked ? 'block' : 'none';
+                }
+            </script>
+        </section>
+        <section>
+            <h2>Related Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Summary</th>
+                        <th>Trigger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">19</a></td>
+                        <td>Four items updated with issues.</td>
+                        <td><a href="#">Default Audit</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">18</a></td>
+                        <td>Two pages added.</td>
+                        <td><a href="#">Default Audit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Logs Table">
+                Showing 2 of 2 Logs <button disabled>Load More Logs</button>
+            </nav>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+</body>
+</html>

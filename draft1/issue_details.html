@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Issues</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li>
+                    <a href="issues.html" aria-current="page">Issues</a>
+                    <ul>
+                        <li><a href="issues.html">All Issues</a></li>
+                        <li><a href="tags.html">Tags</a></li>
+                    </ul>
+                </li>
+                <li><a href="urls.html">URLs</a></li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Issue Details</h1>
+
+        <nav aria-label="Secondary">
+            <button>Watch on Dashboard</button>
+            <button disabled aria-describedby="edit-issue-disabled-reason">Edit Issue</button>
+            <span id="edit-issue-disabled-reason">
+                You cannot edit this issue because it was not manually created.
+            </span>
+            <a href="https://dequeuniversity.com/rules/axe/4.8/heading-order">Issue Documentation (External Link)</a>
+        </nav>
+
+        <section>
+            <h2>Issue Overview</h2>
+            <ul>
+                <li>Origin: <a href="log_details.html">Log Item 232</a></li>
+                <li>Active Nodes: 1</li>
+                <li>Equalified Nodes: 1 (1 unread)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Issue Tags</h2>
+            <ul>
+                <li><a href="tag_details.html">Sample Tag</a></li>
+                <li><a href="tag_details.html">Another Tag</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Nodes with Issue</h2>
+
+            <h3>Bulk Actions</h3>
+            <form>
+                <fieldset>
+                    <legend>Filter to Show Nodes</legend>
+                    <label>
+                        <input type="checkbox" checked> With Active Status
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> With Ignored Status
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> With Equalified Status
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> With Unread Updates
+                    </label>
+                </fieldset>
+    
+                <fieldset>
+                    <legend>Sort By</legend>
+                    <label>
+                        <input type="radio" name="sort" checked> Node Name (A-Z)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Node Name (Z-A)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Date Updated (Newest to Oldest)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Date Updated (Oldest to Newest)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Page Name (A-Z)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Page Name (Z-A)
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>View Options</legend>
+                    <label>
+                        <input type="checkbox" checked> Show Unread First
+                    </label>
+                </fieldset>
+            </form>
+            <form>
+                <label>
+                    Search: <input type="text" id="search-input">
+                </label>
+                <button type="submit" id="submit-bulk-actions" disabled>Submit</button>
+            </form>
+    
+            <div id="edit-options" style="display: none;">
+                <h3>Edit Options</h3>
+                <button>Mark as Read</button>
+                <button>Watch on Dashboard</button>
+                <button>AI Analyze</button>
+                <button>Mark as Read</button>
+            </div>
+    
+            <h3>Nodes Table</h3>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" aria-label="Select all nodes" onclick="toggleAllTableCheckboxes(this)">
+                        </th>
+                        <th>Node</th>
+                        <th>Status</th>
+                        <th>Page</th>
+                        <th>Related Issues</th>
+                        <th>Added</th>
+                        <th>Updated</th>
+                        <th>Unread?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="node_details.html">A Named Node</a></td>
+                        <td>Equalified</td>
+                        <td><a href="url_details.html">Page Name</a></td>
+                        <td><a href="issue_details.html">Related Issue</a></td>
+                        <td>11-11-2024</td>
+                        <td>12-1-2024</td>
+                        <td>FALSE</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="node_details.html">Node 4232</a></td>
+                        <td>Active</td>
+                        <td><a href="url_details.html">Page Name</a></td>
+                        <td><a href="issue_details.html">Related Issue</a>, <a href="issue_details.html">Another Related Issue</a></td>
+                        <td>12-1-2024</td>
+                        <td>12-2-2024</td>
+                        <td>TRUE</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <nav aria-label="Nodes Table">
+                Showing 2 of 2 Nodes <button disabled>Load More Nodes</button>
+            </nav>    
+        </section>
+
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

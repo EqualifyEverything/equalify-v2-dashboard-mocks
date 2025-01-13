@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#" aria-current="page">Home</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Equalify</h1>
+
+        <article>
+            <h2>Quick Start</h2>
+            <form>
+                <label for="urls">URL(s):</label>
+                <input id="urls" type="text">
+                <fieldset>
+                    <legend>Audits</legend>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox"> <a href="#">Default Audit</a>
+                            </label> 
+                        </li>
+                    </ul>   
+                    <a href="13-audit_editor.html">New Audit</a>
+                </fieldset>
+                <button>Add & Audit</button>
+            </form>
+        </article>
+        <article>
+            <h2>All Items</h2>
+            <section>
+                <h3>View Options</h3>
+                <form>
+                    <fieldset>
+                        <legend>Search</legend>
+                        <label for="search_source">Search In:</label>
+                        <select id="search_source">
+                            <option>Page Title</option>
+                            <option>URL</option>
+                            <option>Tag</option>
+                            <option>Issue</option>
+                            <option selected>Node Code</option>
+                        </select>
+                        <label for="search">Keywords:</label>
+                        <input type="text" id="search" value=".weird_heading">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Group Items By</legend>
+                        <label>
+                            <input name="group" type="radio"> Issue
+                        </label>
+                        <label>
+                            <input name="group" type="radio" checked> Page
+                        </label>
+                        <label>
+                            <input name="group" type="radio"> Check
+                        </label>
+                        <label>
+                            <input name="group" type="radio" checked> None 
+                        </label>
+                    </fieldset>                    <fieldset>
+                        <legend>Include Items with Status</legend>
+                        <label>
+                            <input type="checkbox" checked> Active
+                        </label>
+                        <label>
+                            <input type="checkbox"> Ignored
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> Equalified
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Sort</legend>
+                        <label>
+                            <input name="sort" type="radio" checked> Alphabetically (A to Z)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Alphabetically (Z to A)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Active Items (Most to Least)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Active Items (Least to Most)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Equalified Items (Most to Least)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Equalified Items (Least to Most)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Audited (Latest to Oldest)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Audited (Oldest to Latest)
+                        </label>
+                    </fieldset>
+                    <button type="button">Save View Options</button>
+                </form>
+                <button type="button">Reset View Options</button>
+            </section>
+            <section>
+                <h3>All Page Items with Keyword ".weird_heading" - Hiding Ignored Items</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
+                                </th>
+                                <th>ID</th>
+                                <th>Code</th>
+                                <th>Screenshot</th>
+                                <th>Page Title</th>
+                                <th>URL</th>
+                                <th>Issues</th>
+                                <th>Status</th>
+                                <th>Last Audit</th>
+                                <th>Audit Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>3</td>
+                                <td><code>&lt;h1 class="weird_heading"&gt;&lt;/h1&gt;</code></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 3"></td>
+                                <td>Berkeley Homepage (Staging)</td>
+                                <td><code>https://www-stg.berkeley.edu</code></td>
+                                <td>Heading tag without any text</td>
+                                <td>Active</td>
+                                <td>empty-headings</td>
+                                <td>Default Audit</td>
+                                <td>12-1-2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Berkeley Library (Staging) Table of Items">
+                        Showing 1 of 1 Items <button disabled>Load More Page Items</button>
+                    </nav> 
+                <script>
+                    function toggleAllTableCheckboxes(source) {
+                        const checkboxes = document.querySelectorAll('.row-checkbox');
+                        checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                        toggleEditOptions();
+                    }
+                </script>
+            </section>  
+            <section>
+                <h3>Edit Page Items</h3>
+                <button>Ignore Item(s)</button>
+            </section>    
+        </article>
+        <article>
+            <h2>Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Summary</th>
+                        <th>Trigger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">Log 4</a></td>
+                        <td>Check created.</td>
+                        <td>User: Lucy</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Log 3</a></td>
+                        <td>One item ignored.</td>
+                        <td>User: Lucy</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Log 2</a></td>
+                        <td>Issues found on three new pages items.</td>
+                        <td>Default Audit</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Log 1</a></td>
+                        <td>Two pages added.</td>
+                        <td>User: Lucy</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Logs Table">
+                Showing 3 of 3 Logs <button disabled>Load More Logs</button>
+            </nav>
+        </article>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+</body>
+</html>

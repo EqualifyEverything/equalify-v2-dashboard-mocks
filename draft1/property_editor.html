@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Editor</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li>
+                    <a href="urls.html">URLs</a>
+                    <ul>
+                        <li><a href="urls.html" aria-current="page">All Pages</a></li>
+                        <li><a href="nodes.html">Nodes</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                    </ul>
+                </li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Property Editor</h1>
+        <div>
+            <form id="property-editor-form">
+                <div>
+                    <label for="property-name">Property Name:</label>
+                    <input type="text" id="property-name" name="property-name" value="Sample Property">
+                </div>
+                <div>
+                    <button type="button" id="save-property-button">Save Property</button>
+                    <button type="button" id="delete-property-button">Delete Property</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <ul>
+                <li><a href="my-account.html">My Account</a></li>
+                <li><a href="logs.html">Logs</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="billing.html">Billing</a></li>
+            </ul>
+            <button type="button">AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

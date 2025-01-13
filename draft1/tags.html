@@ -1,0 +1,99 @@
+<!-- Notes (Don't delete): This page is accessed by screen reader users. Code using the latest HTML standards and use basic HTML instead of aria when possible. Do not include classes, ids, or style code if possible. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li>
+                    <a href="issues.html">Issues</a>
+                    <ul>
+                        <li><a href="issues.html">All Issues</a></li>
+                        <li><a href="tags.html" aria-current="page">Tags</a></li>
+                    </ul>
+                </li>
+                <li><a href="urls.html">URLs</a></li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Tags</h1>
+        <h2>Bulk Actions</h2>
+        <form>
+            <fieldset>
+                <legend>Sort By</legend>
+                <label>
+                    <input type="radio" name="sort" checked> Tag Name (A-Z)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Tag Name (Z-A)
+                </label>
+                <label>
+                    <input type="radio" name="sort"> Number of Issues
+                </label>
+            </fieldset>
+
+            <label>
+                Search: <input type="text" id="search-input">
+            </label>
+            <button type="submit" id="submit-bulk-actions" disabled>Submit</button>
+        </form>
+
+        <h2>Secondary Actions</h2>
+        <nav aria-label="Secondary">
+            <a href="tag_editor.html">New Tag</a>
+        </nav>
+
+        <div id="edit-options" style="display: none;">
+            <h2>Edit Options</h2>
+            <button>Watch on Dashboard</button>
+            <button>AI Analyze</button>
+        </div>
+
+        <h2>Tags Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" aria-label="Select all tags" onclick="toggleAllTableCheckboxes(this)">
+                    </th>
+                    <th>Tag</th>
+                    <th>Issues</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                    <td><a href="tag_details.html">Another Sample Tag</a></td>
+                    <td>232</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                    <td><a href="tag_details.html">Sample Tag</a></td>
+                    <td>23</td>
+                </tr>
+            </tbody>
+        </table>
+        Showing 2 of 2 Checks <button disabled>Load More Checks</button>
+
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

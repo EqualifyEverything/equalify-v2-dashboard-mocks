@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Property Details</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li>
+                    <a href="urls.html">URLs</a>
+                    <ul>
+                        <li><a href="urls.html" aria-current="page">All Pages</a></li>
+                        <li><a href="nodes.html">Nodes</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                    </ul>
+                </li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Sample Property</h1>
+
+        <nav aria-label="Secondary">
+            <a href="property_editor.html">Edit Property</a>
+        </nav>
+
+        <section>
+            <h2>Property Overview</h2>
+            <ul>
+                <li>Pages Monitored: 4</li>
+                <li>Active Nodes: 140 (5 Updated)</li>
+                <li>Equalified Nodes: 1401 (25 Updated)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Status Density Overtime for Nodes in Property</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Equalified %</th>
+                        <th scope="col">Active %</th>
+                        <th scope="col">Ignored %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>October 2024</td>
+                        <td>38%</td>
+                        <td>60%</td>
+                        <td>2%</td>
+                    </tr>
+                    <tr>
+                        <td>November 2024</td>
+                        <td>40%</td>
+                        <td>58%</td>
+                        <td>2%</td>
+                    </tr>
+                    <tr>
+                        <td>December 2024</td>
+                        <td>50%</td>
+                        <td>48%</td>
+                        <td>2%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Property Pages</h2>
+
+            <h3>Bulk Actions</h3>
+            <form id="bulk-actions-form">
+                <fieldset>
+                    <legend>Filter to Show Pages</legend>
+                    <label>
+                        <input type="checkbox" checked> With Active Nodes
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> With Ignored Nodes
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> With Equalified Nodes
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> With Node Updates
+                    </label>
+                </fieldset>
+    
+                <fieldset>
+                    <legend>Sort By</legend>
+                    <label>
+                        <input type="radio" name="sort" checked> Page Name (A-Z)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Page Name (Z-A)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Active Nodes (Most to Least)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Active Nodes (Least to Most)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Equalified Nodes  (Most to Least)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Equalified Nodes (Least to Most)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Ignored Nodes  (Most to Least)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Ignored Nodes (Least to Most)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Last Scanned (Newest to Oldest)
+                    </label>
+                    <label>
+                        <input type="radio" name="sort"> Last Scanned (Oldest to Newest)
+                    </label>
+    
+                </fieldset>
+    
+                <label>
+                    Search: <input type="text" id="search-input">
+                </label>
+                <button type="submit" id="submit-bulk-actions" disabled>Submit</button>
+            </form>
+    
+        
+            <div id="edit-options" style="display: none;">
+                <h3>Edit Options</h3>
+                <button>Remove from Property</button>
+                <button>Scan Page(s)</button>
+                <button>AI Analyze</button>
+            </div>
+    
+            <h3>Pages Table</h3>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" aria-label="Select all pages" onclick="toggleAllTableCheckboxes(this)">
+                        </th>
+                        <th>Page</th>
+                        <th>Active Nodes</th>
+                        <th>Equalified Nodes</th>
+                        <th>Ignored Nodes</th>
+                        <th>Last Scanned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="url_details.html">Sample Page</a></td>
+                        <td>111</td>
+                        <td>1111 (23 updated)</td>
+                        <td>1111</td>
+                        <td>12-1-2024 at 01:30:30</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                        <td><a href="url_details.html">Another Sample Page</a></td>
+                        <td>29 (5 updated)</td>
+                        <td>292 (2 updated)</td>
+                        <td>2929</td>
+                        <td>12-1-2024 at 01:30:30</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <nav aria-label="Pages Table">
+                <button type="button" disabled>Previous</button>
+                <button type="button" disabled>Next</button>
+            </nav>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

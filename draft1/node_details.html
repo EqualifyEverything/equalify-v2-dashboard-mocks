@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Single Node Details</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li>
+                    <a href="urls.html">URLs</a>
+                    <ul>
+                        <li><a href="urls.html">All URLs</a></li>
+                        <li><a href="nodes.html">Nodes</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                    </ul>
+                </li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Sample Named Node <sub>Node 3293</sub></h1>
+
+        <nav aria-label="Secondary">
+            <label for="node-name">Node Name:</label>
+            <input id="node-name" value="Sample Named Node">
+            <p>Related Page: <a href="url_details.html">Page Name</a></p>
+            <button>Mark Updates as Read</button>
+            <button>Watch on Dashboard</button>
+            <button>AI Analyze</button>
+            <button>Ignore Node</button>
+            <label for="status-select">Status:</label>
+            <select id="status-select" aria-describedby="edit-disabled-reason" disabled>
+                <option value="active">Active</option>
+                <option value="equalified">Equalified</option>
+            </select>
+            <button disabled aria-describedby="edit-disabled-reason">Delete Node</button>
+            <span id="edit-disabled-reason">
+                You cannot edit this node because it was created by a scan.
+            </span>
+        </nav>
+
+        <section>
+            <h2>Content</h2>
+            <pre>[Sample Node Code]</pre>
+        </section>
+
+        <section>
+            <h2>Related Issues</h2>
+            <ul>
+                <li><a href="issue_details.html">Sample Issue</a></li>
+                <li><a href="issue_details.html">Another Sample Issue</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Node Status Changes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Original Status</th>
+                        <th scope="col">Changed Status</th>
+                        <th scope="col">Related Scan</th>
+                        <th scope="col">Related Check</th>
+                        <th scope="col">Screenshot</th>
+                        <th scope="col">Log Item</th>
+                        <th scope="col">Unread?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12-02-24 at 2:30 PM</td>
+                        <td>Active</td>
+                        <td>Equalified</td>
+                        <td><a href="scan_details.html">Sample Scan</a></td>
+                        <td><a href="check_details.html">Sample Check</a></td>
+                        <td><a href="#">Screenshot from 12-02-24</a></td>
+                        <td><a href="log_details.html">123</a></td>
+                        <td>TRUE</td>
+                    </tr>
+                    <tr>
+                        <td>12-01-24 at 1:30 PM</td>
+                        <td>None</td>
+                        <td>Active</td>
+                        <td><a href="scan_details.html">Sample Scan</a></td>
+                        <td><a href="check_details.html">Sample Check</a></td>
+                        <td><a href="#">Screenshot from 12-02-24</a></td>
+                        <td><a href="log_details.html">122</a></td>
+                        <td>FALSE</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <a href="account.html">Account</a>
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

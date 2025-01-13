@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Check - Check Editor - Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Untitled Check</h1>
+        <section>
+            <h2>Edit Check</h2>
+            <form>
+                <label for="check_name">Check Name:</label>
+                <input id="check_name" type="text" required>
+                <label for="ruleset">Ruleset:</label>
+                <select id="ruleset" disabled>
+                    <option>Editora11y</option>
+                    <option>axe-core</option>
+                    <option selected>Custom Checks</option>
+                </select>
+                <label for="check_category">Category:</label>
+                <select id="check_category" required>
+                    <option>ARIA-related</option>
+                    <option>Page Content</option>
+                    <option>Meta Checks</option>
+                    <option>Headings</option>
+                    <option>Text Alternatives</option>
+                    <option>Meaningful Links</option>
+                    <option>General Quality Assurance</option>
+                </select>
+                <label for="check_code">Check Code:</label>
+                <textarea id="check_code" required></textarea>
+                <button type="button" onclick="window.location.href='11-check_editor-saved.html';">Create Check</button>
+            </form>
+            <button disabled>Delete Check</button>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <button>AI Assistant</button>
+        </nav>
+    </footer>
+
+</body>
+</html>

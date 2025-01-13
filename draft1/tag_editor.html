@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Editor</title>
+</head>
+<body>
+    <aside>
+        <button id="toggle-navigation" aria-expanded="false">Show Navigation</button>
+        <nav id="main-navigation" hidden>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li>
+                    <a href="issues.html">Issues</a>
+                    <ul>
+                        <li><a href="issues.html">All Issues</a></li>
+                        <li><a href="tags.html">Tags</a></li>
+                    </ul>
+                </li>
+                <li><a href="urls.html">URLs</a></li>
+                <li><a href="scans.html">Scans</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Tag Editor</h1>
+        <form>
+            <label for="tag-name">Tag Name:</label>
+            <input type="text" id="tag-name" name="tag-name">
+            <button>Save Tag</button>
+        </form>
+        <button disabled>Delete Tag</button>
+    </main>
+
+    <footer>
+        <nav aria-label="Footer">
+            <ul>
+                <li><a href="my-account.html">My Account</a></li>
+                <li><a href="logs.html">Logs</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="billing.html">Billing</a></li>
+            </ul>
+            <button type="button">AI Assistant</button>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
