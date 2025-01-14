@@ -19,10 +19,11 @@ Open [1-home.html](1-home.html) in your browser, then follow these steps:
 10. **Create a new audit.** Lucy wants to create an audit specific for the OCR review she has to do.
 11. **Save audit with name to "OCR Review", Frequency to "monthly", then check all items including "focus-state" check from "Custom Checks", select all pages, and turn on email notifications.**
 12. **Run the audit.**
-13. **Update view options to only show items tagged "WCAG 2.2 AA" and only show active and equalified items** because OCR only really cares about those.
-14. **Visit Account page** - Lucy loves Equalify and wants to add team members to view reprots.
-15. **Add "cboyden@berkeley.edu" to team and save.** 
-16. Now view [19-emailed_summary.html](19-emailed_summary.html) to see what Lucy receives in email when her OCR audit is run.
+13. **Upgrade to Enteprise plan**. Lucy ran out of free scans!
+14. **Update view options to only show items tagged "WCAG 2.2 AA" and only show active and equalified items** because OCR only really cares about those.
+15. **Visit Account page** - Lucy loves Equalify and wants to add team members to view reprots.
+16. **Add "cboyden@berkeley.edu" to team and save.** 
+17. Now view [18-emailed_summary.html](18-emailed_summary.html) to see what Lucy receives in email when her OCR audit is run.
 
 Demo is done.
 

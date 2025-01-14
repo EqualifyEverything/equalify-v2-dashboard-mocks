@@ -1,3 +1,8 @@
+<!-- 
+Demo Step 18: 
+Click on Weekly summary (this is just a preview)
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +22,8 @@
 
     <main>
         <h1>Account</h1>
-        
+        <div aria-live="polite">"cboyden@berkeley.edu" invited.</div>
+
         <section id="user_settings">
             <h2>User Settings</h2>
             <button>Logout</button>
@@ -50,12 +56,13 @@
             <h3>Team Members</h3>
             <ul>
                 <li>Lucy Greco - Owner</li>
+                <li>Caroline Boyden - Invited - <button>Delete</button> <button>Make Owner</button></li>
             </ul>
             <h3>Invite New Members</h3>
             <form>
                 <label for="invite-email">Email Address:</label>
                 <input type="email" id="invite-email" name="invite-email" required>
-                <button type="button" onclick="window.location.href='16-account-saved.html';">Sent Invite</button>
+                <button type="submit">Send Invite</button>
             </form>
         </section>
 
@@ -63,10 +70,10 @@
             <h2>Billing</h2>
             <h3>Current Plan</h3>
             <ul>
-                <li>10,000 Scans Per Month (9,998 remaining)</li>
+                <li>10,000 Scans Per Month (9,997 remaining)</li>
                 <li>24 Hour Response Time</li>
                 <li>$10,0000/yr</li>
-                <li>$20/mo/user (3 active users)</li>
+                <li>$20/mo/user (2 active users)</li>
             </ul>
             <h3>Manage Billing</h3>
             Billing is managed through Stripe.
