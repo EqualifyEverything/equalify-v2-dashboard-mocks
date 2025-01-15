@@ -11,8 +11,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="16-account.html">Account</a></li>
-            </ul>
-        </nav>
+            </ul>        </nav>
     </header>
 
     <main>
@@ -229,7 +228,8 @@
                 </details>   
                 <script>
                     function toggleAllTableCheckboxes(source) {
-                        const checkboxes = document.querySelectorAll('.row-checkbox');
+                        const table = source.closest('table');
+                        const checkboxes = table.querySelectorAll('.row-checkbox');
                         checkboxes.forEach(checkbox => checkbox.checked = source.checked);
                         toggleEditOptions();
                     }
@@ -238,6 +238,7 @@
             <section>
                 <h3>Edit Page Items</h3>
                 <button>Ignore Item(s)</button>
+                <button>Generate Ticket</button>
             </section>    
         </article>
 
@@ -273,7 +274,6 @@
     <footer>
         <nav aria-label="Footer">
             9,997 scans remaining.
-            <button>AI Assistant</button>
         </nav>
     </footer>
 

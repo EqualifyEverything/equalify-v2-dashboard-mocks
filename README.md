@@ -1,8 +1,12 @@
-# Demo 
+# Guided Demo 
 
-## Overview
+Equalify is built to manage many web accessibility issues.
 
-This demo covers the use case of an accessibilty lead (Lucy) at a university (Berkely) wanting to survey a few pages of a new site they need to review, before setting up a new audit for monthly OCR reviews with custom checks on additional pages. They also will receive notifications so they can track their team's progress over time. The user is relies on screen readers.
+Blake will guide our target users through this demo. (We're targeting project managers and accessibility managers - those who use SiteImprove.)
+
+The particular usecase should be tooled to any user its being demoed with.
+
+By default, the demo covers the use case of an accessibilty lead (Lucy) at a university (Berkely) wanting to survey a few pages of a new site they need to review, before setting up a new audit for monthly OCR reviews with custom checks on additional pages. They also will receive notifications so they can track their team's progress over time. The user  relies on screen readers.
 
 ## Steps
 Open [1-home.html](1-home.html) in your browser, then follow these steps:
@@ -12,7 +16,10 @@ Open [1-home.html](1-home.html) in your browser, then follow these steps:
 3. **Ignore Item 2.** It's a false positive.
 4. **Hide ignored items in view options** to unclutter list.
 5. **Group by page.** Lucy is only concerned with checking out the updates on the pages.
-6. **Edit Audit.** Lucy wants to make sure the audit includes what OCR demands.
+6. Create ticket and edit audit:
+    - **Select all items under a page and generate a ticket.** Lucy needs to tell developers to fix things.
+    - **Copy Ticket.** Lucy copies content to send it to her team.
+    - **Edit Audit.** Lucy wants to make sure the audit includes what OCR demands.
 7. **Create a new check.** Existing checks don't include an important check that OCR demands.
 8. **Save check with the following info: check name "focus-state", "Category": "General Quality Assurance", check code: `const cssBefore = await page.evaluate(() => {const focusedElement = document.activeElement return window.getComputedStyle(focusedElement).outline; // Check outline or another focus-specific property});`.** This check makes sure tabbed links visually display the focus state.
 9. **Go back home.**

@@ -13,7 +13,7 @@
                 <li><a href="#">Account</a></li>
             </ul>
         </nav>
-    </header>
+    </hader>
 
     <main>
         <h1>Default Audit</h1>
@@ -26,7 +26,7 @@
             <h2>Actions</h2>
             <nav aria-label="Audit Actions">
                 <button>Run Audit</button>
-                <a href="7-audit_editor.html">Edit Audit</a>    
+                <a href="#">Edit Audit</a>    
             </nav>
         </article>
         <article>
@@ -190,9 +190,13 @@
                         Showing 1 of 1 Items <button disabled>Load More Page Items</button>
                     </nav> 
                 </details> 
+                <nav aria-label="Audited Pages">
+                    Showing 2 of 2 Audited Pages <button disabled>Load More Pages</button>
+                </nav> 
                 <script>
                     function toggleAllTableCheckboxes(source) {
-                        const checkboxes = document.querySelectorAll('.row-checkbox');
+                        const table = source.closest('table');
+                        const checkboxes = table.querySelectorAll('.row-checkbox');
                         checkboxes.forEach(checkbox => checkbox.checked = source.checked);
                         toggleEditOptions();
                     }
@@ -201,7 +205,56 @@
             <section>
                 <h3>Edit Page Items</h3>
                 <button>Ignore Item(s)</button>
-            </section>    
+                <button onclick="openDialog()">Generate Ticket</button>
+                <script>
+                    function openDialog() {
+                        const dialog = document.getElementById("generate-ticket-dialog");
+                        if (dialog) {
+                            dialog.showModal();
+                        }
+                    }
+                
+                    function closeDialog() {
+                        const dialog = document.getElementById("generate-ticket-dialog");
+                        if (dialog) {
+                            dialog.close();
+                        }
+                    }
+                </script>
+                <dialog id="generate-ticket-dialog">
+                    <h2>Generated Ticket</h2>
+                    <form method="dialog">                
+                        <label for="ticket-content">Content:</label>
+                        <textarea id="ticket-content">
+                            ### Accessibility Issues Summary
+                            
+                            1. **Berkeley Library (Staging)** - [https://update.lib.berkeley.edu/](https://update.lib.berkeley.edu/)
+                            - **Issue:** Heading tag without any text.
+                            - **Code Snippet:** `<h1 class="weird_heading"></h1>`
+                            - **Status:** Active.
+                            - **Check Type:** `empty-headings`.
+                            - **Audit Date:** 12-1-2024.
+                            - **Suggested Fix:** Add meaningful text to the `<h1>` tag, e.g., `<h1>Welcome to the Library</h1>`.
+                            
+                            2. **Berkeley Homepage (Staging)** - [https://www-stg.berkeley.edu](https://www-stg.berkeley.edu)
+                            - **Issue:** Heading tag without any text.
+                            - **Code Snippet:** `<h2><!-- Heading should not be empty --></h2>`
+                            - **Status:** Active.
+                            - **Check Type:** `empty-headings`.
+                            - **Audit Date:** 12-1-2024.
+                            - **Suggested Fix:** Include a descriptive heading, e.g., `<h2>Explore Berkeley's Resources</h2>`.
+                            
+                            Ensure all headings are meaningful and assistive technology-friendly.
+                        </textarea>
+                
+                        <div style="margin-top: 15px;">
+                            <button type="button">Copy Ticket</button>
+                            <button type="button">Save to Jira</button>
+                            <button type="button" onclick="document.getElementById('generate-ticket-dialog').removeAttribute('open');">Cancel</button>
+                        </div>
+                    </form>
+                </dialog>
+            </section>
         </article>
         <article>
             <h2>Logs</h2>
@@ -241,7 +294,6 @@
     <footer>
         <nav aria-label="Footer">
             0 free scans remaining. <a href="#">Upgrade</a>.
-            <button>AI Assistant</button>
         </nav>
     </footer>
 

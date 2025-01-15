@@ -11,8 +11,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Account</a></li>
-            </ul>
-        </nav>
+            </ul>        </nav>
     </header>
 
     <main>
@@ -205,10 +204,14 @@
                     <nav aria-label="Heading tag without any text Table">
                         Showing 2 of 2 Items <button disabled>Load More Items With Issue</button>
                     </nav> 
-                </details>        
+                </details>
+                <nav aria-label="Audited Issues">
+                    Showing 1 of 1 Audited Issues <button disabled>Load More Issues</button>
+                </nav>
                 <script>
                     function toggleAllTableCheckboxes(source) {
-                        const checkboxes = document.querySelectorAll('.row-checkbox');
+                        const table = source.closest('table');
+                        const checkboxes = table.querySelectorAll('.row-checkbox');
                         checkboxes.forEach(checkbox => checkbox.checked = source.checked);
                         toggleEditOptions();
                     }
@@ -217,6 +220,7 @@
             <section>
                 <h3>Edit Page Items</h3>
                 <button>Ignore Item(s)</button>
+                <button>Generate Ticket</button>
             </section>    
         </article>
         <article>
@@ -257,10 +261,8 @@
     <footer>
         <nav aria-label="Footer">
             0 free scans remaining. <a href="#">Upgrade</a>.
-            <button>AI Assistant</button>
         </nav>
     </footer>
-
 
 </body>
 </html>
