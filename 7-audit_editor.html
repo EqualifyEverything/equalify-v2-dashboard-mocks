@@ -57,11 +57,13 @@
                     <details>
                         <summary>Checks</summary>
                         <fieldset>
-                            <legend>axe-core Checks</legend>
+                            <label>
+                                <input type="checkbox" onclick="toggleFieldsetCheckboxes(this)" checked> All axe-core Checks
+                            </label>
                             <ul>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)"> ARIA-Related
+                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> ARIA-Related
                                     </label>
                                     <ul>
                                         <li>
@@ -78,7 +80,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)"> Page Content
+                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Page Content
                                     </label>
                                     <ul>
                                         <li>
@@ -110,7 +112,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)"> Meta Checks
+                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Meta Checks
                                     </label>
                                     <ul>
                                         <li>
@@ -129,10 +131,13 @@
                         </fieldset>
                         <fieldset>
                             <legend>Editora11y</legend>
+                            <label>
+                                <input type="checkbox" onclick="toggleFieldsetCheckboxes(this)" checked> All Editora11y Checks
+                            </label>
                             <ul>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)"> Headings
+                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Headings
                                     </label>
                                     <ul>
                                         <li>
@@ -164,7 +169,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)"> Text Alternatives
+                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Text Alternatives
                                     </label>
                                     <ul>
                                         <li>
@@ -216,7 +221,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)"> Meaningful Links
+                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Meaningful Links
                                     </label>
                                     <ul>
                                         <li>
@@ -248,7 +253,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)"> General Content Quality Assurance
+                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> General Content Quality Assurance
                                     </label>
                                     <ul>
                                         <li>
@@ -331,12 +336,27 @@
                     <button type="button" onclick="window.location.href='12-audit_details-saved.html';">Save Audit</button>
 
                     <script>
-                        function toggleSubItems(parentCheckbox) {
-                            const parentListItem = parentCheckbox.closest('li');
-                            const subCheckboxes = parentListItem.querySelectorAll('ul input[type="checkbox"]');
+                        function toggleFieldsetCheckboxes(triggerCheckbox) {
+                            // Get the closest fieldset containing the trigger checkbox
+                            const fieldset = triggerCheckbox.closest('fieldset');
+
+                            if (!fieldset) return; // Exit if no fieldset is found
+
+                            // Find all checkboxes within the fieldset except the trigger checkbox
+                            const checkboxes = fieldset.querySelectorAll('input[type="checkbox"]:not(:scope > legend input[type="checkbox"])');
                             
-                            subCheckboxes.forEach(checkbox => {
-                                checkbox.checked = parentCheckbox.checked;
+                            // Set the state of all checkboxes to match the trigger checkbox
+                            checkboxes.forEach(checkbox => {
+                                checkbox.checked = triggerCheckbox.checked;
+                            });
+                        }
+                        function toggleSubItems(checkbox) {
+                            const parentLi = checkbox.closest('li'); // Find the closest <li> element
+                            if (!parentLi) return;
+
+                            const nestedCheckboxes = parentLi.querySelectorAll('ul input[type="checkbox"]'); // Find nested checkboxes
+                            nestedCheckboxes.forEach(childCheckbox => {
+                                childCheckbox.checked = checkbox.checked; // Set each nested checkbox to the same state
                             });
                         }
                         function toggleAllTableCheckboxes(source) {
