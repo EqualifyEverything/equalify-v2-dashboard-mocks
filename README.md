@@ -19,12 +19,13 @@ Open [1-home.html](1-home.html) in your browser, then follow these steps:
 6. Create ticket and edit audit:
     - **Select all items under a page and generate a ticket.** Lucy needs to tell developers to fix things.
     - **Copy Ticket.** Lucy copies content to send it to her team.
+    - **Close dialogue window.**
     - **Edit Audit.** Lucy wants to make sure the audit includes what OCR demands.
 7. **Create a new check.** Existing checks don't include an important check that OCR demands.
 8. **Save check with the following info: check name "focus-state", "Category": "General Quality Assurance", check code: `const cssBefore = await page.evaluate(() => {const focusedElement = document.activeElement return window.getComputedStyle(focusedElement).outline; // Check outline or another focus-specific property});`.** This check makes sure tabbed links visually display the focus state.
 9. **Go back home.**
 10. **Create a new audit.** Lucy wants to create an audit specific for the OCR review she has to do.
-11. **Save audit with name to "OCR Review", Frequency to "monthly", then check all items including "focus-state" check from "Custom Checks", select all pages, and turn on email notifications.**
+11. **Save audit with name to "OCR Review", Frequency to "monthly", select all pages, then check all items including "focus-state" check from "Custom Checks",  and turn on email notifications.**
 12. **Run the audit.**
 13. **Upgrade to Enteprise plan**. Lucy ran out of free scans!
 14. **Update view options to only show items tagged "WCAG 2.2 AA" and only show active and equalified items** because OCR only really cares about those.

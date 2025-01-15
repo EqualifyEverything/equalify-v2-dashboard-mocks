@@ -216,7 +216,9 @@
                     }
                 </script>
                 <dialog id="generate-ticket-dialog">
-                    <h2>Generated Ticket</h2>
+                    <h4>Generated Ticket</h4>
+                    <div id="ticketStatus" aria-live="polite">Ticket generated into content field.</div>
+
                     <form method="dialog">                
                         <label for="ticket-content">Content:</label>
                         <textarea id="ticket-content">
@@ -242,9 +244,16 @@
                         </textarea>
                 
                         <div style="margin-top: 15px;">
-                            <button type="button">Copy Ticket</button>
+                            <button type="button"  id="copyButton">Copy Ticket</button>
                             <button type="button">Save to Jira</button>
-                            <button type="button" onclick="document.getElementById('generate-ticket-dialog').removeAttribute('open');">Cancel</button>
+                            <button type="button" onclick="document.getElementById('generate-ticket-dialog').removeAttribute('open');">Close</button>
+                            <script>
+                                document.getElementById('copyButton').addEventListener('click', function() {
+                                  // Replace the content of the div with the message
+                                  const statusDiv = document.getElementById('ticketStatus');
+                                  statusDiv.textContent = 'Ticket content copied.';
+                                });
+                            </script>
                         </div>
                     </form>
                 </dialog>
@@ -286,9 +295,12 @@
     </main>
 
     <footer>
-        <nav aria-label="Footer">
-            0 free scans remaining. <a href="#">Upgrade</a>.
-        </nav>
+        <section>
+            0 free scans remaining. <a href="#">Upgrade</a>. 
+        </section>
+        <section>
+            Need help? Email <a href="support@equalify.app">support@equalify.app</a>.
+        </section>
     </footer>
 
 

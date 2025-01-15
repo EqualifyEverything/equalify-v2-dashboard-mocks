@@ -83,12 +83,12 @@
                         <fieldset>
                             <legend>axe-core Checks</legend>
                             <label>
-                                <input type="checkbox" onclick="toggleFieldsetCheckboxes(this)" checked> All axe-core Checks
+                                <input type="checkbox" onclick="toggleFieldsetCheckboxes(this)"> All axe-core Checks
                             </label>
                             <ul>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> ARIA-Related
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> ARIA-Related
                                     </label>
                                     <ul>
                                         <li>
@@ -105,7 +105,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Page Content
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Page Content
                                     </label>
                                     <ul>
                                         <li>
@@ -137,7 +137,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Meta Checks
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Meta Checks
                                     </label>
                                     <ul>
                                         <li>
@@ -157,12 +157,12 @@
                         <fieldset>
                             <legend>Editora11y</legend>
                             <label>
-                                <input type="checkbox" onclick="toggleFieldsetCheckboxes(this)" checked> All Editora11y Checks
+                                <input type="checkbox" onclick="toggleFieldsetCheckboxes(this)"> All Editora11y Checks
                             </label>
                             <ul>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Headings
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Headings
                                     </label>
                                     <ul>
                                         <li>
@@ -194,7 +194,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Text Alternatives
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Text Alternatives
                                     </label>
                                     <ul>
                                         <li>
@@ -246,7 +246,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Meaningful Links
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Meaningful Links
                                     </label>
                                     <ul>
                                         <li>
@@ -278,7 +278,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> General Content Quality Assurance
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> General Content Quality Assurance
                                     </label>
                                     <ul>
                                         <li>
@@ -339,7 +339,9 @@
                             <legend>Custom Checks</legend>
                             <ul>
                                 <li>
-                                    General Quality Assurance
+                                    <label>
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> General Content Quality Assurance
+                                    </label>
                                     <ul>
                                         <li>
                                             <label>
@@ -396,9 +398,12 @@
     </main>
 
     <footer>
-        <nav aria-label="Footer">
-            0 free scans remaining. <a href="#">Upgrade</a>.
-        </nav>
+        <section>
+            0 free scans remaining. <a href="#">Upgrade</a>. 
+        </section>
+        <section>
+            Need help? Email <a href="support@equalify.app">support@equalify.app</a>.
+        </section>
     </footer>
 
 
