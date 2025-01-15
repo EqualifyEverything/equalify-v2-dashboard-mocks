@@ -31,8 +31,31 @@
                         <option>On Monitor Update</option>
                     </select>
                     <details>
+                        <summary>Pages</summary>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" aria-label="Select all Pages" onclick="toggleAllTableCheckboxes(this)"></th>
+                                    <th>Title</th>
+                                    <th>URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="row-checkbox"></td>
+                                    <td>Berkeley Library (Staging)</td>
+                                    <td><code>https://update.lib.berkeley.edu/</code></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="row-checkbox"></td>
+                                    <td>Berkeley Homepage (Staging)</td>
+                                    <td><code>https://www-stg.berkeley.edu</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                    <details>
                         <summary>Checks</summary>
-                        <button type="button" onclick="toggleAllChecks(this)">Toggle All Checks</button>
                         <fieldset>
                             <legend>axe-core Checks</legend>
                             <ul>
@@ -299,31 +322,6 @@
                             <a href="#">New Check</a>
                         </fieldset>
                     </details>
-                    <details>
-                        <summary>Pages</summary>
-                        <button type="button" onclick="toggleAllPages(this)">Toggle All Pages</button>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><input type="checkbox" aria-label="Select all Pages" onclick="toggleAllTableCheckboxes(this)"></th>
-                                    <th>Title</th>
-                                    <th>URL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox" class="row-checkbox"></td>
-                                    <td>Berkeley Library (Staging)</td>
-                                    <td><code>https://update.lib.berkeley.edu/</code></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="row-checkbox"></td>
-                                    <td>Berkeley Homepage (Staging)</td>
-                                    <td><code>https://www-stg.berkeley.edu</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </details>
                     <fieldset>
                         <legend>Notifications</legend>
                         <label>
@@ -333,18 +331,6 @@
                     <button type="button" onclick="window.location.href='12-audit_details-saved.html';">Save Audit</button>
 
                     <script>
-                        function toggleAllChecks(button) {
-                            const checkboxes = document.querySelectorAll('details > fieldset input[type="checkbox"]');
-                            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-                            checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
-                        }
-                        function toggleAllPages(button) {
-                            const checkboxes = document.querySelectorAll('details:nth-of-type(2) .row-checkbox'); 
-                            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-                            checkboxes.forEach(checkbox => {
-                                checkbox.checked = !allChecked;
-                            });
-                        }
                         function toggleSubItems(parentCheckbox) {
                             const parentListItem = parentCheckbox.closest('li');
                             const subCheckboxes = parentListItem.querySelectorAll('ul input[type="checkbox"]');

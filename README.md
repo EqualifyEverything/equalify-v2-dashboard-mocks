@@ -11,7 +11,7 @@ By default, the demo covers the use case of an accessibilty lead (Lucy) at a uni
 ## Steps
 Open [1-home.html](1-home.html) in your browser, then follow these steps:
 
-1. **Add "https://update.lib.berkeley.edu/, https://www-stg.berkeley.edu" and select "Default Audit" to the form and submit.**
+1. **Add "https://update.lib.berkeley.edu/, https://www-stg.berkeley.edu" and select "General Accessibility Audit" to the form and submit.**
 2. **Login as "lgreco@berkeley.edu" - password "pass".**
 3. **Ignore Item 2.** It's a false positive.
 4. **Hide ignored items in view options** to unclutter list.

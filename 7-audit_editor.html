@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Default Audit - Audit Editor - Equalify</title>
+    <title>Untitled Audit - Audit Editor - Equalify</title>
 </head>
 <body>
     <header>
@@ -11,24 +11,49 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Account</a></li>
-            </ul>        </nav>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <h1>Default Audit</h1>
+        <h1>General Accessibility Audit</h1>
         <section>
             <h2>Edit Audit</h2>
             <form>
                     <label for="audit_name">Audit Name:</label>
-                    <input id="audit_name" type="text" value="Default Audit">
+                    <input id="audit_name" type="text" value="General Accessibility Audit">
                     <label for="frequency">Frequency:</label>
                     <select>
-                        <option>Manually</option>
+                        <option checked>Manually</option>
                         <option>Daily</option>
                         <option>Weekly</option>
                         <option>Monthly</option>
                         <option>On Monitor Update</option>
                     </select>
+                    <details>
+                        <summary>Pages</summary>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" aria-label="Select all Pages" onclick="toggleAllTableCheckboxes(this)"></th>
+                                    <th>Title</th>
+                                    <th>URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="row-checkbox" checked></td>
+                                    <td>Berkeley Library (Staging)</td>
+                                    <td><code>https://update.lib.berkeley.edu/</code></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="row-checkbox" checked></td>
+                                    <td>Berkeley Homepage (Staging)</td>
+                                    <td><code>https://www-stg.berkeley.edu</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
                     <details>
                         <summary>Checks</summary>
                         <fieldset>
@@ -36,7 +61,7 @@
                             <ul>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> ARIA-Related
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> ARIA-Related
                                     </label>
                                     <ul>
                                         <li>
@@ -53,7 +78,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Page Content
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Page Content
                                     </label>
                                     <ul>
                                         <li>
@@ -85,7 +110,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Meta Checks
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Meta Checks
                                     </label>
                                     <ul>
                                         <li>
@@ -107,7 +132,7 @@
                             <ul>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Headings
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Headings
                                     </label>
                                     <ul>
                                         <li>
@@ -139,7 +164,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Text Alternatives
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Text Alternatives
                                     </label>
                                     <ul>
                                         <li>
@@ -191,7 +216,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> Meaningful Links
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> Meaningful Links
                                     </label>
                                     <ul>
                                         <li>
@@ -223,7 +248,7 @@
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" onclick="toggleSubItems(this)" checked> General Content Quality Assurance
+                                        <input type="checkbox" onclick="toggleSubItems(this)"> General Content Quality Assurance
                                     </label>
                                     <ul>
                                         <li>
@@ -282,34 +307,28 @@
                         </fieldset>
                         <fieldset>
                             <legend>Custom Checks</legend>
-                            <a href="8-check_editor.html">New Check</a>
+                            <ul>
+                                <li>
+                                    General Quality Assurance
+                                    <ul>
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" checked> <a href="#">focus-state</a>
+                                            </label>         
+                                        </li>        
+                                    </ul>
+                                </li>
+                            </ul>
+                            <a href="#">New Check</a>
                         </fieldset>
                     </details>
-                    <details>
-                        <summary>Pages</summary>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><input type="checkbox" aria-label="Select all Pages" onclick="toggleAllTableCheckboxes(this)"></th>
-                                    <th>Title</th>
-                                    <th>URL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox" class="row-checkbox" checked></td>
-                                    <td>Berkeley Library (Staging)</td>
-                                    <td><code>https://update.lib.berkeley.edu/</code></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="row-checkbox" checked></td>
-                                    <td>Berkeley Homepage (Staging)</td>
-                                    <td><code>https://www-stg.berkeley.edu</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </details>
-                    <button>Save Audit</button>
+                    <fieldset>
+                        <legend>Notifications</legend>
+                        <label>
+                            <input type="checkbox" checked> <a href="#">Email summary when audit is run.</a>
+                        </label> 
+                    </fieldset>
+                    <button type="button" onclick="window.location.href='12-audit_details-saved.html';">Save Audit</button>
 
                     <script>
                         function toggleSubItems(parentCheckbox) {
@@ -320,16 +339,15 @@
                                 checkbox.checked = parentCheckbox.checked;
                             });
                         }
-
                         function toggleAllTableCheckboxes(source) {
                             const checkboxes = document.querySelectorAll('.row-checkbox');
                             checkboxes.forEach(checkbox => checkbox.checked = source.checked);
                             toggleEditOptions();
                         }
                     </script>
-
+                    
                 </form>    
-            <button>Delete Audit</button>
+            <button disabled>Delete Audit</button>
         </section>
     </main>
 
@@ -338,7 +356,6 @@
             0 free scans remaining. <a href="#">Upgrade</a>.
         </nav>
     </footer>
-
 
 </body>
 </html>
