@@ -53,6 +53,49 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <form>
+                            <fieldset>
+                                <legend>Add Pages</legend>
+                                <label for="importer">Import By:</label>
+                                <select id="importer">
+                                    <option selected>Page URL(s)</option>
+                                    <option>Sitemap</option>
+                                    <option>CSV</option>
+                                </select>
+                                <div id="page-url-section">
+                                    <label for="urls">Page URL(s):</label>
+                                    <input id="urls" type="text" required>
+                                </div>
+                                <div id="sitemap-section" style="display:none;">
+                                    <label for="sitemap-url">Sitemap URL:</label>
+                                    <input id="sitemap-url" type="url">
+                                </div>
+                                <div id="csv-section" style="display:none;">
+                                    <label for="csv-upload">CSV Upload:</label>
+                                    <input id="csv-upload" type="file" accept=".csv">
+                                </div>
+                            </fieldset>
+                            <button>Add Page(s)</button>
+                        </form>
+                        <script>
+                            document.getElementById("importer").addEventListener("change", function() {
+                                var selectedOption = this.value;
+                                
+                                // Hide all sections
+                                document.getElementById("page-url-section").style.display = "none";
+                                document.getElementById("sitemap-section").style.display = "none";
+                                document.getElementById("csv-section").style.display = "none";
+                                
+                                // Show the appropriate section based on selection
+                                if (selectedOption === "Page URL(s)") {
+                                    document.getElementById("page-url-section").style.display = "block";
+                                } else if (selectedOption === "Sitemap") {
+                                    document.getElementById("sitemap-section").style.display = "block";
+                                } else if (selectedOption === "CSV") {
+                                    document.getElementById("csv-section").style.display = "block";
+                                }
+                            });
+                        </script>            
                     </details>
                     <details>
                         <summary>Checks</summary>
