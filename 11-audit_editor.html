@@ -11,7 +11,8 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Account</a></li>
-            </ul>        </nav>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -31,6 +32,7 @@
                     </select>
                     <details>
                         <summary>Checks</summary>
+                        <button type="button" onclick="toggleAllChecks(this)">Toggle All Checks</button>
                         <fieldset>
                             <legend>axe-core Checks</legend>
                             <ul>
@@ -299,6 +301,7 @@
                     </details>
                     <details>
                         <summary>Pages</summary>
+                        <button type="button" onclick="toggleAllPages(this)">Toggle All Pages</button>
                         <table>
                             <thead>
                                 <tr>
@@ -330,6 +333,18 @@
                     <button type="button" onclick="window.location.href='12-audit_details-saved.html';">Save Audit</button>
 
                     <script>
+                        function toggleAllChecks(button) {
+                            const checkboxes = document.querySelectorAll('details > fieldset input[type="checkbox"]');
+                            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                            checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
+                        }
+                        function toggleAllPages(button) {
+                            const checkboxes = document.querySelectorAll('details:nth-of-type(2) .row-checkbox'); 
+                            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                            checkboxes.forEach(checkbox => {
+                                checkbox.checked = !allChecked;
+                            });
+                        }
                         function toggleSubItems(parentCheckbox) {
                             const parentListItem = parentCheckbox.closest('li');
                             const subCheckboxes = parentListItem.querySelectorAll('ul input[type="checkbox"]');
