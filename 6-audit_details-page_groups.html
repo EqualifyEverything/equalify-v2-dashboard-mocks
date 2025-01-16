@@ -248,7 +248,7 @@
                         <div style="margin-top: 15px;">
                             <button type="button"  id="copyButton">Copy Ticket</button>
                             <button type="button">Save to Jira</button>
-                            <button type="button" onclick="document.getElementById('generate-ticket-dialog').removeAttribute('open');">Close</button>
+                            <button type="button" onclick="document.getElementById('generate-ticket-dialog').close();">Close</button>
                             <script>
                                 document.getElementById('copyButton').addEventListener('click', function() {
                                   // Replace the content of the div with the message
