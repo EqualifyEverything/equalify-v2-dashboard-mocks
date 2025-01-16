@@ -1,0 +1,319 @@
+<!-- 
+Demo Step 11: 
+Ignore Item 4232.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11:11 Philosophers Group - Page Details - Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Issues</a></li>
+                <li><a href="#">Audits</a></li>
+                <li><a href="#">Logs</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Logs</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>11:11 Philosophers Group - Page Details</h1>
+        <div aria-live="polite">Items now grouped by issue.</div>
+        <nav aria-label="actions">
+            <h2>Actions</h2>
+            <ul>
+                <li>
+                    <button id="page-settings-button">Page Settings</button>
+                    <dialog id="page-settings-dialog">
+                        <h3>Page Settings</h3>
+                        <form>
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" value="11:11 Philosophers Group" required />
+                            <fieldset>
+                                <legend>Select Audit(s)</legend>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" checked> <a href="#">General Accessibility Audit</a>
+                                        </label> 
+                                    </li>
+                                    <li>
+                                        <a href="#">Edit Audit</a>
+                                    </li>
+                                </ul>   
+                            </fieldset>
+                            <button type="submit">Save Page</button>
+                            <button type="button" id="cancel-save-page">Cancel</button>
+                        </form>
+                        <button type="submit">Delete Page</button>
+                    </dialog>
+                    <script>
+                        const saveScanButton = document.getElementById('page-settings-button');
+                        const saveScanDialog = document.getElementById('page-settings-dialog');
+                        const cancelSaveScan = document.getElementById('cancel-save-page');
+                    
+                        saveScanButton.addEventListener('click', () => {
+                            saveScanDialog.showModal();
+                        });
+                    
+                        cancelSaveScan.addEventListener('click', () => {
+                            saveScanDialog.close();
+                        });
+                    </script>
+                </li>
+                <li><button>Run Audit(s)</button></li>
+            </ul>        </nav>
+
+        <article>
+            <h2>Page Progress</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Equalified %</th>
+                        <th scope="col">Active %</th>
+                        <th scope="col">Ignored %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12-1-24 11:12:23</td>
+                        <td>0%</td>
+                        <td>100%</td>
+                        <td>0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article>
+            <h2>Items</h2>
+            <section>
+                <h3>View Options</h3>
+                <form>
+                    <fieldset>
+                        <legend>Status Filters</legend>
+                        <label>
+                            <input type="checkbox" checked> Active Items
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> Ignored Items
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> Equalified Items
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Issue Filters</legend>
+                        <label>
+                            <input type="checkbox" checked> Heading tag without any text
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> Manual check: should this be a heading?
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Tag Filters</legend>
+                        <label>
+                            <input type="checkbox" checked> WCAG 2.2 A
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> WCAG 2.2 AA
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> WCAG 2.2 AAA
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> Heading Elements
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Sort By</legend>
+                        <label>
+                            <input type="radio" name="sort" checked> Item Name (A to Z)
+                        </label>
+                        <label>
+                            <input type="radio" name="sort"> Item Name (Z to A)
+                        </label>
+                        <label>
+                            <input type="radio" name="sort"> URL (A to Z)
+                        </label>
+                        <label>
+                            <input type="radio" name="sort"> URL (Z to A)
+                        </label>
+                        <label>
+                            <input type="radio" name="sort"> Date Updated (Newest to Oldest)
+                        </label>
+                        <label>
+                            <input type="radio" name="sort"> Date Updated (Oldest to Newest)
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Group By</legend>
+                        <label>
+                            <input type="radio" name="group"> None 
+                        </label>
+                        <label>
+                            <input type="radio" name="group" checked> Issue
+                        </label>
+                        <label>
+                            <input type="radio" name="group"> Tag
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Search</legend>
+                        <label for="search"> Enter Keyword:</label>
+                        <input type="text" id="search">
+                    </fieldset>
+                    <button>Save View Options</button>
+                </form>
+            </section>
+        
+            <section>
+                <h3>Edit Options</h3>
+                <button onclick="window.location.href='12-page_details-ignored_item.html';">Ignore</button>
+                <button>Unignore</button>
+                <button>AI Analyze</button>
+            </section>
+
+            <section>
+                <h3>Items - Grouped by Issue</h3>
+        
+                <details>        
+                    <summary><a href="">Heading tag without any text</a> (2 Items) - Tags: <a href="#">WCAG 2.2 A</a>, <a href="#">WCAG 2.2 AA</a>, <a href="#">WCAG 2.2 AAA</a>, <a href="#">Heading Elements</a></summary>
+                    <table aria-label="Items with the label Heading tag without any text">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
+                                </th>
+                                <th>Item</th>
+                                <th>Screenshot</th>
+                                <th>Status</th>
+                                <th>Added</th>
+                                <th>Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                                <td><a href="#">Item 4232</a></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 4232"></td>
+                                <td>Active</td>
+                                <td>12-1-2024</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                                <td><a href="#">Item 4231</a></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 4231"></td>
+                                <td>Active</td>
+                                <td><a href="#">WCAG 2.2 A</a>, <a href="#">WCAG 2.2 AA</a>, <a href="#">WCAG 2.2 AAA</a>, <a href="#">Heading Elements</a></td>
+                                <td>12-1-2024</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Heading tag without any text Table">
+                        Showing 2 of 2 Items <button disabled>Load More Items With Issue</button>
+                    </nav> 
+                </details>
+        
+                <details>
+                    <summary><a href="">Manual check: should this be a heading?</a> (1 Item) - Tags: <a href="#">WCAG 2.2 A</a>, <a href="#">WCAG 2.2 AA</a>, <a href="#">WCAG 2.2 AAA</a>, <a href="#">Heading Elements</a></summary>
+                    <table aria-label="Items with the label Manual check: should this be a heading?">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
+                                </th>
+                                <th>Item</th>
+                                <th>Screenshot</th>
+                                <th>Status</th>
+                                <th>Added</th>
+                                <th>Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox" onchange="toggleEditOptions()"></td>
+                                <td><a href="#">Item 4231</a></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 4231"></td>
+                                <td>Active</td>
+                                <td>12-1-2024</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Manual check: should this be a heading? Table">
+                        Showing 1 of 1 Items <button disabled>Load More Items With Issue</button>
+                    </nav> 
+                </details>
+                <script>
+                    function toggleAllTableCheckboxes(source) {
+                        const checkboxes = document.querySelectorAll('.row-checkbox');
+                        checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                        toggleEditOptions();
+                    }
+                    
+                    function toggleEditOptions() {
+                        const checkboxes = document.querySelectorAll('.row-checkbox');
+                        const editOptions = document.getElementById('edit-options');
+                        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                        editOptions.style.display = anyChecked ? 'block' : 'none';
+                    }
+                </script>
+            </section>  
+        </article>
+        
+        <article>
+            <h2>Related Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Summary</th>
+                        <th>Trigger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">19</a></td>
+                        <td>Four items updated with issues.</td>
+                        <td><a href="#">General Accessibility Audit</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">18</a></td>
+                        <td>Two pages added.</td>
+                        <td><a href="#">General Accessibility Audit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Logs Table">
+                Showing 2 of 2 Logs <button disabled>Load More Logs</button>
+            </nav>
+        </article>
+
+    </main>
+
+    <footer>
+        <section>
+            0 free scans remaining. <a href="#">Upgrade</a>. 
+        </section>
+        <section>
+            Need help? Email <a href="support@equalify.app">support@equalify.app</a>.
+        </section>
+    </footer>
+
+
+</body>
+</html>

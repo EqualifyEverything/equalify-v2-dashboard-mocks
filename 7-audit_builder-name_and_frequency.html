@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equalify</title>
+</head>
+<body>
+    <main>
+        <h1>Audit Builder - Step 3</h1>
+        <nav aria-label="Audit Builder Progress">
+            Progress:
+            <ul>
+                <li><a href="#">Step 1</a></li>
+                <li><a href="#">Step 2</a></li>
+                <li><a href="#" aria-current="page">Step 3</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>Additional Details</h2>
+            <form>
+                <label for="audit_name">Audit Name:</label>
+                <input id="audit_name" required>
+                <label for="frequency">Frequency:</label>
+                <select required>
+                    <option checked>Manually</option>
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Monthly</option>
+                    <option>On Monitor Update</option>
+                </select>
+                <fieldset>
+                    <legend>Notifications</legend>
+                    <label>
+                        <input type="checkbox"> <a href="#">Email summary when audit is run.</a>
+                    </label> 
+                </fieldset>
+                <button type="button" onclick="window.location.href='8-audit_details-ran.html';">Save & Run Audit</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

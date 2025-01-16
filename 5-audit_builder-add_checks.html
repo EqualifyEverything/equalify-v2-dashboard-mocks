@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equalify</title>
+</head>
+<body>
+    <main>
+        <h1>Audit Builder - Step 2</h1>
+        <nav aria-label="Audit Builder Progress">
+            Progress:
+            <ul>
+                <li><a href="#">Step 1</a></li>
+                <li><a href="#" aria-current="page">Step 2</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>Select Checks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" aria-label="Select All Checks" onclick="toggleAllTableCheckboxes(this)"></th>
+                        <th>Check Name</th>
+                        <th>Ruleset</th>
+                        <th>Tags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- axe-core Checks -->
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">aria-prohibited-attr</a></td>
+                        <td>axe-core</td>
+                        <td>ARIA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">aria-required-children</a></td>
+                        <td>axe-core</td>
+                        <td>ARIA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">page-has-heading-one</a></td>
+                        <td>axe-core</td>
+                        <td>Content, Headings, WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">page-has-main</a></td>
+                        <td>axe-core</td>
+                        <td>Content</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">color-contrast</a></td>
+                        <td>axe-core</td>
+                        <td>Content, Color</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">no-autoplay-audio</a></td>
+                        <td>axe-core</td>
+                        <td>Content, Media</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">viewport-font-resize</a></td>
+                        <td>axe-core</td>
+                        <td>Content, Typeography, WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">Meta Checks</a></td>
+                        <td>axe-core</td>
+                        <td>Meta</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">meta-refresh</a></td>
+                        <td>axe-core</td>
+                        <td>Meta</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">meta-viewport</a></td>
+                        <td>axe-core</td>
+                        <td>Meta</td>
+                    </tr>
+            
+                    <!-- Editora11y Checks -->
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">skipped-heading-levels</td>
+                        <td>Editora11y</td>
+                        <td>Structure, Headings, , WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">empty-headings</td>
+                        <td>Editora11y</td>
+                        <td>Structure, Headings, WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">very-long-headings</td>
+                        <td>Editora11y</td>
+                        <td>Structure, Headings, WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">suspiciously-short-blockquotes</td>
+                        <td>Editora11y</td>
+                        <td>Structure</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">all-bold-paragraphs</td>
+                        <td>Editora11y</td>
+                        <td>Structure, WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">Text Alternatives</td>
+                        <td>Editora11y</td>
+                        <td>Images</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">images-without-alt</td>
+                        <td>Editora11y</td>
+                        <td>Images, WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">empty-alt-elements</td>
+                        <td>Editora11y</td>
+                        <td>Images, WCAG 2.2 AA</td>
+                    </tr>
+                    <tr>
+                        <td><input  type="checkbox" class="row-checkbox"></td>
+                        <td><a href="#">Unique Link and Button Text</td>
+                        <td>Equalify</td>
+                        <td>Links, Benefits Screen Readers</td>
+                    </tr>
+                </tbody>
+            </table>
+            <script>
+                function toggleAllTableCheckboxes(source) {
+                    const checkboxes = document.querySelectorAll('.row-checkbox');
+                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                    toggleEditOptions();
+                }
+            </script>
+            <nav aria-label="Select Checks">
+                <button onclick="window.location.href='6-audit_builder-checks_added.html';">Add Checks</button>
+            </nav>
+        </section>
+        <section>
+            <h2>Added Checks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" aria-label="Select All Checks" onclick="toggleAllTableCheckboxes(this)"></th>
+                        <th>Check Name</th>
+                        <th>Ruleset</th>
+                        <th>Tags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No checks added.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav aria-label="Added Checks">
+                <button disabled>Remove Check</button>
+            </nav>
+        </section>
+        <button disabled>Next Step</button>
+    </main>
+</body>
+</html>

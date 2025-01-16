@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Review - Audit Details - Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#">Audits</a></li>
+                <li><a href="16-account.html">Account</a></li>
+            </ul>        </nav>
+    </header>
+
+    <main>
+        <h1>OCR Review</h1>
+        <div aria-live="polite">Filtered to tag and hiding ignored issues.</div>
+        <article>
+            <h2>Overview</h2>
+            <p>40 checks on 2 pages. Manually triggered.</p>
+        </article>
+        <article>
+            <h2>Actions</h2>
+            <nav aria-label="Audit Actions">
+                <button>Run Audit</button>
+                <a href="#">Edit Audit</a>    
+            </nav>
+        </article>
+        <article>
+            <h2>Progress</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Audit Date</th>
+                        <th>Equalified</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12-1-24</td>
+                        <td>0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <article>
+            <h2>Replated Items</h2>
+            <section>
+                <h3>View Options</h3>
+                <form>
+                    <fieldset>
+                        <legend>Search</legend>
+                        <label for="search_source">Search In:</label>
+                        <select id="search_source">
+                            <option>Page Title</option>
+                            <option>URL</option>
+                            <option>Tag</option>
+                            <option>Issue</option>
+                            <option>Item Code</option>
+                        </select>
+                        <label for="search">Keywords:</label>
+                        <input type="text" id="search">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Group Items By</legend>
+                        <label>
+                            <input name="group" type="radio" checked> Issue
+                        </label>
+                        <label>
+                            <input name="group" type="radio"> Page
+                        </label>
+                        <label>
+                            <input name="group" type="radio"> Check
+                        </label>
+                        <label>
+                            <input name="group" type="radio"> None 
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Include Issues with Tag</legend>
+                        <label>
+                            <input name="tag" type="checkbox" > WCAG 2.2 A
+                        </label>
+                        <label>
+                            <input name="tag" type="checkbox" checked> WCAG 2.2 AA
+                        </label>
+                        <label>
+                            <input name="tag" type="checkbox" > WCAG 2.2 AAA
+                        </label>
+                        <label>
+                            <input name="tag" type="checkbox" > Heading Elements
+                        </label>
+                        <label>
+                            <input name="tag" type="checkbox"> Focus State
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Include Items with Status</legend>
+                        <label>
+                            <input type="checkbox" checked> Active
+                        </label>
+                        <label>
+                            <input type="checkbox"> Ignored
+                        </label>
+                        <label>
+                            <input type="checkbox" checked> Equalified
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Sort</legend>
+                        <label>
+                            <input name="sort" type="radio" checked> Alphabetically (A to Z)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Alphabetically (Z to A)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Active Items (Most to Least)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Active Items (Least to Most)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Audited (Latest to Oldest)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Audited (Oldest to Latest)
+                        </label>
+                    </fieldset>
+                    <button>Save View Options</button>
+                </form>
+            </section>
+            <section>
+                <h3>Related Page Items - Grouped by Issue - With Tag WCAG 2.2 AA - Hiding Ignored Items</h3>
+                <details>        
+                    <summary><a href="#">Focus State not displaying</a> (1 Active Item) - Tags: WCAG 2.2 A, WCAG 2.2 AA, WCAG 2.2 AAA, Focus State</summary>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
+                                </th>
+                                <th>ID</th>
+                                <th>Code</th>
+                                <th>Screenshot</th>
+                                <th>Page Title</th>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Check</th>
+                                <th>Audit Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>4</td>
+                                <td><code>&lt;a href="#" class="nav"&gt;Home&lt;/a&gt;</code></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 3"></td>
+                                <td>Berkeley Library (Staging)</td>
+                                <td><code>https://update.lib.berkeley.edu/</code></td>
+                                <td>Active</td>
+                                <td>empty-headings</td>
+                                <td>12-1-2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Heading tag without any text Table">
+                        Showing 1 of 1 Items <button disabled>Load More Items With Issue</button>
+                    </nav> 
+                </details>
+                <details>        
+                    <summary><a href="#">Heading tag without any text</a> (2 Active Items) - Tags: WCAG 2.2 A, WCAG 2.2 AA, WCAG 2.2 AAA, Heading Elements</summary>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
+                                </th>
+                                <th>ID</th>
+                                <th>Code</th>
+                                <th>Screenshot</th>
+                                <th>Page Title</th>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Check</th>
+                                <th>Last Audit</th>
+                                <th>Audit Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>3</td>
+                                <td><code>&lt;h1 class="weird_heading"&gt;&lt;/h1&gt;</code></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 3"></td>
+                                <td>Berkeley Library (Staging)</td>
+                                <td><code>https://update.lib.berkeley.edu/</code></td>
+                                <td>Active</td>
+                                <td>empty-headings</td>
+                                <td>General Accessibility Audit</td>
+                                <td>12-1-2024</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>1</td>
+                                <td><code>&lt;h2&gt;&lt;!-- Heading should not be empty --&gt;&lt;/h2&gt;</code></td>
+                                <td><img src="image.jpg" alt="Screenshot of Item 1"></td>
+                                <td>Berkeley Homepage (Staging)</td>
+                                <td><code>https://www-stg.berkeley.edu</code></td>
+                                <td>Active</td>
+                                <td>empty-headings</td>
+                                <td>General Accessibility Audit</td>
+                                <td>12-1-2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Heading tag without any text Table">
+                        Showing 2 of 2 Items <button disabled>Load More Items With Issue</button>
+                    </nav> 
+                </details>   
+                <script>
+                    function toggleAllTableCheckboxes(source) {
+                        const table = source.closest('table');
+                        const checkboxes = table.querySelectorAll('.row-checkbox');
+                        checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                        toggleEditOptions();
+                    }
+                </script>
+            </section>  
+            <section>
+                <h3>Edit Page Items</h3>
+                <button>Ignore Item(s)</button>
+                <button>Generate Ticket</button>
+            </section>    
+        </article>
+
+        <article>
+            <h2>Related Logs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Summary</th>
+                        <th>Trigger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">Log 6</a></td>
+                        <td>Issues found on four pages items.</td>
+                        <td>OCR Review</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Log 5</a></td>
+                        <td>OCR Review Audit created.</td>
+                        <td>User: Lucy</td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav aria-label="Logs">
+                Showing 2 of 2 Logs <button disabled>Load More Logs</button>
+            </nav>
+        </article>
+    </main>
+
+    <footer>
+        <section>
+            9,997 scans remaining.
+        </section>
+        <section>
+            Need help? Email <a href="support@equalify.app">support@equalify.app</a>.
+        </section>
+    </footer>
+
+
+</body>
+</html>
