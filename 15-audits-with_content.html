@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audits - Equalify</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="#" aria-current="page">Audits</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Logs</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Audits</h1>
+        <nav aria-label="Audits Page">
+            <a href="#">New Audit</a>
+        </nav>
+        <article>
+            <h2>All Audits</h2>
+            <section>
+                <h3>View Options</h3>
+                <form>
+                    <fieldset>
+                        <legend>Search</legend>
+                        <label for="search">Audit Name:</label>
+                        <input type="text" id="search">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Sort</legend>
+                        <label>
+                            <input name="sort" type="radio"> Audit Name (A to Z)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Audit Name (Z to A)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Progress (Best to Worst)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Progress (Worst to Best)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio"> Created (Latest to Oldest)
+                        </label>
+                        <label>
+                            <input name="sort" type="radio" checked> Created (Oldest to Latest)
+                        </label>
+                    </fieldset>
+                    <button>Save View Options</button>
+                </form>
+            </section>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Pages</th>
+                        <th>Checks</th>
+                        <th>Progress</th>
+                        <th>Created</th>
+                        <th>Last Run</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">Lucy's Audit</a></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>0% Equalified</td>
+                        <td>12-1-24 at 02:19:34</td>
+                        <td>12-1-24 at 02:20:21</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </main>
+
+    <footer>
+        <section>
+            0 free scans remaining. <a href="#">Upgrade</a>. 
+        </section>
+        <section>
+            Need help? Email <a href="#">support@equalify.app</a>.
+        </section>
+    </footer>
+</body>
+</html>
