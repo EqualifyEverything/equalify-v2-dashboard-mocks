@@ -11,7 +11,7 @@ By default, the demo covers the use case of an accessibilty lead (Lucy) at a uni
 ## Steps
 Open [1-audits-no_content.html](1-audits-no_content.html) in your browser, then follow these steps:
 
-1. Select Build Audit.
+1. Select "Build Audit".
 2. Sign in as "lgreco@berkeley.edu," password "pass".
 3. Add pages: "https://update.lib.berkeley.edu/, https://www-stg.berkeley.edu"
 4. Click next step.
