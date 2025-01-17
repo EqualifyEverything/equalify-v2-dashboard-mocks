@@ -59,6 +59,34 @@
                 });
             </script>    
         </section>
+        <section>
+            <h2>Added Pages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" aria-label="Select all pages" onclick="toggleAllTableCheckboxes(this)"></th>
+                        <th>Page Name</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No pages added.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <script>
+                function toggleAllTableCheckboxes(source) {
+                    const table = source.closest('table');
+                    const checkboxes = table.querySelectorAll('.row-checkbox');
+                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                    toggleEditOptions();
+                }
+            </script>
+            <nav aria-label="Edit Added Pages">
+                <button>Remove Page(s)</button>
+            </nav>
+        </section>
         <button disabled>Next Step</button>
     </main>
 </body>

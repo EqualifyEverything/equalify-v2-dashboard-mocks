@@ -21,9 +21,9 @@ Open [1-audits-no_content.html](1-audits-no_content.html) in your browser, then 
 8. Select and ignore the item with the ID of "2"
 9. Select the remaining checks and generate a ticket.
 10. Copy the ticket, then click the "Pages" from the main nav.
-11. Select the page with ID 2.
+11. Click page "1" link.
 12. Visit "Logs"
-13. Select "Log 3".
+13. Click "Log 3" link.
 14. Visit "Audits".
 15. Run Lucy's Audit again.
 16. Upgrade to Enterprise account.
