@@ -29,7 +29,7 @@ Open [1-audits-no_content.html](1-audits-no_content.html) in your browser, then 
 16. Upgrade to Enterprise account.
 17. Visit Account.
 18. Add "cboyden@berkeley.edu" to team and save.
-19. Now view [19-emailed_summary.html](18-emailed_summary.html) to see what Lucy receives in email when her OCR audit is run.
+19. Now view [20-emailed_summary.html](20-emailed_summary.html) to see what Lucy receives in email when her OCR audit is run.
 
 Demo is done.
 
