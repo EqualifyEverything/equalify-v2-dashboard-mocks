@@ -65,19 +65,16 @@
                 <thead>
                     <tr>
                         <th><input type="checkbox" aria-label="Select all pages" onclick="toggleAllTableCheckboxes(this)"></th>
-                        <th>Page Name</th>
                         <th>URL</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><input type="checkbox" class="row-checkbox"></td>
-                        <td>Berkeley Libary (Staging)</td>
                         <td>https://update.lib.berkeley.edu/</td>
                     </tr>
                     <tr>
                         <td><input type="checkbox" class="row-checkbox"></td>
-                        <td>Berkeley Mainsite (Staging)</td>
                         <td>https://www-stg.berkeley.edu</td>
                     </tr>
                 </tbody>
@@ -92,6 +89,9 @@
             </script>
             <nav aria-label="Edit Added Pages">
                 <button>Remove Page(s)</button>
+            </nav>
+            <nav aria-label="Added Pages Table">
+                Showing 2 of 2 Pages <button disabled>Load More Pages</button>
             </nav>
         </section>
         <button onclick="window.location.href='5-audit_builder-add_checks.html';">Next Step</button>
