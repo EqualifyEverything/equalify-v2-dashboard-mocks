@@ -21,8 +21,8 @@
                 <h3>General Info</h3>
                 <label for="audit_name">Audit Name:</label>
                 <input id="audit_name" required>
-                <label for="frequency">Frequency:</label>
-                <select required>
+                <label for="scan_frequency">Scan Frequency:</label>
+                <select id="scan_frequency" required>
                     <option checked>Manually</option>
                     <option>Daily</option>
                     <option>Weekly</option>
@@ -32,8 +32,14 @@
                 <fieldset>
                     <legend>Email Notifications</legend>
                     <label>
-                        <input type="checkbox"> Email me (Lucy Greco) summary of results when audit runs.
+                        <input type="checkbox"> Email summary to Lucy Greco, lgreco@berkeley.edu.
                     </label>
+                    <label for="email_frequency">Email Frequency:</label>
+                    <select id="email_frequency">
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                    </select>
                 </fieldset>
                 <button type="button" onclick="window.location.href='8-audit_details-ran.html';">Save & Run Audit</button>
             </form>
