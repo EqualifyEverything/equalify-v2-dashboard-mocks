@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 const Logs = () => {
-    return <h1>Logs</h1>;
-  };
-  
-  export default Logs;
+  useEffect(() => {
+    document.title = "Logs - Equalify";
+  }, []);
+
+  return <h1>Logs</h1>;
+};
+
+export default Logs;

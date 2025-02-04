@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 const AuditDetails = () => {
-    return <h1>Audit Details</h1>;
-  };
-  
-  export default AuditDetails;
+  useEffect(() => {
+    document.title = "Audit Details - Equalify";
+  }, []);
+
+  return <h1>Audit Details</h1>;
+};
+
+export default AuditDetails;

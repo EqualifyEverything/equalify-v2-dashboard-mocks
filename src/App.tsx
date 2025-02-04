@@ -9,25 +9,27 @@ import Logs from "./views/Logs";
 import LogDetails from "./views/LogDetails";
 import Upsell from "./views/Upsell";
 import Account from "./views/Account";
-import Navigation from "./components/Navigation";
+import Header from "./components/Header";
 
 const App = () => {
   return (
     <>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Audits />} />
-        <Route path="/audits" element={<Audits />} />
-        <Route path="/authentication" element={<Authentication />} />
-        <Route path="/audit-builder" element={<AuditBuilder />} />
-        <Route path="/audit-details" element={<AuditDetails />} />
-        <Route path="/pages" element={<Pages />} />
-        <Route path="/page-details" element={<PageDetails />} />
-        <Route path="/logs" element={<Logs />} />
-        <Route path="/log-details" element={<LogDetails />} />
-        <Route path="/upsell" element={<Upsell />} />
-        <Route path="/account" element={<Account />} />
-      </Routes>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Audits />} />
+          <Route path="/audits" element={<Audits />} />
+          <Route path="/authentication" element={<Authentication />} />
+          <Route path="/audit-builder" element={<AuditBuilder />} />
+          <Route path="/audit-details" element={<AuditDetails />} />
+          <Route path="/pages" element={<Pages />} />
+          <Route path="/page-details" element={<PageDetails />} />
+          <Route path="/logs" element={<Logs />} />
+          <Route path="/log-details" element={<LogDetails />} />
+          <Route path="/upsell" element={<Upsell />} />
+          <Route path="/account" element={<Account />} />
+        </Routes>
+      </main>
     </>
   );
 };

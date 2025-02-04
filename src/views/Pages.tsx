@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 const Pages = () => {
-    return <h1>Pages</h1>;
-  };
-  
-  export default Pages;
+  useEffect(() => {
+    document.title = "Pages - Equalify";
+  }, []);
+
+  return <h1>Pages</h1>;
+};
+
+export default Pages;

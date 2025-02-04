@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 const Account = () => {
-    return <h1>Account Page</h1>;
-  };
-  
-  export default Account;
+  useEffect(() => {
+    document.title = "Account - Equalify";
+  }, []);
+
+  return <h1>Account</h1>;
+};
+
+export default Account;

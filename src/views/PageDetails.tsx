@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 const PageDetails = () => {
-    return <h1>Page Details</h1>;
-  };
-  
-  export default PageDetails;
+  useEffect(() => {
+    document.title = "Page Details - Equalify";
+  }, []);
+
+  return <h1>Page Details</h1>;
+};
+
+export default PageDetails;
