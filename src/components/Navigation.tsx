@@ -7,7 +7,7 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav >
+    <nav aria-label="Main">
       <ul>
         <li>
           <Link to="/audits" aria-current={isActive("/audits") ? "page" : undefined}>
