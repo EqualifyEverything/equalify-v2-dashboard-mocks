@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import * as Toast from "@radix-ui/react-toast"; // Import Radix Toast
 import auditsData from "../data/audits.json";
 
 const Audits = () => {
   const [audits, setAudits] = useState(auditsData.audits || []);
   const [viewOptions, setViewOptions] = useState({ ...auditsData.viewOptions });
   const [pendingViewOptions, setPendingViewOptions] = useState({ ...auditsData.viewOptions });
+  const [toastOpen, setToastOpen] = useState(false); // Controls Toast Visibility
 
   useEffect(() => {
     document.title = "Audits - Equalify";
@@ -66,162 +68,124 @@ const Audits = () => {
   // Apply pending view options when "Save View Options" is clicked
   const handleSaveViewOptions = () => {
     setViewOptions(pendingViewOptions);
+    setToastOpen(true); // Show the notification
   };
 
   return (
     <div>
       <h1>Audits</h1>
-      {audits.length === 0 ? (
-        <section>
-          <h2>Get Started</h2>
-          <a href="/audit-builder">Build Audit</a>
-        </section>
-      ) : (
-        <>
-          <nav aria-label="Audits Page">
-            <a href="/audit-builder">New Audit</a>
-          </nav>
-          <article>
-            <h2>All Audits</h2>
-            <section>
-              <h3>View Options</h3>
-              <form>
-                <fieldset>
-                  <legend>Search</legend>
-                  <label htmlFor="search">Audit Name:</label>
-                  <input
-                    type="text"
-                    id="search"
-                    name="search"
-                    value={pendingViewOptions.search}
-                    onChange={handleInputChange}
-                  />
-                </fieldset>
+      
+      <Toast.Provider>
+        {audits.length === 0 ? (
+          <section>
+            <h2>Get Started</h2>
+            <a href="/audit-builder">Build Audit</a>
+          </section>
+        ) : (
+          <>
+            <nav aria-label="Audits Page">
+              <a href="/audit-builder">New Audit</a>
+            </nav>
+            <article>
+              <h2>All Audits</h2>
+              <section>
+                <h3>View Options</h3>
+                <form>
+                  <fieldset>
+                    <legend>Search</legend>
+                    <label htmlFor="search">Audit Name:</label>
+                    <input
+                      type="text"
+                      id="search"
+                      name="search"
+                      value={pendingViewOptions.search}
+                      onChange={handleInputChange}
+                    />
+                  </fieldset>
 
-                <fieldset>
-                  <legend>Sort</legend>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="auditNameAToZ"
-                      checked={pendingViewOptions.sort === "auditNameAToZ"}
-                      onChange={handleInputChange}
-                    />
-                    Audit Name (A to Z)
-                  </label>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="auditNameZToA"
-                      checked={pendingViewOptions.sort === "auditNameZToA"}
-                      onChange={handleInputChange}
-                    />
-                    Audit Name (Z to A)
-                  </label>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="progressBestToWorst"
-                      checked={pendingViewOptions.sort === "progressBestToWorst"}
-                      onChange={handleInputChange}
-                    />
-                    Progress (Best to Worst)
-                  </label>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="progressWorstToBest"
-                      checked={pendingViewOptions.sort === "progressWorstToBest"}
-                      onChange={handleInputChange}
-                    />
-                    Progress (Worst to Best)
-                  </label>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="createdLatestToOldest"
-                      checked={pendingViewOptions.sort === "createdLatestToOldest"}
-                      onChange={handleInputChange}
-                    />
-                    Created (Latest to Oldest)
-                  </label>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="createdOldestToLatest"
-                      checked={pendingViewOptions.sort === "createdOldestToLatest"}
-                      onChange={handleInputChange}
-                    />
-                    Created (Oldest to Latest)
-                  </label>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="lastRunLatestToOldest"
-                      checked={pendingViewOptions.sort === "lastRunLatestToOldest"}
-                      onChange={handleInputChange}
-                    />
-                    Last Run (Latest to Oldest)
-                  </label>
-                  <label>
-                    <input
-                      name="sort"
-                      type="radio"
-                      value="lastRunOldestToLatest"
-                      checked={pendingViewOptions.sort === "lastRunOldestToLatest"}
-                      onChange={handleInputChange}
-                    />
-                    Last Run (Oldest to Latest)
-                  </label>
-                </fieldset>
+                  <fieldset>
+                    <legend>Sort</legend>
+                    {[
+                      { value: "auditNameAToZ", label: "Audit Name (A to Z)" },
+                      { value: "auditNameZToA", label: "Audit Name (Z to A)" },
+                      { value: "progressBestToWorst", label: "Progress (Best to Worst)" },
+                      { value: "progressWorstToBest", label: "Progress (Worst to Best)" },
+                      { value: "createdLatestToOldest", label: "Created (Latest to Oldest)" },
+                      { value: "createdOldestToLatest", label: "Created (Oldest to Latest)" },
+                      { value: "lastRunLatestToOldest", label: "Last Run (Latest to Oldest)" },
+                      { value: "lastRunOldestToLatest", label: "Last Run (Oldest to Latest)" },
+                    ].map((option) => (
+                      <label key={option.value}>
+                        <input
+                          name="sort"
+                          type="radio"
+                          value={option.value}
+                          checked={pendingViewOptions.sort === option.value}
+                          onChange={handleInputChange}
+                        />
+                        {option.label}
+                      </label>
+                    ))}
+                  </fieldset>
 
-                <button type="button" onClick={handleSaveViewOptions}>
-                  Save View Options
-                </button>
-              </form>
-            </section>
+                  <button type="button" onClick={handleSaveViewOptions}>
+                    Save View Options
+                  </button>
+                </form>
+              </section>
 
-            <section>
-              <h3>Audits Table</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th><input type="checkbox" aria-label="Select all items" /></th>
-                    <th>Name</th>
-                    <th>Pages</th>
-                    <th>Checks</th>
-                    <th>Progress</th>
-                    <th>Status</th>
-                    <th>Created</th>
-                    <th>Last Run</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {getFilteredAudits().map((audit) => (
-                    <tr key={audit.id}>
-                      <td><input type="checkbox" className="row-checkbox" /></td>
-                      <td><a href="#">{audit.name}</a></td>
-                      <td>{audit.pages}</td>
-                      <td>{audit.checks}</td>
-                      <td>{audit.progress}</td>
-                      <td>{audit.status}</td>
-                      <td>{audit.created}</td>
-                      <td>{audit.lastRun}</td>
+              <section>
+                <h3>Audits Table</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th><input type="checkbox" aria-label="Select all items" /></th>
+                      <th>Name</th>
+                      <th>Pages</th>
+                      <th>Checks</th>
+                      <th>Progress</th>
+                      <th>Status</th>
+                      <th>Created</th>
+                      <th>Last Run</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </section>
-          </article>
-        </>
-      )}
+                  </thead>
+                  <tbody>
+                    {getFilteredAudits().map((audit) => (
+                      <tr key={audit.id}>
+                        <td><input type="checkbox" className="row-checkbox" /></td>
+                        <td><a href="#">{audit.name}</a></td>
+                        <td>{audit.pages}</td>
+                        <td>{audit.checks}</td>
+                        <td>{audit.progress}</td>
+                        <td>{audit.status}</td>
+                        <td>{audit.created}</td>
+                        <td>{audit.lastRun}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </section>
+            </article>
+          </>
+        )}
+
+        <Toast.Root
+          className="toast-root"
+          open={toastOpen}
+          onOpenChange={setToastOpen}
+          duration={3000} // 3 seconds
+        >
+          <Toast.Title className="toast-title">Success</Toast.Title>
+          <Toast.Description>View options were saved successfully!</Toast.Description>
+          <Toast.Action altText="Close">
+            <button className="toast-close" onClick={() => setToastOpen(false)}>
+              Close
+            </button>
+          </Toast.Action>
+        </Toast.Root>
+
+        <Toast.Viewport className="toast-viewport" />
+      </Toast.Provider>
     </div>
   );
 };
