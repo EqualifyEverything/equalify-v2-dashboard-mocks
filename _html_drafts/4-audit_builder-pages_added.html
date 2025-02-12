@@ -8,12 +8,13 @@
 <body>
     <main>
         <h1>Audit Builder - Step 1</h1>
-        <div aria-live="polite">2 pages added.</div>
-        <nav aria-label="Audit Builder Progress">
-            Progress:
-            <ul>
-                <li><a href="#" aria-current="page">Step 1</a></li>
-            </ul>
+        <div aria-live="assertive">2 pages added.</div>
+        <nav aria-label="Breadcrumb">
+            <ol>
+                <li><a href="#">Add and Review Pages</a></li>
+                <li><a href="#" aria-current="page">Add and Review Checks</a></li>
+                <li><a href="#">Set Audit Option</a></li>
+            </ol>
         </nav>
         <section>
             <h2>Add Pages</h2>
@@ -36,7 +37,7 @@
                     <label for="csv-upload">CSV Upload:</label>
                     <input id="csv-upload" type="file" accept=".csv">
                 </div>
-                <button>Add Page(s)</button>
+                <button>Add Pages</button>
             </form>
             
             <script>
@@ -60,36 +61,43 @@
             </script>    
         </section>
         <section>
-            <h2>Added Pages</h2>
-            <table>
+            <h2>Review Added Pages</h2>
+            <table id="added_pages">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" aria-label="Select all pages" onclick="toggleAllTableCheckboxes(this)"></th>
-                        <th>URL</th>
+                        <th role="columnheader">Page Name</th>
+                        <th role="columnheader">URL</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="checkbox" class="row-checkbox"></td>
-                        <td>https://update.lib.berkeley.edu/</td>
+                        <th role="rowheader"><input type="checkbox" id="checkbox-1"><label for="checkbox-1"> https://update.lib.berkeley.edu/</label></th>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" class="row-checkbox"></td>
-                        <td>https://www-stg.berkeley.edu</td>
+                        <th role="rowheader"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">  https://www-stg.berkeley.edu</label></th>
                     </tr>
                 </tbody>
             </table>
+            <nav aria-label="Edit Added Pages">
+                <ul>
+                    <li>
+                        <label>
+                            <input type="checkbox" onclick="toggleAllTableCheckboxes('added_pages', this)">
+                            Select All Pages
+                        </label>
+                    </li>
+                    <li><button>Remove Pages</button></li>
+                </ul>
+            </nav>
             <script>
-                function toggleAllTableCheckboxes(source) {
-                    const table = source.closest('table');
-                    const checkboxes = table.querySelectorAll('.row-checkbox');
+                function toggleAllTableCheckboxes(tableId, source) {
+                    const table = document.getElementById(tableId);
+                    if (!table) return;
+            
+                    const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
                     checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                    toggleEditOptions();
                 }
             </script>
-            <nav aria-label="Edit Added Pages">
-                <button>Remove Page(s)</button>
-            </nav>
             <nav aria-label="Added Pages Table">
                 Showing 2 of 2 Pages <button disabled>Load More Pages</button>
             </nav>

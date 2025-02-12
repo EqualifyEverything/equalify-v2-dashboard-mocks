@@ -8,24 +8,25 @@
 <body>
     <main>
         <h1>Audit Builder - Step 1</h1>
-        <div aria-live="polite">Logged in as Lucy Greco.</div>
-        <nav aria-label="Audit Builder Progress">
-            Progress:
-            <ul>
-                <li><a href="#" aria-current="page">Step 1</a></li>
-            </ul>
+        <div aria-live="assertive">Logged in as Lucy Greco.</div>
+        <nav aria-label="Breadcrumb">
+            <ol>
+                <li><a href="#" aria-current="page">Add and Review Pages</a></li>
+                <li><a href="#">Add and Review Checks</a></li>
+                <li><a href="#">Set Audit Option</a></li>
+            </ol>
         </nav>
         <section>
             <h2>Add Pages</h2>
             <form>
                 <label for="importer">Import By:</label>
                 <select id="importer">
-                    <option selected>Page URL(s)</option>
+                    <option selected>Page URLs</option>
                     <option>Sitemap</option>
                     <option>CSV</option>
                 </select>
                 <div id="page-url-section">
-                    <label for="urls">Page URL(s):</label>
+                    <label for="urls">Page URLs:</label>
                     <input id="urls" type="text" required>
                 </div>
                 <div id="sitemap-section" style="display:none;">
@@ -36,7 +37,7 @@
                     <label for="csv-upload">CSV Upload:</label>
                     <input id="csv-upload" type="file" accept=".csv">
                 </div>
-                <button type="button" onclick="window.location.href='4-audit_builder-pages_added.html';">Add Page(s)</button>
+                <button type="button" onclick="window.location.href='4-audit_builder-pages_added.html';">Add Pages</button>
             </form>
             
             <script>
@@ -60,13 +61,12 @@
             </script>    
         </section>
         <section>
-            <h2>Added Pages</h2>
-            <table>
+            <h2>Review Added Pages</h2>
+            <table id="added_pages">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" aria-label="Select all pages" onclick="toggleAllTableCheckboxes(this)"></th>
-                        <th>Page Name</th>
-                        <th>URL</th>
+                        <th role="columnheader">Page Name</th>
+                        <th role="columnheader">URL</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,17 +75,26 @@
                     </tr>
                 </tbody>
             </table>
+            <nav aria-label="Edit Added Pages">
+                <ul>
+                    <li>
+                        <label>
+                            <input type="checkbox" onclick="toggleAllTableCheckboxes('added_pages', this)">
+                            Select All Pages
+                        </label>
+                    </li>
+                    <li><button>Remove Pages</button></li>
+                </ul>
+            </nav>
             <script>
-                function toggleAllTableCheckboxes(source) {
-                    const table = source.closest('table');
-                    const checkboxes = table.querySelectorAll('.row-checkbox');
+                function toggleAllTableCheckboxes(tableId, source) {
+                    const table = document.getElementById(tableId);
+                    if (!table) return;
+            
+                    const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
                     checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                    toggleEditOptions();
                 }
             </script>
-            <nav aria-label="Edit Added Pages">
-                <button disabled>Remove Page(s)</button>
-            </nav>
         </section>
         <button disabled>Next Step</button>
     </main>
