@@ -28,8 +28,8 @@
                     <option>Monthly</option>
                     <option>On Monitor Update</option>
                 </select>
-                <fieldset>
-                    <legend>Email Notifications</legend>
+                <div role="group" aria-labelledby="email-notifications-heading">
+                    <h4 id="email-notifications-heading">Email Notifications</h4>
                     <label>
                         <input type="checkbox"> Email summary to Lucy Greco, lgreco@berkeley.edu.
                     </label>
@@ -39,13 +39,13 @@
                         <option>Weekly</option>
                         <option>Monthly</option>
                     </select>
-                </fieldset>
-                <fieldset>
-                    <legend>Screenshots</legend>
+                </div>
+                <div role="group" aria-labelledby="screenshots-heading">
+                    <h4 id="screenshots-heading">Screenshots</h4>
                     <label>
                         <input type="checkbox"> Screenshot results from check (premium feature).
                     </label>
-                </fieldset>
+                </div>
                 <button type="button" onclick="window.location.href='8-audit_details-ran.html';">Save & Run Audit</button>
             </form>
         </section>

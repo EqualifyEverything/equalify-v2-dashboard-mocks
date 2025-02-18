@@ -52,8 +52,8 @@
             <section>
                 <h3>View Options</h3>
                 <form>
-                    <fieldset>
-                        <legend>Search</legend>
+                    <div role="group" aria-labelledby="search-group">
+                        <h4 id="search-group">Search</h4>
                         <label for="search_source">Search In:</label>
                         <select id="search_source">
                             <option>Page Title</option>
@@ -64,70 +64,70 @@
                         </select>
                         <label for="search">Keywords:</label>
                         <input type="text" id="search">
-                    </fieldset>
-                    <fieldset>
-                        <legend>Group Items By</legend>
-                        <label>
-                            <input name="group" type="radio" checked> Issue
-                        </label>
-                        <label>
-                            <input name="group" type="radio"> Page
-                        </label>
-                        <label>
-                            <input name="group" type="radio"> Check
-                        </label>
-                        <label>
-                            <input name="group" type="radio"> None 
-                        </label>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Include Issues with Tag</legend>
-                        <label>
-                            <input name="tag" type="checkbox" checked> WCAG 2.2 A
-                        </label>
-                        <label>
-                            <input name="tag" type="checkbox" checked> WCAG 2.2 AA
-                        </label>
-                        <label>
-                            <input name="tag" type="checkbox" checked> WCAG 2.2 AAA
-                        </label>
-                        <label>
-                            <input name="tag" type="checkbox" checked> Heading Elements
-                        </label>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Include Items with Status</legend>
-                        <label>
-                            <input type="checkbox" checked> Active
-                        </label>
-                        <label>
-                            <input type="checkbox"> Ignored
-                        </label>
-                        <label>
-                            <input type="checkbox" checked> Equalified
-                        </label>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Sort</legend>
-                        <label>
-                            <input name="sort" type="radio" checked> Alphabetically (A to Z)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Alphabetically (Z to A)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Active Items (Most to Least)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Active Items (Least to Most)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Audited (Latest to Oldest)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Audited (Oldest to Latest)
-                        </label>
-                    </fieldset>
+                    </div>
+                    
+                    <div role="group" aria-labelledby="group-items">
+                        <h4 id="group-items">Group Items By</h4>
+                        <input id="group-issue" name="group" type="radio" checked>
+                        <label for="group-issue">Issue</label>
+                    
+                        <input id="group-page" name="group" type="radio">
+                        <label for="group-page">Page</label>
+                    
+                        <input id="group-check" name="group" type="radio">
+                        <label for="group-check">Check</label>
+                    
+                        <input id="group-none" name="group" type="radio">
+                        <label for="group-none">None</label>
+                    </div>
+                    
+                    <div role="group" aria-labelledby="include-tags">
+                        <h4 id="include-tags">Include Issues with Tag</h4>
+                        <input id="tag-wcag-a" name="tag" type="checkbox" checked>
+                        <label for="tag-wcag-a">WCAG 2.2 A</label>
+                    
+                        <input id="tag-wcag-aa" name="tag" type="checkbox" checked>
+                        <label for="tag-wcag-aa">WCAG 2.2 AA</label>
+                    
+                        <input id="tag-wcag-aaa" name="tag" type="checkbox" checked>
+                        <label for="tag-wcag-aaa">WCAG 2.2 AAA</label>
+                    
+                        <input id="tag-heading-elements" name="tag" type="checkbox" checked>
+                        <label for="tag-heading-elements">Heading Elements</label>
+                    </div>
+                    
+                    <div role="group" aria-labelledby="include-status">
+                        <h4 id="include-status">Include Items with Status</h4>
+                        <input id="status-active" type="checkbox" checked>
+                        <label for="status-active">Active</label>
+                    
+                        <input id="status-ignored" type="checkbox">
+                        <label for="status-ignored">Ignored</label>
+                    
+                        <input id="status-equalified" type="checkbox" checked>
+                        <label for="status-equalified">Equalified</label>
+                    </div>
+                    
+                    <div role="group" aria-labelledby="sort-group">
+                        <h4 id="sort-group">Sort</h4>
+                        <input id="sort-az" name="sort" type="radio" checked>
+                        <label for="sort-az">Alphabetically (A to Z)</label>
+                    
+                        <input id="sort-za" name="sort" type="radio">
+                        <label for="sort-za">Alphabetically (Z to A)</label>
+                    
+                        <input id="sort-active-most" name="sort" type="radio">
+                        <label for="sort-active-most">Active Items (Most to Least)</label>
+                    
+                        <input id="sort-active-least" name="sort" type="radio">
+                        <label for="sort-active-least">Active Items (Least to Most)</label>
+                    
+                        <input id="sort-latest" name="sort" type="radio">
+                        <label for="sort-latest">Audited (Latest to Oldest)</label>
+                    
+                        <input id="sort-oldest" name="sort" type="radio">
+                        <label for="sort-oldest">Audited (Oldest to Latest)</label>
+                    </div>
                     <button>Save View Options</button>
                 </form>
             </section>

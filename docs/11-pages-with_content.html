@@ -24,8 +24,8 @@
             <section>
                 <h3>View Options</h3>
                 <form>
-                    <fieldset>
-                        <legend>Search</legend>
+                    <div role="group" aria-labelledby="search-group">
+                        <h4 id="search-group">Search</h4>
                         <label for="search_source">Search In:</label>
                         <select id="search_source">
                             <option>Page Title</option>
@@ -34,9 +34,9 @@
                         </select>
                         <label for="search">Keywords:</label>
                         <input type="text" id="search">
-                    </fieldset>
-                    <fieldset>
-                        <legend>Sort</legend>
+                    </div>
+                    <div role="group" aria-labelledby="sort-group">
+                        <h4 id="sort-group">Sort</h4>
                         <label>
                             <input name="sort" type="radio" checked> Added (Latest to Oldest)
                         </label>
@@ -55,16 +55,16 @@
                         <label>
                             <input name="sort" type="radio"> URL (Z to A)
                         </label>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Group Pages By</legend>
+                    </div>
+                    <div role="group" aria-labelledby="group-items">
+                        <h4 id="group-items">Group Pages By</h4>
                         <label>
                             <input name="group" type="radio" checked> None
                         </label>
                         <label>
                             <input name="group" type="radio"> Audit
                         </label>
-                    </fieldset>
+                    </div>
                     <button>Save View Options</button>
                 </form>
             </section>

@@ -27,39 +27,37 @@
             <section>
                 <h3>View Options</h3>
                 <form>
-                    <fieldset>
-                        <legend>Search</legend>
+                    <div role="group" aria-labelledby="search-group">
+                        <h4 id="search-group">Search</h4>
                         <label for="search">Audit Name:</label>
                         <input type="text" id="search">
-                    </fieldset>
+                    </div>
+                    <div role="group" aria-labelledby="sort-group">
+                        <h4 id="sort-group">Sort</h4>
+                        <input id="sort-az" name="sort" type="radio" checked>
+                        <label for="sort-az">Audit Name (A to Z)</label>
+                    
+                        <input id="sort-za" name="sort" type="radio">
+                        <label for="sort-za">Audit Name (Z to A)</label>
+                    
+                        <input id="sort-progress-best" name="sort" type="radio">
+                        <label for="sort-progress-best">Progress (Best to Worst)</label>
+                    
+                        <input id="sort-progress-worst" name="sort" type="radio">
+                        <label for="sort-progress-worst">Progress (Worst to Best)</label>
+                    
+                        <input id="sort-created-latest" name="sort" type="radio">
+                        <label for="sort-created-latest">Created (Latest to Oldest)</label>
+                    
+                        <input id="sort-created-oldest" name="sort" type="radio">
+                        <label for="sort-created-oldest">Created (Oldest to Latest)</label>
 
-                    <fieldset>
-                        <legend>Sort</legend>
-                        <label>
-                            <input name="sort" type="radio"> Audit Name (A to Z)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Audit Name (Z to A)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Progress (Best to Worst)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Progress (Worst to Best)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Created (Latest to Oldest)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio" checked> Created (Oldest to Latest)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Last Run (Latest to Oldest)
-                        </label>
-                        <label>
-                            <input name="sort" type="radio"> Last Run (Oldest to Latest)
-                        </label>
-                    </fieldset>
+                        <input id="sort-run-latest" name="sort" type="radio">
+                        <label for="sort-run-latest">Last Run (Latest to Oldest)</label>
+                    
+                        <input id="sort-run-oldest" name="sort" type="radio">
+                        <label for="sort-run-oldest"> Last Run (Oldest to Latest)</label>
+                    </div>
                     <button>Save View Options</button>
                 </form>
             </section>
