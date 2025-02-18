@@ -62,10 +62,10 @@
         </section>
         <section>
             <h2>Review Added Pages</h2>
+            <input id="all-added-pages" type="checkbox" class="select_all"> <label for="all-added-pages">Select All Added Pages</label>        
             <table id="added_pages">
                 <thead>
                     <tr>
-                        <th role="columnheader">Page Name</th>
                         <th role="columnheader">URL</th>
                     </tr>
                 </thead>
@@ -79,28 +79,20 @@
                 </tbody>
             </table>
             <nav aria-label="Edit Added Pages">
-                <ul>
-                    <li>
-                        <label>
-                            <input type="checkbox" onclick="toggleAllTableCheckboxes('added_pages', this)">
-                            Select All Pages
-                        </label>
-                    </li>
-                    <li><button>Remove Pages</button></li>
-                </ul>
+                <button>Remove Pages</button>
             </nav>
-            <script>
-                function toggleAllTableCheckboxes(tableId, source) {
-                    const table = document.getElementById(tableId);
-                    if (!table) return;
-            
-                    const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
-                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                }
-            </script>
             <nav aria-label="Added Pages Table">
                 Showing 2 of 2 Pages <button disabled>Load More Pages</button>
             </nav>
+            <script>
+                document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                    selectAllCheckbox.addEventListener('change', function() {
+                        const parent = this.closest('div, table, details, section');
+                        const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                        checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                    });
+                });
+            </script>
         </section>
         <button onclick="window.location.href='5-audit_builder-add_checks.html';">Next Step</button>
     </main>

@@ -17,6 +17,7 @@
         </nav>
         <section>
             <h2>Add Checks</h2>
+            <input id="all-checks" type="checkbox" class="select_all"> <label for="all-checks">Select All Unadded Checks</label>        
             <table id="add_checks">
                 <thead>
                     <tr>
@@ -180,15 +181,13 @@
                     </tr>
                 </tbody>
             </table>
-            <nav aria-label="Checks Table">
-                <ul>
-                    <li><label><input type="checkbox" onclick="toggleAllTableCheckboxes('add_checks', this)"> Select All Unadded Checks</label></li>
-                    <li><button onclick="window.location.href='6-audit_builder-checks_added.html';">Add Checks</button></li>
-                </ul>
+            <nav aria-label="Unadded Checks Table">
+                <button onclick="window.location.href='6-audit_builder-checks_added.html';">Add Checks</button>
             </nav>
         </section>
         <section>
             <h2>Review Added Checks</h2>
+            <input id="all-added-checks" type="checkbox" class="select_all"> <label for="all-added-checks">Select All Added Checks</label>        
             <table id="review_checks">
                 <thead>
                     <tr>
@@ -204,21 +203,17 @@
                 </tbody>
             </table>
             <nav aria-label="Added Checks Table">
-                <ul>
-                    <li><label><input type="checkbox" onclick="toggleAllTableCheckboxes('review_checks', this)"> Select All Added Checks</label></li>
-                    <li><button>Remove Checks</button></li>
-                </ul>
+                <button>Remove Checks</button>
             </nav>
             <script>
-                function toggleAllTableCheckboxes(tableId, source) {
-                    const table = document.getElementById(tableId);
-                    if (!table) return;
-            
-                    const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
-                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                }
+                document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                    selectAllCheckbox.addEventListener('change', function() {
+                        const parent = this.closest('div, table, details, section');
+                        const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                        checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                    });
+                });
             </script>
-
         </section>
         <button disabled>Next Step</button>
     </main>
