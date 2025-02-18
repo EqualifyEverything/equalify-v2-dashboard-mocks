@@ -183,12 +183,10 @@
                 <h3>All Blockers - Grouped by Issue - Hiding Ignored Blockers</h3>
                 <details>        
                     <summary><a href="#">Empty Alt Text</a> (2 Active Blockers) - Tags: WCAG 2.2 AA, Images</summary>
+                    <input id="all-empty-alt-text" type="checkbox" class="select_all"> <label for="all-empty-alt-text">Select All Blockers with Issue</label>
                     <table>
                         <thead>
                             <tr>
-                                <th>
-                                    <input type="checkbox" aria-label="Select all blockers" onclick="toggleAllTableCheckboxes(this)">
-                                </th>
                                 <th>Blocker Code</th>
                                 <th>Screenshot</th>
                                 <th>Page Title</th>
@@ -200,8 +198,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="checkbox" class="row-checkbox"></td>
-                                <td><code>&lt;img class="weird_heading"&gt;</code></td>
+                                <th role="rowheader"><input id="blocker-3" type="checkbox"> <label for="blocker-3"><code>&lt;img class="weird_heading"&gt;</code></label></th>
                                 <td><img src="image.jpg" alt="Screenshot of Blocker 3"></td>
                                 <td>Berkeley Library (Staging)</td>
                                 <td><code>https://update.lib.berkeley.edu/</code></td>
@@ -210,8 +207,7 @@
                                 <td>12-1-2024</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" class="row-checkbox"></td>
-                                <td><code>&lt;img alt="" &gt;</code></td>
+                                <th role="rowheader"><input id="blocker-2" type="checkbox"> <label for="blocker-2"><code>&lt;img alt="" &gt;</code></th>
                                 <td><img src="image.jpg" alt="Screenshot of Blocker 1"></td>
                                 <td>Berkeley Homepage (Staging)</td>
                                 <td><code>https://www-stg.berkeley.edu</code></td>
@@ -224,15 +220,13 @@
                     <nav aria-label="Empty Alt Text Table">
                         Showing 2 of 2 Blockers <button disabled>Load More Blockers With Issue</button>
                     </nav> 
-                </details>        
+                </details>
                 <details>
                     <summary><a href="#">Repeat Link Text</a> (1 Active Blocker) - Tags: Links, Benefits Screen Readers</summary>
+                    <input id="all-repeat-link-text" type="checkbox" class="select_all"> <label for="all-repeat-link-text">Select All Blockers with Issue</label>
                     <table>
                         <thead>
                             <tr>
-                                <th>
-                                    <input type="checkbox" aria-label="Select All Blockers" onclick="toggleAllTableCheckboxes(this)">
-                                </th>
                                 <th>Blocker Code</th>
                                 <th>Screenshot</th>
                                 <th>Page Title</th>
@@ -244,8 +238,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="checkbox" class="row-checkbox"></td>
-                                <td><code>&lt;a class=&quot;hello this is a test&quot;&gt;Hello World&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Hello World&lt;/a&gt;</code></td>
+                                <th role="rowheader"><input id="blocker-2" type="checkbox"><label for="blocker-2"><code>&lt;a class=&quot;hello this is a test&quot;&gt;Hello World&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Hello World&lt;/a&gt;</code></label></th>
                                 <td><img src="image.jpg" alt="Screenshot of Blocker 2"></td>
                                 <td>Berkeley Homepage (Staging)</td>
                                 <td><code>https://www-stg.berkeley.edu</code></td>
@@ -259,17 +252,18 @@
                         Showing 1 of 1 Blockers <button disabled>Load More Blockers With Issue</button>
                     </nav> 
                 </details>
+                <script>
+                document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                    selectAllCheckbox.addEventListener('change', function() {
+                        const parent = this.closest('div, table, details');
+                        const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                        checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                    });
+                });
+                </script>
                 <nav aria-label="Audited Issues">
                     Showing 2 of 2 Audited Issues <button disabled>Load More Issues</button>
                 </nav>
-                <script>
-                    function toggleAllTableCheckboxes(source) {
-                        const table = source.closest('table');
-                        const checkboxes = table.querySelectorAll('.row-checkbox');
-                        checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                        toggleEditOptions();
-                    }
-                </script>
             </section>  
             <section>
                 <h3>Manage Selected Blockers</h3>
@@ -291,12 +285,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="#">Log 3</a></td>
+                        <th role="rowheader"><a href="#">Log 3</a></th>
                         <td>Audit ran. Three blockers found.</td>
                         <td>Lucy's Review Audit</td>
                     </tr>
                     <tr>
-                        <td><a href="#">Log 2</a></td>
+                        <th role="rowheader"><a href="#">Log 2</a></th>
                         <td>Lucy's Review created with two pages and two checks.</td>
                         <td>User: Lucy</td>
                     </tr>

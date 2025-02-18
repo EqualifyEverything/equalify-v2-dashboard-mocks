@@ -20,7 +20,7 @@
     <main>
         <h1>Audits</h1>
         <div aria-live="polite">Account plan upgraded.</div>
-        <div aria-live="polite">One Audit ran. No new blockers with issues.</div>
+        <div aria-live="polite">One Audit ran. No new blockers.</div>
         <nav aria-label="Audits Page">
             <a href="#">New Audit</a>
         </nav>
@@ -90,10 +90,10 @@
             </section>
             <section>
                 <h3>Audits Table</h3>
+                <input id="all-audits" type="checkbox" class="select_all"> <label for="all-audits">Select All Audits</label>
                 <table>
                     <thead>
                         <tr>
-                            <th><input type="checkbox" aria-label="Select all blockers" onclick="toggleAllTableCheckboxes(this)"></th>
                             <th>Name</th>
                             <th>Pages</th>
                             <th>Checks</th>
@@ -105,14 +105,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="checkbox" class="row-checkbox"></td>
-                            <td><a href="#">Lucy's Audit</a></td>
+                            <th role="rowheader"><input id="audit-1" type="checkbox"> <label for="audit-1"><a href="#">Lucy's Audit</a></label></th>
                             <td>2</td>
                             <td>2</td>
                             <td>0% Equalified</td>
                             <td>Idle</td>
                             <td>12-1-24 at 02:19:34</td>
-                            <td>12-1-24 at 06:50:21</td>
+                            <td>12-1-24 at 02:20:21</td>
                         </tr>
                     </tbody>
                 </table>
@@ -120,12 +119,13 @@
                     Showing 1 of 1 Audits <button disabled>Load More Audits</button>
                 </nav>
                 <script>
-                    function toggleAllTableCheckboxes(source) {
-                        const table = source.closest('table');
-                        const checkboxes = table.querySelectorAll('.row-checkbox');
-                        checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                        toggleEditOptions();
-                    }
+                    document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                        selectAllCheckbox.addEventListener('change', function() {
+                            const parent = this.closest('div, table, details, section');
+                            const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                        });
+                    });
                 </script>
             </section>
             <section>

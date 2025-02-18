@@ -182,12 +182,10 @@
                 <h3>All Blockers - Grouped by Issue - Hiding Ignored Blockers</h3>
                 <details>        
                     <summary><a href="#">Empty Alt Text</a> (2 Active Blockers) - Tags: WCAG 2.2 AA, Images</summary>
+                    <input id="all-empty-alt-text" type="checkbox" class="select_all"> <label for="all-empty-alt-text">Select All Blockers with Issue</label>
                     <table>
                         <thead>
                             <tr>
-                                <th>
-                                    <input type="checkbox" aria-label="Select all blockers" onclick="toggleAllTableCheckboxes(this)">
-                                </th>
                                 <th>Blocker Code</th>
                                 <th>Screenshot</th>
                                 <th>Page Title</th>
@@ -199,8 +197,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="checkbox" class="row-checkbox"></td>
-                                <td><code>&lt;img class="weird_heading"&gt;</code></td>
+                                <th role="rowheader"><input id="blocker-3" type="checkbox"> <label for="blocker-3"><code>&lt;img class="weird_heading"&gt;</code></label></th>
                                 <td><img src="image.jpg" alt="Screenshot of Blocker 3"></td>
                                 <td>Berkeley Library (Staging)</td>
                                 <td><code>https://update.lib.berkeley.edu/</code></td>
@@ -209,8 +206,7 @@
                                 <td>12-1-2024</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" class="row-checkbox"></td>
-                                <td><code>&lt;img alt="" &gt;</code></td>
+                                <th role="rowheader"><input id="blocker-2" type="checkbox"> <label for="blocker-2"><code>&lt;img alt="" &gt;</code></th>
                                 <td><img src="image.jpg" alt="Screenshot of Blocker 1"></td>
                                 <td>Berkeley Homepage (Staging)</td>
                                 <td><code>https://www-stg.berkeley.edu</code></td>
@@ -225,12 +221,13 @@
                     </nav> 
                 </details>        
                 <script>
-                    function toggleAllTableCheckboxes(source) {
-                        const table = source.closest('table');
-                        const checkboxes = table.querySelectorAll('.row-checkbox');
-                        checkboxes.forEach(checkbox => checkbox.checked = source.checked);
-                        toggleEditOptions();
-                    }
+                    document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                        selectAllCheckbox.addEventListener('change', function() {
+                            const parent = this.closest('div, table, details');
+                            const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                        });
+                    });
                 </script>
             </section>  
   
@@ -297,22 +294,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="#">Log 5</a></td>
+                        <th role="rowheader"><a href="#">Log 5</a></th>
                         <td>Ticket generated with two blockers from Lucy's Audit.</td>
                         <td>User: Lucy</td>
                     </tr>
                     <tr>
-                        <td><a href="#">Log 4</a></td>
+                        <th role="rowheader"><a href="#">Log 4</a></th>
                         <td>One blocker ignored in Lucy's Audit.</td>
                         <td>User: Lucy</td>
                     </tr>
                     <tr>
-                        <td><a href="#">Log 3</a></td>
+                        <th role="rowheader"><a href="#">Log 3</a></th>
                         <td>Audit ran. Three blockers found.</td>
                         <td>Lucy's Review Audit</td>
                     </tr>
                     <tr>
-                        <td><a href="#">Log 2</a></td>
+                        <th role="rowheader"><a href="#">Log 2</a></th>
                         <td>Lucy's Review created with two pages and two checks.</td>
                         <td>User: Lucy</td>
                     </tr>

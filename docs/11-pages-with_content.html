@@ -95,13 +95,10 @@
             </section>
             <section>
                 <h3>All Pages</h3>
+                <input id="all-pages" type="checkbox" class="select_all"> <label for="all-pages">Select All Pages</label>
                 <table>
                     <thead>
                         <tr>
-                            <th>
-                                <input type="checkbox" aria-label="Select all Blockers" onclick="toggleAllTableCheckboxes(this)">
-                            </th>
-                            <th>ID</th>
                             <th>Page Title</th>
                             <th>URL</th>
                             <th>Audits</th>
@@ -110,23 +107,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="checkbox" class="row-checkbox"></td>
-                            <td><a href="#">2</a></td>
-                            <td>Berkeley Library (Staging)</td>
+                            <th role="rowheader"><input id="page-2" type="checkbox"> <label for="page-2"><a href="#">Library (Staging)</a></label></th>
                             <td><code>https://update.lib.berkeley.edu/</code></td>
                             <td>Lucy's Audit</td>
                             <td>12-1-2024 at 02:20:20</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" class="row-checkbox"></td>
-                            <td><a href="12-page_details.html">1</a></td>
-                            <td>Berkeley Homepage (Staging)</td>
+                            <th role="rowheader"><input id="page-2" type="checkbox"> <label for="page-2"></label><a href="12-page_details.html">Berkeley Homepage (Staging)</a></label></th>
                             <td><code>https://www-stg.berkeley.edu</code></td>
                             <td>Lucy's Audit</td>
                             <td>12-1-2024 at 02:20:21</td>
                         </tr>
                     </tbody>
                 </table>
+                <script>
+                    document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                        selectAllCheckbox.addEventListener('change', function() {
+                            const parent = this.closest('div, table, details, section');
+                            const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                        });
+                    });
+                </script>
                 <nav aria-label="Pages Table">
                     Showing 2 of 2 Pages <button disabled>Load More Pages</button>
                 </nav> 
@@ -150,7 +152,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="#">Log 1</a></td>
+                        <th role="rowheader"><a href="#">Log 12</a></th>
                         <td>Two pages added.</td>
                         <td>User: Lucy</td>
                     </tr>
