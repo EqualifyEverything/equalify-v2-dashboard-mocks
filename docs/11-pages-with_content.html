@@ -21,7 +21,32 @@
         <h1>Pages Added to Equalify</h1>
         <article>
             <h2>All Pages</h2>
-            <section>
+            <input type="checkbox" name="toggle" id="toggle_view_options"  />
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const viewOptions = document.getElementById("view_options");
+                    const toggleViewOptions = document.getElementById("toggle_view_options");
+
+                    // Hide view options by default
+                    viewOptions.style.display = "none";
+                    viewOptions.setAttribute("aria-hidden", "true");
+
+                    // Toggle visibility on checkbox change
+                    toggleViewOptions.addEventListener("change", function () {
+                        if (toggleViewOptions.checked) {
+                            viewOptions.style.display = "block";
+                            viewOptions.setAttribute("aria-hidden", "false");
+                        } else {
+                            viewOptions.style.display = "none";
+                            viewOptions.setAttribute("aria-hidden", "true");
+                        }
+                    });
+                });
+            </script>
+            <label for="toggle_view_options">
+                Show View Options
+            </label>
+            <section id="view_options">
                 <h3>View Options</h3>
                 <form>
                     <div role="group" aria-labelledby="search-group">
