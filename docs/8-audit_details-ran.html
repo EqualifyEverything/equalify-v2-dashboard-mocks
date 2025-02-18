@@ -109,6 +109,10 @@
                     
                     <div role="group" aria-labelledby="include-tags">
                         <h4 id="include-tags">Include Issues with Tag</h4>
+
+                        <input id="tag-select-all" type="checkbox">
+                        <label for="tag-select-all">Select All</label>
+                    
                         <input id="tag-wcag-a" name="tag" type="checkbox" checked>
                         <label for="tag-wcag-a">WCAG 2.2 A</label>
                     
@@ -120,6 +124,24 @@
                     
                         <input id="tag-heading-elements" name="tag" type="checkbox" checked>
                         <label for="tag-heading-elements">Heading Elements</label>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                const selectAllCheckbox = document.getElementById("tag-select-all");
+                                const tagCheckboxes = document.querySelectorAll('div[aria-labelledby="include-tags"] input[type="checkbox"]:not(#tag-select-all)');
+                        
+                                selectAllCheckbox.addEventListener("change", function () {
+                                    tagCheckboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
+                                });
+                        
+                                // Update "Select All" state when any checkbox is manually changed
+                                tagCheckboxes.forEach(checkbox => {
+                                    checkbox.addEventListener("change", function () {
+                                        selectAllCheckbox.checked = [...tagCheckboxes].every(cb => cb.checked);
+                                    });
+                                });
+                            });
+                        </script>
                     </div>
                     
                     <div role="group" aria-labelledby="include-status">
