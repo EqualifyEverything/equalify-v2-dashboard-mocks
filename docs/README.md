@@ -18,7 +18,7 @@ Open [1-audits-no_content.html](1-audits-no_content.html) in your browser, then 
 5. Add checks the last two checks: "empty-alt-elements" and "Unique Link and Button Text"
 6. Click next step.
 7. Save the audit as "Lucy's Review" with "Monthly" frequency and notifications on.
-8. Select and ignore the item with the ID of "2"
+8. Select and ignore the blocker with the ID of "2"
 9. Select the remaining checks and generate a ticket.
 10. Copy the ticket, then click the "Pages" from the main nav.
 11. Click page "1" link.

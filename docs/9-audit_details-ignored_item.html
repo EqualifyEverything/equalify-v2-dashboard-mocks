@@ -19,7 +19,7 @@
 
     <main>
         <h1>Lucy's Review</h1>
-        <div aria-live="assertive">One item ignored in Lucy's Audit.</div>
+        <div aria-live="assertive">One blocker ignored in Lucy's Audit.</div>
         <article>
             <h2>Overview</h2>
             <p>2 checks on 2 pages. Runs monthly. Currently, idle.</p>
@@ -37,7 +37,7 @@
                 <thead>
                     <tr>
                         <th>Audit Date</th>
-                        <th>Equalified</th>
+                        <th>Fixed Blockers</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,7 @@
             </table>
         </article>
         <article>
-            <h2>Related Items</h2>
+            <h2>Blockers</h2>
             <input type="checkbox" name="toggle" id="toggle_view_options"  />
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
@@ -86,14 +86,14 @@
                             <option>URL</option>
                             <option>Tag</option>
                             <option>Issue</option>
-                            <option>Item Code</option>
+                            <option>Blocker Code</option>
                         </select>
                         <label for="search">Keywords:</label>
                         <input type="text" id="search">
                     </div>
                     
-                    <div role="group" aria-labelledby="group-items">
-                        <h4 id="group-items">Group Items By</h4>
+                    <div role="group" aria-labelledby="group-blockers">
+                        <h4 id="group-blockers">Group Blockers By</h4>
                         <input id="group-issue" name="group" type="radio" checked>
                         <label for="group-issue">Issue</label>
                     
@@ -145,7 +145,7 @@
                     </div>
                     
                     <div role="group" aria-labelledby="include-status">
-                        <h4 id="include-status">Include Items with Status</h4>
+                        <h4 id="include-status">Include Blockers with Status</h4>
                         <input id="status-active" type="checkbox" checked>
                         <label for="status-active">Active</label>
                     
@@ -165,10 +165,10 @@
                         <label for="sort-za">Alphabetically (Z to A)</label>
                     
                         <input id="sort-active-most" name="sort" type="radio">
-                        <label for="sort-active-most">Active Items (Most to Least)</label>
+                        <label for="sort-active-most">Active Blockers (Most to Least)</label>
                     
                         <input id="sort-active-least" name="sort" type="radio">
-                        <label for="sort-active-least">Active Items (Least to Most)</label>
+                        <label for="sort-active-least">Active Blockers (Least to Most)</label>
                     
                         <input id="sort-latest" name="sort" type="radio">
                         <label for="sort-latest">Audited (Latest to Oldest)</label>
@@ -180,17 +180,16 @@
                 </form>
             </section>
             <section>
-                <h3>All Page Items - Grouped by Issue - Hiding Ignored Items</h3>
+                <h3>All Blockers - Grouped by Issue - Hiding Ignored Blockers</h3>
                 <details>        
-                    <summary><a href="#">Empty Alt Text</a> (2 Active Items) - Tags: WCAG 2.2 AA, Images</summary>
+                    <summary><a href="#">Empty Alt Text</a> (2 Active Blockers) - Tags: WCAG 2.2 AA, Images</summary>
                     <table>
                         <thead>
                             <tr>
                                 <th>
-                                    <input type="checkbox" aria-label="Select all items" onclick="toggleAllTableCheckboxes(this)">
+                                    <input type="checkbox" aria-label="Select all blockers" onclick="toggleAllTableCheckboxes(this)">
                                 </th>
-                                <th>ID</th>
-                                <th>Code</th>
+                                <th>Blocker Code</th>
                                 <th>Screenshot</th>
                                 <th>Page Title</th>
                                 <th>URL</th>
@@ -202,9 +201,8 @@
                         <tbody>
                             <tr>
                                 <td><input type="checkbox" class="row-checkbox"></td>
-                                <td>3</td>
                                 <td><code>&lt;img class="weird_heading"&gt;</code></td>
-                                <td><img src="image.jpg" alt="Screenshot of Item 3"></td>
+                                <td><img src="image.jpg" alt="Screenshot of Blocker 3"></td>
                                 <td>Berkeley Library (Staging)</td>
                                 <td><code>https://update.lib.berkeley.edu/</code></td>
                                 <td>Active</td>
@@ -213,9 +211,8 @@
                             </tr>
                             <tr>
                                 <td><input type="checkbox" class="row-checkbox"></td>
-                                <td>1</td>
                                 <td><code>&lt;img alt="" &gt;</code></td>
-                                <td><img src="image.jpg" alt="Screenshot of Item 1"></td>
+                                <td><img src="image.jpg" alt="Screenshot of Blocker 1"></td>
                                 <td>Berkeley Homepage (Staging)</td>
                                 <td><code>https://www-stg.berkeley.edu</code></td>
                                 <td>Active</td>
@@ -225,7 +222,7 @@
                         </tbody>
                     </table>
                     <nav aria-label="Empty Alt Text Table">
-                        Showing 2 of 2 Items <button disabled>Load More Items With Issue</button>
+                        Showing 2 of 2 Blockers <button disabled>Load More Blockers With Issue</button>
                     </nav> 
                 </details>        
                 <script>
@@ -238,9 +235,9 @@
                 </script>
             </section>  
             <section>
-                <h3>Manage Selected Items</h3>
-                <nav aria-label="Manage Selected Items">
-                    <button>Ignore Item(s)</button>
+                <h3>Manage Selected Blockers</h3>
+                <nav aria-label="Manage Selected Blockers">
+                    <button>Ignore Blockers</button>
                     <button onclick="window.location.href='10-audit_details-generated_ticket.html';">Generate Ticket</button>    
                 </nav>
             </section>    
@@ -258,12 +255,12 @@
                 <tbody>
                     <tr>
                         <td><a href="#">Log 4</a></td>
-                        <td>One item ignored in Lucy's Audit.</td>
+                        <td>One blocker ignored in Lucy's Audit.</td>
                         <td>User: Lucy</td>
                     </tr>
                     <tr>
                         <td><a href="#">Log 3</a></td>
-                        <td>Audit ran. Three page items have issues.</td>
+                        <td>Audit ran. Three blockers found.</td>
                         <td>Lucy's Review Audit</td>
                     </tr>
                     <tr>
