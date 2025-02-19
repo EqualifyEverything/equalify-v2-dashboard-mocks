@@ -77,7 +77,7 @@
             <section id="view_options">
                 <h3>View Options</h3>
                 <form>
-                    <div role="group"  aria-labelledby="search-group">
+                    <div role="group" aria-labelledby="search-group">
                         <h4 id="search-group">Search</h4>
                         <label for="search_source">Search In:</label>
                         <select id="search_source">
@@ -91,7 +91,7 @@
                         <input type="text" id="search">
                     </div>
                     
-                    <div role="group"  aria-labelledby="group-blockers">
+                    <div role="group" aria-labelledby="group-blockers">
                         <h4 id="group-blockers">Group Blockers By</h4>
                         <input id="group-issue" name="group" type="radio" checked>
                         <label for="group-issue">Issue</label>
@@ -106,7 +106,7 @@
                         <label for="group-none">None</label>
                     </div>
                     
-                    <div role="group"  aria-labelledby="include-tags">
+                    <div role="group" aria-labelledby="include-tags">
                         <h4 id="include-tags">Include Issues with Tag</h4>
 
                         <input id="tag-select-all" type="checkbox" checked>
@@ -143,7 +143,7 @@
                         </script>
                     </div>
                     
-                    <div role="group"  aria-labelledby="include-status">
+                    <div role="group" aria-labelledby="include-status">
                         <h4 id="include-status">Include Blockers with Status</h4>
                         <input id="status-active" type="checkbox" checked>
                         <label for="status-active">Active</label>
@@ -155,7 +155,7 @@
                         <label for="status-equalified">Equalified</label>
                     </div>
                     
-                    <div role="group"  aria-labelledby="sort-group">
+                    <div role="group" aria-labelledby="sort-group">
                         <h4 id="sort-group">Sort</h4>
                         <input id="sort-az" name="sort" type="radio" checked>
                         <label for="sort-az">Alphabetically (A to Z)</label>
@@ -180,57 +180,87 @@
             </section>
             <section>
                 <h3>All Blockers - Grouped by Issue - Hiding Ignored Blockers</h3>
-                <div role="group"  aria-labelledby="issue-empty-alt-text">        
-                    <h4 id="issue-empty-alt-text"><a href="#">Empty Alt Text</a> (2 Active Blockers) - Tags: WCAG 2.2 AA, Images</h4>
-                    <input id="all-empty-alt-text" type="checkbox" class="select_all"> <label for="all-empty-alt-text">Select All Blockers with Issue</label>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Blocker Code</th>
-                                <th>Screenshot</th>
-                                <th>Page Title</th>
-                                <th>URL</th>
-                                <th>Status</th>
-                                <th>Check</th>
-                                <th>Audit Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th role="rowheader"><input id="blocker-3" type="checkbox"> <label for="blocker-3"><code>&lt;img class="weird_heading"&gt;</code></label></th>
-                                <td><img src="image.jpg" alt="Screenshot of Blocker 3"></td>
-                                <td>Berkeley Library (Staging)</td>
-                                <td><code>https://update.lib.berkeley.edu/</code></td>
-                                <td>Active</td>
-                                <td>empty-alt-text</td>
-                                <td>12-1-2024</td>
-                            </tr>
-                            <tr>
-                                <th role="rowheader"><input id="blocker-2" type="checkbox"> <label for="blocker-2"><code>&lt;img alt="" &gt;</code></th>
-                                <td><img src="image.jpg" alt="Screenshot of Blocker 1"></td>
-                                <td>Berkeley Homepage (Staging)</td>
-                                <td><code>https://www-stg.berkeley.edu</code></td>
-                                <td>Active</td>
-                                <td>empty-alt-text</td>
-                                <td>12-1-2024</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <nav aria-label="Empty Alt Text Table">
-                        Showing 2 of 2 Blockers <button disabled>Load More Blockers With Issue</button>
-                    </nav> 
-                </div>        
+                <div class="accordion">
+                    <h4>
+                        <button id="issue-empty-alt-text" type="button" aria-expanded="false" class="accordion-trigger">
+                            Empty Alt Text (2 Active Blockers) - Tags: WCAG 2.2 AA, Images
+                        </button>
+                    </h4>
+                    <div role="region" aria-labelledby="issue-empty-alt-text" style="display: none;">
+                        <a href="#">More info on "Empty Alt Text" Issue</a>
+                        <input id="all-empty-alt-text" type="checkbox" class="select_all"> <label for="all-empty-alt-text">Select All Blockers with "Empty Alt Text" Issue</label>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Blocker Code</th>
+                                    <th>Screenshot</th>
+                                    <th>Page Title</th>
+                                    <th>URL</th>
+                                    <th>Status</th>
+                                    <th>Check</th>
+                                    <th>Audit Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th role="rowheader"><input id="blocker-3" type="checkbox"> <label for="blocker-3"><code>&lt;img class="weird_heading"&gt;</code></label></th>
+                                    <td><img src="image.jpg" alt="Screenshot of Blocker 3"></td>
+                                    <td>Berkeley Library (Staging)</td>
+                                    <td><code>https://update.lib.berkeley.edu/</code></td>
+                                    <td>Active</td>
+                                    <td>empty-alt-text</td>
+                                    <td>12-1-2024</td>
+                                </tr>
+                                <tr>
+                                    <th role="rowheader"><input id="blocker-2" type="checkbox"> <label for="blocker-2"><code>&lt;img alt="" &gt;</code></th>
+                                    <td><img src="image.jpg" alt="Screenshot of Blocker 1"></td>
+                                    <td>Berkeley Homepage (Staging)</td>
+                                    <td><code>https://www-stg.berkeley.edu</code></td>
+                                    <td>Active</td>
+                                    <td>empty-alt-text</td>
+                                    <td>12-1-2024</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Empty Alt Text Table of Blockers">
+                            Showing 2 of 2 Blockers <button disabled>Load More Blockers with "Empty Alt Text" Issue</button>
+                        </nav>
+                    </div>
+                </div>
                 <script>
-                    document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
-                        selectAllCheckbox.addEventListener('change', function() {
-                            const parent = this.closest('div, table, details');
-                            const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
-                            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                // Accordion
+                document.addEventListener("DOMContentLoaded", function () {
+                    document.querySelectorAll(".accordion-trigger").forEach((button) => {
+                        button.addEventListener("click", function () {
+                            const panel = this.parentElement.nextElementSibling;
+                            const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+                            // Toggle aria-expanded
+                            this.setAttribute("aria-expanded", !isExpanded);
+
+                            // Toggle visibility
+                            if (!isExpanded) {
+                                panel.style.display = "block";
+                            } else {
+                                panel.style.display = "none";
+                            }
                         });
                     });
+                });
+
+                // Select All
+                document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                    selectAllCheckbox.addEventListener('change', function() {
+                        const parent = this.closest('div, table, details');
+                        const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                        checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                    });
+                });
                 </script>
-            </section>  
-  
+                <nav aria-label="Issues">
+                    Showing 1 of 1 Issue Groups <button disabled>Load More Issues</button>
+                </nav>
+            </section>    
             <section>
                 <h3>Manage Selected Blockers</h3>
                 <nav aria-label="Manage Selected Blockers">
