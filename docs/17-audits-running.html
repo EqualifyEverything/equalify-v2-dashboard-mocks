@@ -116,7 +116,11 @@
                     </tbody>
                 </table>
                 <nav aria-label="Audits Table">
-                    Showing 1 of 1 Audits <button disabled>Load More Audits</button>
+                    <label for="item-count">Showing 1 of 1 Audits. Change Number of Audits Displayed:</label> 
+                    <select id="item-count">
+                        <option selected>Up to 5</option>
+                    </select>
+                    </nav>
                 </nav>
                 <script>
                     document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {

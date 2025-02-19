@@ -82,7 +82,10 @@
                 <button>Remove Pages</button>
             </nav>
             <nav aria-label="Added Pages Table">
-                Showing 2 of 2 Pages <button disabled>Load More Pages</button>
+                <label for="item-count">Showing 2 of 2 Pages. Change Number of Pages Displayed:</label> 
+                <select id="item-count">
+                    <option selected>Up to 5</option>
+                </select>
             </nav>
             <script>
                 document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
