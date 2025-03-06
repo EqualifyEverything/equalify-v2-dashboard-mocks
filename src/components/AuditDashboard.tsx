@@ -3,24 +3,6 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
 import { fetchAudits } from '../api/api';
 
-// Status Badge Component
-const StatusBadge: React.FC<{ status: Audit['status'] }> = ({ status }) => {
-  return (
-    <span>
-      {status.charAt(0).toUpperCase() + status.slice(1)}
-    </span>
-  );
-};
-
-// Progress Bar Component
-const ProgressBar: React.FC<{ progress: number }> = ({ progress }) => {
-  return (
-    <div>
-      <div style={{ width: `${progress}%` }}></div>
-    </div>
-  );
-};
-
 // Search Options Component
 const SearchOptions: React.FC<{
   options: AuditSearchOptions;
@@ -78,7 +60,7 @@ const SearchOptions: React.FC<{
       >
         <h3>Search Options</h3>
         
-        <form>
+        <form action={() => onApply(localOptions)}>
           {/* Name Filter */}
           <div role="group" aria-labelledby="filter-group">
             <h4 id="filter-group">Filter</h4>
@@ -97,8 +79,8 @@ const SearchOptions: React.FC<{
             <h4 id="sort-group">Sort</h4>
             <div>
               {sortableColumns.map((column) => (
-                <>
-                  <input key={column.key}
+                <React.Fragment key={column.key}>
+                  <input
                     type="radio"
                     id={`sort-${column.key}`}
                     name="sortBy"
@@ -108,7 +90,7 @@ const SearchOptions: React.FC<{
                   <label htmlFor={`sort-${column.key}`}>
                     {column.label}
                   </label>
-                </>
+                </React.Fragment>
               ))}
             </div>
             
@@ -298,15 +280,8 @@ const AuditTable: React.FC = () => {
                       </td>
                       <td>{audit.pages}</td>
                       <td>{audit.checks}</td>
-                      <td>
-                        <div>
-                          <ProgressBar progress={audit.progress} />
-                          <span>{audit.progress}%</span>
-                        </div>
-                      </td>
-                      <td>
-                        <StatusBadge status={audit.status} />
-                      </td>
+                      <td>{audit.progress}%</td>
+                      <td>{audit.status.charAt(0).toUpperCase() + audit.status.slice(1)}</td>
                       <td>{formatDate(audit.created)}</td>
                       <td>{formatDate(audit.lastRun)}</td>
                     </tr>
@@ -331,6 +306,12 @@ const AuditTable: React.FC = () => {
             </p>
           </div>
         )}
+      </section>
+      <section>
+        <h3>Manage Selected Audits</h3>
+        <nav aria-label="Manage Selected Audits">
+          <button>Run Audit</button>    
+        </nav>
       </section>
     </>
   );

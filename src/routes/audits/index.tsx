@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import AuditDashboard from '../../components/AuditDashboard';
 import { fetchAllAudits } from '../../api/api';
+import Footer from '../../components/Footer';
 
 export const Route = createFileRoute('/audits/')({
   component: RouteComponent,
@@ -27,24 +28,13 @@ const NewAudit: React.FC = () => {
 function RouteComponent() {
   return (
     <>
-    <main>
-      <h1>Audits</h1>
-      <NewAudit />
-      <article>
-        <AuditDashboard />
-      </article>
-    </main>
-
-    <footer>
-      <section>
-        <h2>Scan Quota</h2>
-        <p>2 free scans remaining. <Link to='/upgrade'>Upgrade</Link>.</p>
-      </section>
-      <section>
-        <h2>Need help?</h2>
-        <p>Email <a href="#">support@equalify.app</a>.</p>
-      </section>
-    </footer>
-  </>
-)
+      <main>
+        <h1>Audits</h1>
+        <NewAudit />
+        <article>
+          <AuditDashboard />
+        </article>
+      </main>
+    </>
+  )
 }
