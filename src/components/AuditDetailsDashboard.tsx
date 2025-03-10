@@ -2,17 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { hashKey, keepPreviousData, useQuery } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
 import { fetchBlockers } from '../api/api';
-import { toggleArrayElement } from '../utils/utils';
-
-function getAllBlockerIds(blockers: Blocker[] | BlockerGroup[]) {
-  return blockers.flatMap(el => {
-    // For Blockers we get IDs directly
-    if ('id' in el) { return el.id }
-
-    // For BlockerGroups we go one level deeper
-    return (el as BlockerGroup).blockers.map(blocker => blocker.id)
-  })
-}
+import { capitalize, toggleArrayElement, toKebabCase } from '../utils/utils';
 
 // Search Options Component
 const SearchOptions: React.FC<{
@@ -104,7 +94,7 @@ const SearchOptions: React.FC<{
           <div role="group" aria-labelledby="filter-group">
             <h4 id="filter-group">Filter</h4>
             <label htmlFor="filterSource">Search in: </label>
-            <select id="sfilterSource"  
+            <select id="filterSource"  
               onChange={(e) => handleChange('filterField', e.target.options[e.target.selectedIndex].value)}
             >
               <option value="code">Blocker Code</option>
@@ -119,7 +109,6 @@ const SearchOptions: React.FC<{
               id="filter"
               value={localOptions.filterString}
               onChange={(e) => handleChange('filterString', e.target.value)}
-              placeholder=""
             />
           </div>
 
@@ -275,10 +264,10 @@ const BlockersTable: React.FC = () => {
   const [selectedBlockers, setSelectedBlockers] = useState<Set<string>>(new Set());
   const [selectAll, setSelectAll] = useState(false);
   const [searchOptions, setSearchOptions] = useState<BlockerSearchOptions>({
-    filterField: 'issue',
+    filterField: 'code',
     filterString: '',
-    sortBy: 'status',
-    sortDirection: 'desc',
+    sortBy: 'code',
+    sortDirection: 'asc',
     groupBy: 'none',
     limit: 10,
     groupLimit: 10,
@@ -313,7 +302,7 @@ const BlockersTable: React.FC = () => {
     if (selectAll) {
       setSelectedBlockers(new Set());
     } else {
-      setSelectedBlockers(new Set(getAllBlockerIds(blockers)))
+      setSelectedBlockers(new Set(blockers.map(el => el.id)))
     }
     setSelectAll(!selectAll);
   };
@@ -340,51 +329,34 @@ const BlockersTable: React.FC = () => {
   // Show loading indicator only on initial load, not on refetch
   const showInitialLoading = isLoading && !isFetching;
 
-  // Show a single table if ungrouped, and groups with some columns removed if grouped
-  const BlockerSubTable: React.FC<BlockerGroup> = ({groupValue, groupedBy, blockers}) => {
-    const isGrouped = !(groupedBy === 'none')
+  // These are filtered when grouping
+  const allColumns: Labeled<keyof Blocker>[] = [
+    {key: 'code', label: 'Blocker Code'},
+    {key: 'issue', label: 'Issue'},
+    {key: 'screenshotUrl', label: 'Screenshot'},
+    {key: 'pageTitle', label: 'Page Title'},
+    {key: 'pageUrl', label: 'URL'},
+    {key: 'status', label: 'Status'},
+    {key: 'check', label: 'Check'},
+    {key: 'auditDate', label: 'Audit Date'},
+  ]
 
-    const allColumns: Labeled<keyof Blocker>[] = [
-      {key: 'code', label: 'Blocker Code'},
-      {key: 'issue', label: 'Issue'},
-      {key: 'screenshotUrl', label: 'Screenshot'},
-      {key: 'pageTitle', label: 'Page Title'},
-      {key: 'pageUrl', label: 'URL'},
-      {key: 'status', label: 'Status'},
-      {key: 'check', label: 'Check'},
-      {key: 'auditDate', label: 'Audit Date'},
-    ]
-
-    const colsToRemove = {
-      none: [] as string[],
-      issue: ['issue'],
-      pageUrl: ['pageUrl', 'pageTitle'],
-      check: ['check']
-    }
-
-    const resultColumns = allColumns.filter(col => {
-      return !colsToRemove[groupedBy].includes(col.key)
-    })
-    // console.log(allColumns, colsToRemove, resultColumns)
-
+  // Ungrouped results table
+  const BlockerFullTable: React.FC<{blockers: Blocker[]}> = ({blockers}) => {
     return (
       <>
-        {isGrouped ? 
-          <button type="button" aria-expanded="true" className="accordion-trigger">{groupValue}</button>
-          : <></>
-        }
         <input
-          id='all-blockers'
+          id="all-blockers"
           type="checkbox"
-          checked={selectAll}
-          onChange={toggleSelectAll}
+          checked={ selectAll }
+          onChange={ toggleSelectAll }
         />
         <label htmlFor="all-blockers">Select All Blockers</label>
         <table>
           <thead>
             <tr>
               <th></th>
-              {resultColumns.map(col =><th key={col.key}>{col.label}</th>)}
+              {allColumns.map(col =><th key={col.key}>{col.label}</th>)}
             </tr>
           </thead>
           <tbody>
@@ -397,12 +369,12 @@ const BlockersTable: React.FC = () => {
                     onChange={() => toggleBlockerSelection(blocker.id)}
                   />
                 </td>
-                {resultColumns.map(col =><td key={col.key}>{blocker[col.key]}</td>)}
+                {allColumns.map(col =><td key={col.key}>{blocker[col.key]}</td>)}
               </tr>
             ))}
             {blockers.length === 0 && (
               <tr>
-                <td colSpan={resultColumns.length + 1}>
+                <td role="rowheader" colSpan={allColumns.length + 1}>
                   No blockers found. Try adjusting your search criteria.
                 </td>
               </tr>
@@ -412,6 +384,126 @@ const BlockersTable: React.FC = () => {
       </>
     )
   }
+
+  // Subtable for a group of blockers, including an accordion button to show/hide
+  const BlockerSubTable: React.FC<{
+    groupValue: string, 
+    groupedBy: string, 
+    blockers: Blocker[],
+    expanded: boolean,
+    setExpanded: Function
+    }> = ({
+    groupValue, groupedBy, blockers, expanded, setExpanded
+  }) => {
+
+    const colsToRemove: Record<string, string[]> = {
+      none: [] as string[],
+      issue: ['issue'],
+      pageUrl: ['pageUrl', 'pageTitle'],
+      check: ['check']
+    }
+
+    const resultColumns = allColumns.filter(col => {
+      return !colsToRemove[groupedBy].includes(col.key)
+    })
+    
+    const htmlId = toKebabCase(`blockers-${groupValue}`)
+    const buttonText = (
+      groupValue + `(${blockers.length} Active Blocker${blockers.length === 1 ? '' : 's'})`
+    )
+
+    return (
+      <>
+        <h4>
+          <button 
+            type="button" 
+            className="accordion-trigger"
+            aria-expanded={expanded}
+            onClick={(e) => setExpanded(!expanded)}
+            >
+            { buttonText }
+          </button>
+        </h4>
+        <div role="region" style={{ display: expanded ? 'block' : 'none' }}>
+          <input
+            id={ htmlId }
+            type="checkbox"
+            checked={ selectAll }
+            onChange={ toggleSelectAll }
+          />
+          <label htmlFor={ htmlId }>Select All Blockers</label>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                {resultColumns.map(col =><th key={col.key}>{col.label}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {blockers.map((blocker) => (
+                <tr key={blocker.id}>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={selectedBlockers.has(blocker.id)}
+                      onChange={() => toggleBlockerSelection(blocker.id)}
+                    />
+                  </td>
+                  {resultColumns.map(col =><td key={col.key}>{blocker[col.key]}</td>)}
+                </tr>
+              ))}
+              {blockers.length === 0 && (
+                <tr>
+                  <td role="rowheader" colSpan={resultColumns.length + 1}>
+                    No blockers found. Try adjusting your search criteria.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </>
+    )
+  }
+
+  const groupedByHeaderText = (
+    searchOptions.groupBy !== 'none' 
+      ? ` - Grouped by ${searchOptions.groupBy}` 
+      : ''
+  )
+
+  // Map of blockers grouped by searchOptions.groupBy, keyed to that field's value
+  let blockerGroups: Map<string, Blocker[]> = new Map()
+  if (searchOptions.groupBy !== 'none') {
+    blockerGroups = blockers.reduce((groups: Map<string, Blocker[]>, blocker) => {
+      const group = blocker[searchOptions.groupBy as BlockerGroupkey]
+      if (groups.has(group)) {
+        const existing = groups.get(group)! // we know there are defined
+        existing.push(blocker)
+      } else {
+        groups.set(group, [blocker])
+      }
+      return groups
+    }, new Map())
+  }
+
+  // Array of <BlockerSubTable>'s or a single <BlockerFullTable>
+  const blockerTables = (
+    blockerGroups.size
+      ? Array.from(blockerGroups, ([key, blockers]) => {
+        // @ts-expect-error - we know these are non-empty, it's fine
+        const groupValue: string = blockers[0][searchOptions.groupBy]
+        return <BlockerSubTable 
+          key={groupValue}
+          groupedBy={searchOptions.groupBy}
+          groupValue={groupValue}
+          blockers={blockers}
+        />
+      })
+      : <BlockerFullTable blockers={blockers} />
+  )
+
+  // TODO: open/close functionality, better button display text
   
   return (
     <>
@@ -424,7 +516,7 @@ const BlockersTable: React.FC = () => {
       />
 
       <section>
-        <h3>All Blockers{'groupedBy' in blockers ? ` - Grouped by ${blockers.groupedBy}` : ''}</h3>
+        <h3>All Blockers{ groupedByHeaderText }</h3>
         
         {/* Show loading state indicator during fetch but keep table visible */}
         {isFetching && !isLoading && (
@@ -432,17 +524,10 @@ const BlockersTable: React.FC = () => {
         )}
         
         <div>
-          {showInitialLoading ? (
+          {showInitialLoading ? 
             <div>Loading...</div>
-          ) : (
-            'blockers' in blockers ? (
-              (blockers as BlockerGroup[]).map(group => {
-                return <BlockerSubTable {...group}/>
-              })
-            ) : (
-              <BlockerSubTable groupValue='' groupedBy='none' blockers={blockers as Blocker[]} />
-            )
-          )}
+           : <>{ blockerTables }</>
+          }
         </div>
         
         {selectedBlockers.size > 0 && (

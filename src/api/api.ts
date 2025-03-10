@@ -1,4 +1,4 @@
-import { intersects, sortObjects } from "../utils/utils";
+import { groupAndSort, sortObjects } from "../utils/utils";
 
 // test data
 const audits: Audit[] = [
@@ -122,11 +122,11 @@ const blockers: Blocker[] = [
 ]
 
 export const fetchAudits = async (options: AuditSearchOptions): Promise<Audit[]> => {
-  let results = audits.filter(x => x.name.includes(options.nameFilter))
+  let results = audits.filter(audit => audit.name.includes(options.nameFilter))
   results = sortObjects(results, options.sortBy, options.sortDirection)
   results = results.slice(0, options.limit)
-  return Promise.resolve(audits)
-};
+  return Promise.resolve(results)
+}
 
 export const fetchAuditById = async (id: string): Promise<Audit> => {
   const audit = audits.find(x => x.id = id)
@@ -138,71 +138,23 @@ export const fetchAllAudits = async (): Promise<Audit[]> => {
   return Promise.resolve(audits)
 }
 
-// TODO: Fix all this garbage
-export const fetchBlockers = async (options: BlockerSearchOptions): Promise<Blocker[] | BlockerGroup[]> => {
-  // test Blocker[] return value
-  let results: Blocker[] | BlockerGroup[] = blockers
+export const fetchBlockers = async (options: BlockerSearchOptions): Promise<Blocker[]> => {
+  let results: Blocker[] = blockers.filter(blocker =>
+    blocker[options.filterField].includes(options.filterString)
+  )
+  if (options.groupBy !== 'none') {
+    results = groupAndSort(results, options.groupBy, options.sortBy, options.sortDirection)
+    // @ts-expect-error - we know the fields exist
+    let grouped:Blocker[][] = Object.values(
+      Object.groupBy(results, blocker => blocker[options.groupBy as BlockerGroupkey])
+    )
+    grouped = grouped.map(group => group.slice(0, options.limit))
+    results = grouped.slice(0, options.groupLimit).flat()
+  } else {
+    results = sortObjects(results, options.sortBy, options.sortDirection)
+    results = results.slice(0, options.limit)
+  }
   return Promise.resolve(results)
-
-  // test BlockerGroup[] return value
-  // let results: BlockerGroup[] = [
-  //   {
-  //     groupedBy: 'issue',
-  //     groupValue: 'TACO TIME',
-  //     blockers: blockers.slice(0,1)
-  //   },
-  //   {
-  //     groupedBy: 'issue',
-  //     groupValue: 'BURRITO O CLOCK',
-  //     blockers: blockers.slice(1,3)
-  //   }
-  // ]
-  // return Promise.resolve(results)
-
-  // string filter
-  // const { filterField, filterString } = options
-  // if (filterField === 'issueTags') {
-  //   results = results.filter(blocker => blocker.issueTags.some(tag => tag.includes(filterString)))
-  // } else {
-  //   results = results.filter(blocker => blocker[filterField].includes(filterString))
-  // }
-  
-  // // tags/status filter
-  // const { includedTags, includedStatuses } = options
-  // results = results.filter(blocker => intersects(blocker.issueTags, includedTags))
-  // results = results.filter(blocker => intersects([blocker.status], includedStatuses))
-
-  // // group
-  // const { groupBy } = options
-  // if (groupBy !== 'none') {
-  //   results = results.reduce((groups: BlockerGroup[], blocker) => {
-  //     const group = (
-  //       groups.find(group => group.groupValue === blocker[groupBy])
-  //       ?? { 
-  //         groupedBy: groupBy, 
-  //         groupValue: blocker[groupBy], 
-  //         blockers: []}
-  //     )
-  //     group.blockers.push(blocker)
-  //     return groups
-  //   }, [])
-  // }
-
-  // // sort and limit
-  // const { sortBy, sortDirection, limit, groupLimit } = options
-  // if (groupBy) {
-  //   results = (results as BlockerGroup[]).map(group => {
-  //     group.blockers = sortObjects(group.blockers, sortBy, sortDirection)
-  //     group.blockers = group.blockers.slice(0, limit)
-  //     return group
-  //   })
-  //   results = results.slice(0, groupLimit)
-  // } else {
-  //   results = sortObjects(results, sortBy, sortDirection)
-  //   results = results.slice(0, limit)
-  // }
-  
-  // return Promise.resolve(results)
 }
 
 export const fetchAuditLogs = async (auditId: number, limit: number = 5): Promise<any> => {

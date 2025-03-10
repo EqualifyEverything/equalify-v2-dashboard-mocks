@@ -1,3 +1,6 @@
+type SortOrder = 'asc' | 'desc'
+type BlockerStatus = 'active' | 'ignored' | 'equalified'
+
 type Audit = {
   id: string
   name: string
@@ -13,7 +16,7 @@ type Audit = {
 type AuditSearchOptions = {
   nameFilter: string
   sortBy: keyof Audit
-  sortDirection: 'asc' | 'desc'
+  sortDirection: SortOrder
   limit: number
 }
 
@@ -25,26 +28,24 @@ type Blocker = {
   screenshotUrl: string
   pageTitle: string
   pageUrl: string
-  status: 'active' | 'ignored' | 'equalified'
+  status: BlockerStatus
   check: string
   auditDate: string
 }
 
-type BlockerGroup = {
-  groupedBy: 'issue' | 'pageUrl' | 'check' | 'none'
-  groupValue: string
-  blockers: Blocker[]
-}
+type BlockerGroupkey = 'issue' | 'pageUrl' | 'check'
+type BlockerSortKey = 'issue' | 'code' | 'auditDate'
+type BlockerFilterKey = 'issue' | 'code' | 'issueTags' | 'pageTitle' | 'pageUrl'
 
 type BlockerSearchOptions = {
-  filterField: 'issue' | 'code' | 'issueTags' | 'pageTitle' | 'pageUrl'
+  filterField: BlockerFilterKey
   filterString: string
-  sortBy: keyof Blocker
-  sortDirection: 'asc' | 'desc'
-  groupBy: 'issue' | 'pageUrl' | 'check' | 'none'
+  sortBy: BlockerSortKey
+  sortDirection: SortOrder
+  groupBy: BlockerGroupkey | 'none'
   groupLimit: number
   includedTags: string[]
-  includedStatuses: ('active' | 'ignored' | 'equalified')[]
+  includedStatuses: (BlockerStatus)[]
   limit: number;
 }
 
