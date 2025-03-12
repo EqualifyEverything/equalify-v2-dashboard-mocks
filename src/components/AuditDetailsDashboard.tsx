@@ -390,7 +390,7 @@ const BlockersTable: React.FC = () => {
     groupValue: string, 
     groupedBy: string, 
     blockers: Blocker[],
-    expanded: boolean,
+    expanded: boolean, // TODO: fix this logic
     setExpanded: Function
     }> = ({
     groupValue, groupedBy, blockers, expanded, setExpanded
@@ -498,6 +498,8 @@ const BlockersTable: React.FC = () => {
           groupedBy={searchOptions.groupBy}
           groupValue={groupValue}
           blockers={blockers}
+          expanded={false} // TODO:
+          setExpanded={() => undefined}
         />
       })
       : <BlockerFullTable blockers={blockers} />

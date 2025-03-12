@@ -1,14 +1,21 @@
-import * as React from 'react'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import AuditDashboard from '../components/AuditDashboard';
+import Footer from '../components/Footer';
 
 export const Route = createFileRoute('/')({
-  component: HomeComponent,
+  component: RouteComponent,
 })
 
-function HomeComponent() {
+function RouteComponent() {
   return (
-    <div className="p-2">
-      <h3>Welcome Home!</h3>
-    </div>
+    <>
+      <main>
+        <h1>Audits</h1>
+        <section>
+          <h2>Get Started</h2>
+          <Link to="/audits/new">Build Audit</Link>
+        </section>
+      </main>
+    </>
   )
 }
