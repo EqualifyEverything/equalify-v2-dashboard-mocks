@@ -53,3 +53,7 @@ type Labeled<U = string> = {
   key: U
   label: string
 }
+
+interface HasID {
+  id: string
+}
