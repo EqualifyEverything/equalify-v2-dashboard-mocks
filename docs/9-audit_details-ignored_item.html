@@ -92,19 +92,38 @@
                         <input type="text" id="search">
                     </div>
                     
-                    <div role="group" aria-labelledby="group-blockers">
-                        <h4 id="group-blockers">Group Blockers By</h4>
-                        <input id="group-issue" name="group" type="radio" checked>
-                        <label for="group-issue">Issue</label>
-                    
-                        <input id="group-page" name="group" type="radio">
-                        <label for="group-page">Page</label>
-                    
-                        <input id="group-check" name="group" type="radio">
-                        <label for="group-check">Check</label>
-                    
-                        <input id="group-none" name="group" type="radio">
-                        <label for="group-none">None</label>
+                    <div role="group" aria-labelledby="filter-blockers-by-url">
+                        <h4 id="filter-blockers-by-url">Filter Blockers By URL</h4>
+                        <table id="added_pages">
+                            <thead>
+                                <tr>
+                                    <th role="columnheader">URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th role="rowheader"><input type="checkbox" id="checkbox-1"><label for="checkbox-1"> https://update.lib.berkeley.edu/</label></th>
+                                </tr>
+                                <tr>
+                                    <th role="rowheader"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">  https://www-stg.berkeley.edu</label></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Added Pages Table">
+                            <label for="item-count">Showing 2 of 2 Pages. Change Number of Pages Displayed:</label> 
+                            <select id="item-count">
+                                <option selected>Up to 5</option>
+                            </select>
+                        </nav>
+                        <script>
+                            document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                                selectAllCheckbox.addEventListener('change', function() {
+                                    const parent = this.closest('div, table, details, section');
+                                    const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                                    checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                                });
+                            });
+                        </script>
                     </div>
 
                     <div role="group" aria-labelledby="include-source">
@@ -206,31 +225,25 @@
                             <thead>
                                 <tr>
                                     <th>Blocker Code</th>
-                                    <th>Screenshot</th>
                                     <th>Page Title</th>
                                     <th>URL</th>
                                     <th>Status</th>
-                                    <th>Check</th>
                                     <th>Audit Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th role="rowheader"><input id="blocker-3" type="checkbox"> <label for="blocker-3"><code>&lt;img class="weird_heading"&gt;</code></label></th>
-                                    <td><img src="image.jpg" alt="Screenshot of Blocker 3"></td>
                                     <td>Berkeley Library (Staging)</td>
                                     <td><code>https://update.lib.berkeley.edu/</code></td>
                                     <td>Active</td>
-                                    <td>empty-alt-text</td>
                                     <td>12-1-2024</td>
                                 </tr>
                                 <tr>
                                     <th role="rowheader"><input id="blocker-2" type="checkbox"> <label for="blocker-2"><code>&lt;img alt="" &gt;</code></th>
-                                    <td><img src="image.jpg" alt="Screenshot of Blocker 1"></td>
                                     <td>Berkeley Homepage (Staging)</td>
                                     <td><code>https://www-stg.berkeley.edu</code></td>
                                     <td>Active</td>
-                                    <td>empty-alt-text</td>
                                     <td>12-1-2024</td>
                                 </tr>
                             </tbody>
