@@ -15,6 +15,33 @@
                 <li><a href="#">Set Audit Options</a></li>
             </ol>
         </nav>
+        <secton>
+            <h2>General Info</h2>
+                <label for="audit_name">Audit Name:</label>
+                <input id="audit_name" value="Sampel Audit" required>
+                <label for="scan_frequency">Scan Frequency:</label>
+                <select id="scan_frequency" required>
+                    <option checked>Manually</option>
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Monthly</option>
+                    <option>On Monitor Update</option>
+                </select>
+                <div role="group" aria-labelledby="email-notifications-heading">
+                    <h4 id="email-notifications-heading">Email Notifications</h4>
+                    <input id="email_summary" type="checkbox"> 
+                    <label for="email_summary">
+                        Email summary to Lucy Greco, lgreco@berkeley.edu.
+                    </label>
+                    <label for="email_frequency">Email Frequency:</label>
+                    <select id="email_frequency">
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                    </select>
+                </div>
+
+        </secton>
         <section>
             <h2>Add Pages</h2>
             <form>
@@ -109,7 +136,7 @@
                 });
             </script>
         </section>
-        <button onclick="window.location.href='5-audit_builder-add_checks.html';">Next Step</button>
+        <button onclick="window.location.href='8-audit_details-ran.html';">Next Step</button>
     </main>
 </body>
 </html>
