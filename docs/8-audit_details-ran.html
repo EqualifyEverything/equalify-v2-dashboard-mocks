@@ -22,7 +22,7 @@
         <div aria-live="assertive">Audit ran. Three blockers found.</div>
         <article>
             <h2>Overview</h2>
-            <p>2 pages. Runs monthly. Currently, idle.</p>
+            <p>2 pages. Runs monthly. Currently, idle. <a href="#">View Logs</a></a></p>
         </article>
         <article>
             <h2>Actions</h2>
@@ -211,7 +211,7 @@
                 </form>
             </section>
             <section>
-                <h3>All Blockers - Grouped by Issue - Hiding Ignored Blockers</h3>
+                <h3>All Blockers - Hiding Ignored Blockers</h3>
                 <div class="accordion">
                     <h4>
                         <button id="issue-empty-alt-text" type="button" aria-expanded="false" class="accordion-trigger">
@@ -225,31 +225,25 @@
                             <thead>
                                 <tr>
                                     <th>Blocker Code</th>
-                                    <th>Screenshot</th>
                                     <th>Page Title</th>
                                     <th>URL</th>
                                     <th>Status</th>
-                                    <th>Check</th>
                                     <th>Audit Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th role="rowheader"><input id="blocker-3" type="checkbox"> <label for="blocker-3"><code>&lt;img class="weird_heading"&gt;</code></label></th>
-                                    <td><img src="image.jpg" alt="Screenshot of Blocker 3"></td>
                                     <td>Berkeley Library (Staging)</td>
                                     <td><code>https://update.lib.berkeley.edu/</code></td>
                                     <td>Active</td>
-                                    <td>empty-alt-text</td>
                                     <td>12-1-2024</td>
                                 </tr>
                                 <tr>
                                     <th role="rowheader"><input id="blocker-2" type="checkbox"> <label for="blocker-2"><code>&lt;img alt="" &gt;</code></th>
-                                    <td><img src="image.jpg" alt="Screenshot of Blocker 1"></td>
                                     <td>Berkeley Homepage (Staging)</td>
                                     <td><code>https://www-stg.berkeley.edu</code></td>
                                     <td>Active</td>
-                                    <td>empty-alt-text</td>
                                     <td>12-1-2024</td>
                                 </tr>
                             </tbody>
@@ -277,18 +271,15 @@
                                     <th>Page Title</th>
                                     <th>URL</th>
                                     <th>Status</th>
-                                    <th>Check</th>
                                     <th>Audit Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th role="rowheader"><input id="blocker-1" type="checkbox"><label for="blocker-1"><code>&lt;a class=&quot;hello this is a test&quot;&gt;Hello World&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Hello World&lt;/a&gt;</code></label></th>
-                                    <td><img src="image.jpg" alt="Screenshot of Blocker 2"></td>
                                     <td>Berkeley Homepage (Staging)</td>
                                     <td><code>https://www-stg.berkeley.edu</code></td>
                                     <td>Active</td>
-                                    <td>empty-headings</td>
                                     <td>12-1-2024</td>
                                 </tr>
                             </tbody>
@@ -346,36 +337,6 @@
                     <button>Generate Ticket</button>    
                 </nav>
             </section>
-        </article>
-        <article>
-            <h2>Related Logs</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Summary</th>
-                        <th>Trigger</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th role="rowheader"><a href="#">Log 3</a></th>
-                        <td>Audit ran. Three blockers found.</td>
-                        <td>Lucy's Review Audit</td>
-                    </tr>
-                    <tr>
-                        <th role="rowheader"><a href="#">Log 2</a></th>
-                        <td>Lucy's Review created with two pages and two checks.</td>
-                        <td>User: Lucy</td>
-                    </tr>
-                </tbody>
-            </table> 
-            <nav aria-label="Logs Table">
-                <label for="item-count">Showing 2 of 2 Logs. Change Number of Logs Displayed:</label> 
-                <select id="item-count">
-                    <option selected>Up to 5</option>
-                </select>
-            </nav>
         </article>
     </main>
 
