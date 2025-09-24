@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 1 - Audit Builder - Equalify</title>
+    <title>Audit Builder - Equalify</title>
 </head>
 <body>
     <main>
@@ -66,14 +66,27 @@
                 <thead>
                     <tr>
                         <th role="columnheader">URL</th>
+                        <th role="columnheader">Type</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th role="rowheader"><input type="checkbox" id="checkbox-1"><label for="checkbox-1"> https://update.lib.berkeley.edu/</label></th>
+                        <th>
+                            <select id="importer">
+                                <option selected>HTML</option>
+                                <option>PDF</option>
+                            </select>
+                        </th>
                     </tr>
                     <tr>
                         <th role="rowheader"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">  https://www-stg.berkeley.edu</label></th>
+                        <th>
+                            <select id="importer">
+                                <option selected>HTML</option>
+                                <option>PDF</option>
+                            </select>
+                        </th>
                     </tr>
                 </tbody>
             </table>

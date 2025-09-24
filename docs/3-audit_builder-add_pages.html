@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 1 - Audit Builder - Equalify</title>
+    <title>Audit Builder - Equalify</title>
 </head>
 <body>
     <main>
-        <h1>Audit Builder - Step 1</h1>
+        <h1>Audit Builder</h1>
         <div aria-live="assertive">Logged in as Lucy Greco.</div>
         <nav aria-label="Breadcrumb">
             <ol>
@@ -15,9 +15,37 @@
                 <li><a href="#">Set Audit Options</a></li>
             </ol>
         </nav>
-        <section>
-            <h2>Add URLs</h2>
-            <form>
+
+        <form>
+            <secton>
+                <h2>General Info</h2>
+                    <label for="audit_name">Audit Name:</label>
+                    <input id="audit_name" required>
+                    <label for="scan_frequency">Scan Frequency:</label>
+                    <select id="scan_frequency" required>
+                        <option checked>Manually</option>
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>On Monitor Update</option>
+                    </select>
+                    <div role="group" aria-labelledby="email-notifications-heading">
+                        <h4 id="email-notifications-heading">Email Notifications</h4>
+                        <input id="email_summary" type="checkbox"> 
+                        <label for="email_summary">
+                            Email summary to Lucy Greco, lgreco@berkeley.edu.
+                        </label>
+                        <label for="email_frequency">Email Frequency:</label>
+                        <select id="email_frequency">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+
+            </secton>
+            <section>
+                <h2>Add URLs</h2>
                 <label for="importer">Import By:</label>
                 <select id="importer">
                     <option selected>URLs</option>
@@ -38,28 +66,28 @@
                     <input id="csv-upload" type="file" accept=".csv">
                 </div>
                 <button type="button" onclick="window.location.href='4-audit_builder-pages_added.html';">Add Pages</button>
-            </form>
-            
-            <script>
-                document.getElementById("importer").addEventListener("change", function() {
-                    var selectedOption = this.value;
-                    
-                    // Hide all sections
-                    document.getElementById("page-url-section").style.display = "none";
-                    document.getElementById("sitemap-section").style.display = "none";
-                    document.getElementById("csv-section").style.display = "none";
-                    
-                    // Show the appropriate section based on selection
-                    if (selectedOption === "URLs)") {
-                        document.getElementById("page-url-section").style.display = "block";
-                    } else if (selectedOption === "Sitemap") {
-                        document.getElementById("sitemap-section").style.display = "block";
-                    } else if (selectedOption === "CSV") {
-                        document.getElementById("csv-section").style.display = "block";
-                    }
-                });
-            </script>    
-        </section>
+                
+                <script>
+                    document.getElementById("importer").addEventListener("change", function() {
+                        var selectedOption = this.value;
+                        
+                        // Hide all sections
+                        document.getElementById("page-url-section").style.display = "none";
+                        document.getElementById("sitemap-section").style.display = "none";
+                        document.getElementById("csv-section").style.display = "none";
+                        
+                        // Show the appropriate section based on selection
+                        if (selectedOption === "URLs)") {
+                            document.getElementById("page-url-section").style.display = "block";
+                        } else if (selectedOption === "Sitemap") {
+                            document.getElementById("sitemap-section").style.display = "block";
+                        } else if (selectedOption === "CSV") {
+                            document.getElementById("csv-section").style.display = "block";
+                        }
+                    });
+                </script>    
+            </section>
+        </form>
         <section>
             <h2>Review Added Pages</h2>
             <input id="all-added-pages" type="checkbox" class="select_all"> <label for="all-added-pages">Select All Added Pages</label>        
