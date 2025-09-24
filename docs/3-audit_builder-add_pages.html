@@ -16,16 +16,16 @@
             </ol>
         </nav>
         <section>
-            <h2>Add Pages</h2>
+            <h2>Add URLs</h2>
             <form>
                 <label for="importer">Import By:</label>
                 <select id="importer">
-                    <option selected>Page URLs</option>
+                    <option selected>URLs</option>
                     <option>Sitemap</option>
                     <option>CSV</option>
                 </select>
                 <div id="page-url-section">
-                    <label for="urls">Page URLs:</label>
+                    <label for="urls">URLs:</label>
                     <input id="urls" type="text" aria-describedby="page-url-description" required>
                     <p id="page-url-description">Enter single or muliple URLs separated by commas.</p>
                 </div>
@@ -50,7 +50,7 @@
                     document.getElementById("csv-section").style.display = "none";
                     
                     // Show the appropriate section based on selection
-                    if (selectedOption === "Page URLs)") {
+                    if (selectedOption === "URLs)") {
                         document.getElementById("page-url-section").style.display = "block";
                     } else if (selectedOption === "Sitemap") {
                         document.getElementById("sitemap-section").style.display = "block";
