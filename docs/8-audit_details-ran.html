@@ -94,6 +94,36 @@
                     
                     <div role="group" aria-labelledby="filter-blockers-by-url">
                         <h4 id="filter-blockers-by-url">Filter Blockers By URL</h4>
+                        <table id="added_pages">
+                            <thead>
+                                <tr>
+                                    <th role="columnheader">URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th role="rowheader"><input type="checkbox" id="checkbox-1"><label for="checkbox-1"> https://update.lib.berkeley.edu/</label></th>
+                                </tr>
+                                <tr>
+                                    <th role="rowheader"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">  https://www-stg.berkeley.edu</label></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Added Pages Table">
+                            <label for="item-count">Showing 2 of 2 Pages. Change Number of Pages Displayed:</label> 
+                            <select id="item-count">
+                                <option selected>Up to 5</option>
+                            </select>
+                        </nav>
+                        <script>
+                            document.querySelectorAll('.select_all').forEach(selectAllCheckbox => {
+                                selectAllCheckbox.addEventListener('change', function() {
+                                    const parent = this.closest('div, table, details, section');
+                                    const checkboxes = parent.querySelectorAll('input[type="checkbox"]:not(.select_all)');
+                                    checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                                });
+                            });
+                        </script>
                     </div>
 
                     <div role="group" aria-labelledby="include-source">
