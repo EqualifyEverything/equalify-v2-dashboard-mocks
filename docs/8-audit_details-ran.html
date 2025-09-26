@@ -22,7 +22,7 @@
         <div aria-live="assertive">Audit ran. Three blockers found.</div>
         <article>
             <h2>Overview</h2>
-            <p>2 pages. Runs monthly. Currently, idle. <a href="#">View Logs</a></a></p>
+            <p>2 pages. Runs monthly. <a href="#">View Audit Logs</a></a></p>
         </article>
         <article>
             <h2>Actions</h2>
@@ -195,13 +195,7 @@
                         <label for="sort-active-most">Active Blockers (Most to Least)</label>
                     
                         <input id="sort-active-least" name="sort" type="radio">
-                        <label for="sort-active-least">Active Blockers (Least to Most)</label>
-                    
-                        <input id="sort-latest" name="sort" type="radio">
-                        <label for="sort-latest">Audited (Latest to Oldest)</label>
-                    
-                        <input id="sort-oldest" name="sort" type="radio">
-                        <label for="sort-oldest">Audited (Oldest to Latest)</label>
+                        <label for="sort-active-least">Active Blockers (Least to Most)</label>                    
                     </div>
                     <button>Save View Options</button>
                 </form>
@@ -217,7 +211,7 @@
                     <div role="region" aria-labelledby="issue-empty-alt-text" style="display: none;">
                         <a href="#">More info on "Empty Alt Text" Issue</a>
                         <input id="all-repeat-link-text" type="checkbox" class="select_all"> <label for="all-repeat-link-text">Select All Blockers with "Empty Alt Text" Issue</label>
-                        <table summary="Includes all blockers related to the Empty Alt Text issue. Blocker code is in the first column, screenshot in the second, page title and url of the page with the blocker are in the third and fourth column, blocker status is in the fifth column, the check that caught the blocker is in the sixth column, and the audit date is in the seventh collumn. Each row represents a new blocker.">
+                        <table summary="Includes all blockers related to the Empty Alt Text issue. Blocker code is in the first column, page title and url of the page with the blocker are in the third and fourth column, blocker status is in the fifth column, the check that caught the blocker is in the sixth column, and the audit date is in the seventh collumn. Each row represents a new blocker.">
                             <thead>
                                 <tr>
                                     <th>Blocker Code</th>
@@ -259,11 +253,10 @@
                     <div role="region" aria-labelledby="issue-repeat-link-text" style="display: none;">
                         <a href="#">More info on "Empty Alt Text" Issue</a>
                         <input id="all-empty-alt-text" type="checkbox" class="select_all"> <label for="all-empty-alt-text">Select All Blockers with "Empty Alt Text" Issue</label>
-                        <table summary="Includes all blockers related to the Repeat Link Text issue. Blocker code is in the first column, screenshot in the second, page title and url of the page with the blocker are in the third and fourth column, blocker status is in the fifth column, the check that caught the blocker is in the sixth column, and the audit date is in the seventh collumn. Each row represents a new blocker.">
+                        <table summary="Includes all blockers related to the Repeat Link Text issue. Blocker code is in the first column,  in the second, page title and url of the page with the blocker are in the third and fourth column, blocker status is in the fifth column, the check that caught the blocker is in the sixth column, and the audit date is in the seventh collumn. Each row represents a new blocker.">
                             <thead>
                                 <tr>
                                     <th>Blocker Code</th>
-                                    <th>Screenshot</th>
                                     <th>Page Title</th>
                                     <th>URL</th>
                                     <th>Status</th>

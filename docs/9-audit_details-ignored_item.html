@@ -22,7 +22,7 @@
         <div aria-live="assertive">One blocker ignored in Lucy's Audit.</div>
         <article>
             <h2>Overview</h2>
-            <p>2 checks on 2 pages. Runs monthly. Currently, idle.</p>
+            <p>2 checks on 2 pages. Runs monthly. <a href="#">View Audit Logs</a></p>
         </article>
         <article>
             <h2>Actions</h2>
@@ -126,16 +126,12 @@
                         </script>
                     </div>
 
-                    <div role="group" aria-labelledby="include-source">
-                        <h4 id="include-source">Blocker Source</h4>
-                        <input id="source-editora11y" type="checkbox" checked>
-                        <label for="source-editora11y">Editora11y</label>
-                    
-                        <input id="source-axe" type="checkbox" checked>
-                        <label for="source-axe">axe-core</label>
-                    
-                        <input id="source-adobe" type="checkbox" checked>
-                        <label for="source-adobe">Adobe PDF Checker</label>
+                    <div role="group" aria-labelledby="include-type">
+                        <h4 id="include-tyoe">Content Type</h4>
+                        <select id="importer" aria-labelledby="include-type"> 
+                            <option selected>HTML</option>
+                            <option>PDF</option>
+                        </select>
                     </div>
                     
                     <div role="group" aria-labelledby="include-tags">
@@ -199,19 +195,13 @@
                         <label for="sort-active-most">Active Blockers (Most to Least)</label>
                     
                         <input id="sort-active-least" name="sort" type="radio">
-                        <label for="sort-active-least">Active Blockers (Least to Most)</label>
-                    
-                        <input id="sort-latest" name="sort" type="radio">
-                        <label for="sort-latest">Audited (Latest to Oldest)</label>
-                    
-                        <input id="sort-oldest" name="sort" type="radio">
-                        <label for="sort-oldest">Audited (Oldest to Latest)</label>
+                        <label for="sort-active-least">Active Blockers (Least to Most)</label>                    
                     </div>
                     <button>Save View Options</button>
                 </form>
             </section>
             <section>
-                <h3>All Blockers - Grouped by Issue - Hiding Ignored Blockers</h3>
+                <h3>All Blockers - Hiding Ignored Blockers</h3>
                 <div class="accordion">
                     <h4>
                         <button id="issue-empty-alt-text" type="button" aria-expanded="false" class="accordion-trigger">
@@ -221,14 +211,14 @@
                     <div role="region" aria-labelledby="issue-empty-alt-text" style="display: none;">
                         <a href="#">More info on "Empty Alt Text" Issue</a>
                         <input id="all-repeat-link-text" type="checkbox" class="select_all"> <label for="all-repeat-link-text">Select All Blockers with "Empty Alt Text" Issue</label>
-                        <table summary="Includes all blockers related to the Empty Alt Text issue. Blocker code is in the first column, screenshot in the second, page title and url of the page with the blocker are in the third and fourth column, blocker status is in the fifth column, the check that caught the blocker is in the sixth column, and the audit date is in the seventh collumn. Each row represents a new blocker.">
+                        <table summary="Includes all blockers related to the Empty Alt Text issue. Blocker code is in the first column, page title and url of the page with the blocker are in the third and fourth column, blocker status is in the fifth column, the check that caught the blocker is in the sixth column, and the audit date is in the seventh collumn. Each row represents a new blocker.">
                             <thead>
                                 <tr>
                                     <th>Blocker Code</th>
                                     <th>Page Title</th>
                                     <th>URL</th>
                                     <th>Status</th>
-                                    <th>Last Audited</th>
+                                    <th>Audit Date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -237,14 +227,14 @@
                                     <td>Berkeley Library (Staging)</td>
                                     <td><code>https://update.lib.berkeley.edu/</code></td>
                                     <td>Active</td>
-                                    <td>12-1-2024 01:23:03</td>
+                                    <td>12-1-2024</td>
                                 </tr>
                                 <tr>
                                     <th role="rowheader"><input id="blocker-2" type="checkbox"> <label for="blocker-2"><code>&lt;img alt="" &gt;</code></th>
                                     <td>Berkeley Homepage (Staging)</td>
                                     <td><code>https://www-stg.berkeley.edu</code></td>
                                     <td>Active</td>
-                                    <td>12-1-2024  01:23:03</td>
+                                    <td>12-1-2024</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -255,6 +245,42 @@
                             </select>
                         </nav>
                     </div>
+                    <h4>
+                        <button id="issue-repeat-link-text" type="button" aria-expanded="false" class="accordion-trigger">
+                            Repeat Link Text (1 Active Blocker) - Tags: Links, Benefits Screen Readers
+                        </button>
+                    </h4>
+                    <div role="region" aria-labelledby="issue-repeat-link-text" style="display: none;">
+                        <a href="#">More info on "Empty Alt Text" Issue</a>
+                        <input id="all-empty-alt-text" type="checkbox" class="select_all"> <label for="all-empty-alt-text">Select All Blockers with "Empty Alt Text" Issue</label>
+                        <table summary="Includes all blockers related to the Repeat Link Text issue. Blocker code is in the first column,  in the second, page title and url of the page with the blocker are in the third and fourth column, blocker status is in the fifth column, the check that caught the blocker is in the sixth column, and the audit date is in the seventh collumn. Each row represents a new blocker.">
+                            <thead>
+                                <tr>
+                                    <th>Blocker Code</th>
+                                    <th>Page Title</th>
+                                    <th>URL</th>
+                                    <th>Status</th>
+                                    <th>Audit Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th role="rowheader"><input id="blocker-1" type="checkbox"><label for="blocker-1"><code>&lt;a class=&quot;hello this is a test&quot;&gt;Hello World&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Hello World&lt;/a&gt;</code></label></th>
+                                    <td>Berkeley Homepage (Staging)</td>
+                                    <td><code>https://www-stg.berkeley.edu</code></td>
+                                    <td>Active</td>
+                                    <td>12-1-2024</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Repeat Link Text Table of Blockers">
+                            <label for="item-count">Showing 1 of 1 Blockers. Change Number of Blockers Displayed:</label> 
+                            <select id="item-count">
+                                <option selected>Up to 5</option>
+                            </select>
+                        </nav> 
+                    </div>
+    
                 </div>
                 <script>
                 // Accordion
@@ -287,7 +313,7 @@
                 });
                 </script>
                 <nav aria-label="Issues">
-                    <label for="item-count">Showing 1 of 1 Issue Groups. Change Number of Issue Groups Displayed:</label> 
+                    <label for="item-count">Showing 2 of 2 Issue Groups. Change Number of Issue Groups Displayed:</label> 
                     <select id="item-count">
                         <option selected>Up to 5</option>
                     </select>
@@ -296,57 +322,12 @@
             <section>
                 <h3>Manage Selected Blockers</h3>
                 <nav aria-label="Manage Selected Blockers">
-                    <button>Ignore Blockers</button>
-                    <button onclick="window.location.href='10-audit_details-generated_ticket.html';">Generate Ticket</button>    
+                    <button onclick="window.location.href='9-audit_details-ignored_item.html';">Ignore Blockers</button>
+                    <button>Generate Ticket</button>    
                 </nav>
-            </section>    
-        </article>
-        <article>
-            <h2>Related Logs</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Summary</th>
-                        <th>Trigger</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th role="rowheader"><a href="#">Log 4</a></th>
-                        <td>One blocker ignored in Lucy's Audit.</td>
-                        <td>User: Lucy</td>
-                    </tr>
-                    <tr>
-                        <th role="rowheader"><a href="#">Log 3</a></th>
-                        <td>Audit ran. Three blockers found.</td>
-                        <td>Lucy's Review Audit</td>
-                    </tr>
-                    <tr>
-                        <th role="rowheader"><a href="#">Log 2</a></th>
-                        <td>Lucy's Review created with two pages and two checks.</td>
-                        <td>User: Lucy</td>
-                    </tr>
-                </tbody>
-            </table> 
-            <nav aria-label="Logs Table">
-                <label for="item-count">Showing 3 of  Logs. Change Number of Logs Displayed:</label> 
-                <select id="item-count">
-                    <option selected>Up to 5</option>
-                </select>
-            </nav>
+            </section>
         </article>
     </main>
 
-    <footer>
-        <section>
-            <h2>Scan Quota</h2>
-            <p>0 free scans remaining. <a href="#">Upgrade</a>.</p>
-        </section>
-        <section>
-            <h2>Need help?</h2>
-            <p>Email <a href="#">support@equalify.app</a>.</p>
-        </section>
-    </footer>
 </body>
 </html>
